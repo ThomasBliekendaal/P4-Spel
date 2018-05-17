@@ -1,1 +1,0 @@
-gooi weg zodra je iets in deze map zet, dit staat er alleen zodat github de folder niet wegflikkert
