@@ -29,5 +29,9 @@ public class Bullet : MonoBehaviour {
         {
             Destroy(gameObject);
         }
+        if (host.tag == "Ally" && collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<HealthScript>().DoDam(damage);
+        }
     }
 }

@@ -37,6 +37,12 @@ public class EnemyToChest : HealthScript {
 	
 	// Update is called once per frame
 	void Update () {
+        //Snelle destroy (voor prototype)
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         t = FindClosestEnemy().GetComponent<Collider>().transform;
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = t.position;

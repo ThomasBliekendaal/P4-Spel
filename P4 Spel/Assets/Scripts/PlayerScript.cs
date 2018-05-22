@@ -29,7 +29,6 @@ public class PlayerScript : HealthScript {
 
     public void MovementStart()
     {
-        Cursor.lockState = CursorLockMode.Locked;
         totalJumps = jumps;
         walkSpeed2 = walkSpeed;
     }
@@ -50,7 +49,7 @@ public class PlayerScript : HealthScript {
             if (jumps > 0)
             {
                 GetComponent<Rigidbody>().velocity = jumpVel;
-                jumps -= 1;
+                jumps--;
             }
         }
         if (gameObject.GetComponent<Rigidbody>().velocity.y < 0)
