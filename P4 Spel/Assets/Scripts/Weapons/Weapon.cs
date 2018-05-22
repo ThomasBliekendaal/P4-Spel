@@ -32,6 +32,7 @@ public class Weapon : MonoBehaviour
     public IEnumerator StartTimer()
     {
         yield return new WaitForEndOfFrame();
+        transform.parent.parent.parent.GetComponent<PlayerScript>().weaponSlower = (2 / info.weight);
         foreach (Transform child1 in transform)
         {
             foreach (Transform child2 in child1)
@@ -57,9 +58,9 @@ public class Weapon : MonoBehaviour
     {
         if (active)
         {
-            r = new Vector3(Random.Range(-info.accuracy / 2, info.accuracy / 2), Random.Range(-info.accuracy, info.accuracy) * 90, Random.Range(-info.accuracy, info.accuracy) * 7);
+            r = new Vector3(0, 90 + (1 / Random.Range(-info.accuracy / (info.accuracy / 4) + 0.01f, info.accuracy / (info.accuracy / 4) + 0.01f)), Random.Range(180, -180));
             GameObject g = Instantiate(info.ammoType.projectile, barrel.position, barrel.rotation);
-            g.GetComponent<Bullet>().host = transform.parent.parent.parent.gameObject;
+            g.GetComponent<FriendlyBullet>().damage = info.damage;
             g.transform.Rotate(r);
             Destroy(g, 2);
             transform.parent.parent.Rotate(new Vector3(-1 / info.stability, 0, 0) * 10);

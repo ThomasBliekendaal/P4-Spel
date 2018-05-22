@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579465cef2a74994c8e49b666b573ba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 5
   fireRate: 10
   reloadSpeed: 0
   accuracy: 1

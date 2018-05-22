@@ -215,6 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stock:
   - {fileID: 1138495058055518, guid: 2678e71c98b64e04bb4084013ccd6372, type: 2}
+  - {fileID: 1593958518669842, guid: bb51c73820ab8f04aaaf7a9f243c535e, type: 2}
   grip:
   - {fileID: 1354339171722776, guid: d95371449fbeff642aca9df38f2d510e, type: 2}
   - {fileID: 1496258058638466, guid: b60543d335d8e954a8e8170ce04377e3, type: 2}
@@ -224,10 +225,12 @@ MonoBehaviour:
   - {fileID: 1766501866155302, guid: b7c938771206d9c4a8d4caa8b080d4d2, type: 2}
   scope:
   - {fileID: 1173993511739816, guid: ebb735a779fc1ab4e8b0b4cb68adf6f2, type: 2}
+  - {fileID: 1540871781652742, guid: 0ef151e47a43a3d4db5e69c23781160c, type: 2}
   barrel:
   - {fileID: 1555234633248284, guid: ffa2214e5d2288e4a87082d827a68e26, type: 2}
   - {fileID: 1061342378367994, guid: ac3cf9d0ec6801744a43664d15684d52, type: 2}
   - {fileID: 1457749857920316, guid: 052a6940eb21c2c4fafbfda3fb7d99f0, type: 2}
+  - {fileID: 1144588728802950, guid: 917b2ea1a3bba9f4e9e7f07ccb188237, type: 2}
 --- !u!114 &114363764433573264
 MonoBehaviour:
   m_ObjectHideFlags: 1

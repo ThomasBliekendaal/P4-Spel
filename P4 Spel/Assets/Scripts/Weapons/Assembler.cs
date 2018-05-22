@@ -144,4 +144,10 @@ public class Assembler : MonoBehaviour
             }
         }
     }
+
+    public IEnumerator SecondCheck()
+    {
+        yield return new WaitForSeconds(0.2f);
+        SetParts();
+    }
 }

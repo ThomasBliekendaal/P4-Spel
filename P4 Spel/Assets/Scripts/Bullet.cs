@@ -7,13 +7,11 @@ public class Bullet : MonoBehaviour {
     public float speed;
     public GameObject host;
     public float damage;
-
-	// Use this for initialization
+    
 	void Start () {
         transform.rotation = host.transform.rotation;
-	}
+    }
 	
-	// Update is called once per frame
 	void Update () {
         transform.Translate(0, 0, speed * Time.deltaTime, Space.Self);
 	}
@@ -28,10 +26,6 @@ public class Bullet : MonoBehaviour {
         if(collision.gameObject.tag == "Untagged")
         {
             Destroy(gameObject);
-        }
-        if (host.tag == "Ally" && collision.gameObject.tag == "Enemy")
-        {
-            collision.gameObject.GetComponent<HealthScript>().DoDam(damage);
         }
     }
 }

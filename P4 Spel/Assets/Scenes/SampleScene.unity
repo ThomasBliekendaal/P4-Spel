@@ -5640,9 +5640,10 @@ MonoBehaviour:
   jumpVel: {x: 0, y: 6, z: 0}
   totalJumps: 1
   sprintSpeed: 16
-  rayLength: 1
+  rayLength: 2
   fallMultiplier: 2.5
-  lowJumpMultiplier: 2
+  lowJumpMultiplier: 1.25
+  weaponSlower: 0
 --- !u!54 &974966255
 Rigidbody:
   m_ObjectHideFlags: 0

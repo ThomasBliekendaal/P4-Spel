@@ -15,6 +15,8 @@ public class PlayerScript : HealthScript {
     public float rayLength;
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
+    public float weaponSlower;
+    private bool jumpCheck;
 
     void Start () {
         MovementStart();
@@ -34,12 +36,11 @@ public class PlayerScript : HealthScript {
     }
     public void Movement()
     {
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * walkSpeed * Time.deltaTime);
-        if (jumps <= 0)
+        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * walkSpeed * Time.deltaTime * weaponSlower);
+        if (jumps <= 0 && jumpCheck)
         {
-            Debug.DrawRay(gameObject.transform.position, Vector3.down, Color.red, rayLength);
-            Ray floorFinder = new Ray(gameObject.transform.position, Vector3.down); ;
-            if (Physics.Raycast(floorFinder, out hit, rayLength))
+            Debug.DrawRay(gameObject.transform.position, -transform.up, Color.red, rayLength);
+            if (Physics.Raycast(transform.position, -transform.up, out hit,rayLength) && hit.collider.gameObject != null)
             {
                 jumps = totalJumps;
             }
@@ -50,6 +51,8 @@ public class PlayerScript : HealthScript {
             {
                 GetComponent<Rigidbody>().velocity = jumpVel;
                 jumps--;
+                jumpCheck = false;
+                StartCoroutine(JumpTimer());
             }
         }
         if (gameObject.GetComponent<Rigidbody>().velocity.y < 0)
@@ -70,5 +73,11 @@ public class PlayerScript : HealthScript {
         }
         transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime, 0));
         pCamera.transform.Rotate(-Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime, 0, 0);
+    }
+
+    public IEnumerator JumpTimer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        jumpCheck = true;
     }
 }

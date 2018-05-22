@@ -62,6 +62,7 @@ public class AssemblerPanel : MonoBehaviour
         {
             assembler.magazine = true;
         }
+        StartCoroutine(assembler.SecondCheck());
         assembler.SetParts();
     }
 }
