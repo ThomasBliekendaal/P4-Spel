@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyToChest : MonoBehaviour {
+public class EnemyToChest : HealthScript {
 
     public Transform t;
     public Vector3 v;
@@ -13,6 +13,7 @@ public class EnemyToChest : MonoBehaviour {
     public float shootingDistance;
     public bool ranged = false;
     public float attackSpeed;
+    private float beginningAttackSpeed;
     public float meleeSpeed;
     public bool waiter;
     public GameObject bullet;
@@ -31,11 +32,12 @@ public class EnemyToChest : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         InvokeRepeating("ShootingTimer", 1, attackSpeed);
         InvokeRepeating("MeleeTimer", 1, meleeSpeed);
+        beginningAttackSpeed = attackSpeed;
     }
 	
 	// Update is called once per frame
 	void Update () {
-        t = FindClosestEnemy().transform;
+        t = FindClosestEnemy().GetComponent<Collider>().transform;
         NavMeshAgent agent = GetComponent<NavMeshAgent>();
         agent.destination = t.position;
         if (!isArcher)
@@ -45,11 +47,12 @@ public class EnemyToChest : MonoBehaviour {
             {
                 t = mainObjective.transform;
                 agent.destination = t.position;
-                return;
             }
+            return;
         }
         gameObject.GetComponent<Renderer>().material.color = Color.blue;
         agent.speed = rangedMovingSpeed;
+        meleeDam = 1;
         v = new Vector3(transform.position.x, transform.position.y, (transform.position.z+5));
         RaycastHit hit;
         if (mainObjective != null)
@@ -68,14 +71,20 @@ public class EnemyToChest : MonoBehaviour {
                     agent.isStopped = true;
                     ranged = true;
                 }
+                if (Vector3.Distance(transform.position, player.transform.position) <= shootingDistance / 3)
+                {
+                    attackSpeed = attackSpeed * 3;
+                    agent.isStopped = true;
+                    ranged = true;
+                }
             }
             else
             {
                 agent.isStopped = false;
                 ranged = false;
+                attackSpeed = beginningAttackSpeed;
             }
         }
-        shooter.transform.LookAt(t);
     }
 
     public void ShootingTimer()
@@ -93,7 +102,9 @@ public class EnemyToChest : MonoBehaviour {
 
     public void Shoot()
     {
+        shooter.transform.LookAt(t);
         GameObject thing = Instantiate(bullet, shooter.transform.position, shooter.transform.rotation);
+        Physics.IgnoreCollision(thing.GetComponent<Collider>(), GetComponent<Collider>());
         thing.gameObject.GetComponent<Bullet>().host = shooter;
     }
 
@@ -121,15 +132,9 @@ public class EnemyToChest : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Ally")
         {
-            if(collision.gameObject.name == "Char")
-            {
-                collision.gameObject.GetComponent<Dissulf>().Disintegrate();
-                collision.gameObject.tag = "Untagged";
-                return;
-            }
             if (attacking)
             {
-                collision.gameObject.GetComponent<Health>().DoDam(meleeDam/2);
+                collision.gameObject.GetComponent<HealthScript>().DoDam(meleeDam/2);
                 attacking = false;
             }
         }
@@ -140,7 +145,7 @@ public class EnemyToChest : MonoBehaviour {
         {
             if (attacking)
             {
-                collision.gameObject.GetComponent<Health>().DoDam(meleeDam);
+                collision.gameObject.GetComponent<HealthScript>().DoDam(meleeDam);
                 attacking = false;
             }
         }

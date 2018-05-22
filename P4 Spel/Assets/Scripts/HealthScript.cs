@@ -16,7 +16,11 @@ public class HealthScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	public void Health () {
-        healthBar.fillAmount = 1 / maxHealth * health;
-        
+        healthBar.fillAmount = 1 / maxHealth * health;        
 	}
+
+    public void DoDam(float damage)
+    {
+        health -= damage;
+    }
 }
