@@ -133,7 +133,7 @@ MonoBehaviour:
   reloadSpeed: 0
   accuracy: 1
   stability: 30
-  weight: 6
+  weight: 4
   swapSpeed: 2
   ammo: 0
   type: 1

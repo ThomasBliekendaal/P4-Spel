@@ -28,6 +28,7 @@ public class FinishAssembly : MonoBehaviour
         gun.transform.rotation = hand.rotation;
         gun.transform.localScale = hand.localScale;
         gun.transform.SetParent(hand);
+        gun.transform.localScale = new Vector3(1, 1, 1);
         gun.GetComponent<Weapon>().enabled = true;
         Destroy(transform.parent.gameObject);
         foreach (Transform child in gun.transform)
