@@ -4,17 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour {
+    [Header("Health properties")]
+    [Tooltip("Health value.")]
     public float health;
+    [Tooltip("Maximum health value.")]
     public float maxHealth;
+    [Tooltip("This is the image component which shows the current amount of health.")]
     public Image healthBar;
 
-
-	// Use this for initialization
 	void Start () {
         health = maxHealth;
 	}
 	
-	// Update is called once per frame
 	public void Health () {
         healthBar.fillAmount = 1 / maxHealth * health;        
 	}

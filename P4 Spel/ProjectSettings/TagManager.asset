@@ -8,6 +8,7 @@ TagManager:
   - Ally
   - Enemy
   - Bullet
+  - RoadCollider
   layers:
   - Default
   - TransparentFX
