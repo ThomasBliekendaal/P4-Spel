@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class Weapon : MonoBehaviour
     public Transform otherPos;
     public RaycastHit hit;
     public Quaternion rot;
+    public int currentAmmo;
+    public bool activeReload;
+    public Text ammoInput;
+    public Image ammoVisual;
 
     public void OnEnable()
     {
@@ -22,9 +27,10 @@ public class Weapon : MonoBehaviour
 
     public void Update()
     {
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, rot, Time.deltaTime * 20);
+        ammoInput.text = currentAmmo.ToString() + "/" + info.ammo.ToString();
+        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, rot, Time.deltaTime * 40);
         transform.Translate(new Vector3(0, -Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"))*Time.deltaTime * 0.4f);
-        if (Input.GetButton("Fire2"))
+        if (Input.GetButton("Fire2") && !activeReload)
         {
             transform.position = Vector3.MoveTowards(transform.position, otherPos.position, Time.deltaTime);
         }
@@ -36,8 +42,16 @@ public class Weapon : MonoBehaviour
         {
             if (active == false)
             {
-                StartCoroutine(Fire2());
-                active = true;
+                if(currentAmmo > 0 && !activeReload)
+                {
+                    active = true;
+                    StartCoroutine(Fire2());
+                }
+                else if (!activeReload)
+                {
+                    activeReload = true;
+                    StartCoroutine(Reload());
+                }
             }
         }
     }
@@ -47,6 +61,7 @@ public class Weapon : MonoBehaviour
         yield return new WaitForEndOfFrame();
         transform.parent.parent.parent.GetComponent<PlayerScript>().weaponSlower = (2 / info.weight);
         rot = transform.localRotation;
+        currentAmmo = info.ammo;
         foreach (Transform child1 in transform)
         {
             foreach (Transform child2 in child1)
@@ -57,7 +72,7 @@ public class Weapon : MonoBehaviour
                     {
                         foreach (Transform child5 in child4)
                         {
-                            if (child5.GetComponent<WeaponPartInfo>().type == PartType.barrel)
+                            if (child5.GetComponent<WeaponPartInfo>() && child5.GetComponent<WeaponPartInfo>().type == PartType.barrel)
                             {
                                 barrel = child5.transform;
                             }
@@ -72,6 +87,7 @@ public class Weapon : MonoBehaviour
     {
         if (active)
         {
+            currentAmmo--;
             r = new Vector3(Random.Range(4 / -info.accuracy, 4 / info.accuracy), 0, Random.Range(180, -180));
             GameObject g = Instantiate(info.ammoType.projectile, barrel.position, barrel.rotation);
             Physics.Raycast(transform.parent.parent.position, transform.parent.parent.forward, out hit, Mathf.Infinity);
@@ -92,13 +108,38 @@ public class Weapon : MonoBehaviour
             transform.parent.parent.parent.Rotate(new Vector3(0, Random.Range(-1 / info.stability, 1 / info.stability), 0) * 10);
         }
         yield return new WaitForSeconds(1 / info.fireRate);
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && currentAmmo > 0)
         {
             StartCoroutine(Fire2());
         }
         else
         {
             active = false;
+        }
+    }
+
+    public IEnumerator Reload()
+    {
+        ammoVisual.fillAmount = 0;
+        StartCoroutine(ReloadVisual());
+        yield return new WaitForSeconds(5/info.reloadSpeed);
+        currentAmmo = info.ammo;
+        activeReload = false;
+        StopCoroutine(ReloadVisual());
+        ammoVisual.fillAmount = 0;
+    }
+
+    public IEnumerator ReloadVisual()
+    {
+        yield return new WaitForSeconds(0.01f);
+        ammoVisual.fillAmount += 1 / (5 / info.reloadSpeed) / 50;
+        if (activeReload)
+        {
+            StartCoroutine(ReloadVisual());
+        }
+        else
+        {
+            ammoVisual.fillAmount = 0;
         }
     }
 }
