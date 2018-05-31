@@ -19,6 +19,7 @@ public class Weapon : MonoBehaviour
     public bool activeReload;
     public Text ammoInput;
     public Image ammoVisual;
+    public bool sc;
 
     public void OnEnable()
     {
@@ -30,13 +31,44 @@ public class Weapon : MonoBehaviour
         ammoInput.text = currentAmmo.ToString() + "/" + info.ammo.ToString();
         transform.localRotation = Quaternion.RotateTowards(transform.localRotation, rot, Time.deltaTime * 40);
         transform.Translate(new Vector3(0, -Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"))*Time.deltaTime * 0.4f);
+        if (Input.GetButtonDown("Reload"))
+        {
+            activeReload = true;
+            StartCoroutine(Reload());
+        }
+        if(Input.GetButtonDown("Fire2") || Input.GetButtonUp("Fire2"))
+        {
+            sc = true;
+        }
         if (Input.GetButton("Fire2") && !activeReload)
         {
-            transform.position = Vector3.MoveTowards(transform.position, otherPos.position, Time.deltaTime);
+            if(sc)
+            {
+                if(transform.position == otherPos.position)
+                {
+                    sc = false;
+                }
+                transform.position = Vector3.MoveTowards(transform.position, otherPos.position, Time.deltaTime * 2);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, otherPos.position, Time.deltaTime);
+            }
         }
         else
         {
-            transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, Time.deltaTime);
+            if (sc)
+            {
+                if (transform.position == transform.parent.position)
+                {
+                    sc = false;
+                }
+                transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, Time.deltaTime * 2);
+            }
+            else
+            {
+                transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, Time.deltaTime);
+            } 
         }
         if (Input.GetButton("Fire1"))
         {
@@ -85,7 +117,7 @@ public class Weapon : MonoBehaviour
 
     public IEnumerator Fire2()
     {
-        if (active)
+        if (active && !activeReload)
         {
             currentAmmo--;
             r = new Vector3(Random.Range(4 / -info.accuracy, 4 / info.accuracy), 0, Random.Range(180, -180));
