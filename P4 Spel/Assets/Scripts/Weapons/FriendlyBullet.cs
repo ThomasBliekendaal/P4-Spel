@@ -16,7 +16,7 @@ public class FriendlyBullet : MonoBehaviour {
         Destroy(gameObject);
         if(collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<HealthScript>().DoDam(damage);
+            collision.gameObject.GetComponent<EnemyMovement>().DoDam(damage);
         }
     }
 }

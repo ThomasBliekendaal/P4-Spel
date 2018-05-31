@@ -9,14 +9,22 @@ public class HealthScript : MonoBehaviour {
     public float health;
     [Tooltip("Maximum health value.")]
     public float maxHealth;
+    [Tooltip("Minimum health value.")]
+    public float minHealth;
     [Tooltip("This is the image component which shows the current amount of health.")]
     public Image healthBar;
 
-	void Start () {
+    private void Awake()
+    {
         health = maxHealth;
-	}
-	
-	public void Health () {
+    }
+
+    void Update()
+    {
+
+    }
+
+    public void Health () {
         healthBar.fillAmount = 1 / maxHealth * health;        
 	}
 

@@ -35,6 +35,7 @@ public class EnemyMovement : HealthScript {
         player = Camera.main.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(splitter.transform.position);
+        health = maxHealth;
     }
 
     private void Awake()
@@ -45,10 +46,17 @@ public class EnemyMovement : HealthScript {
         //Temporary\\
         GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
         //Temorary\\
+        health = maxHealth;
     }
 
     void Update()
     {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+            print("hey");
+        }
+
         if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)
         {
             if(canAggro == true)
@@ -119,7 +127,7 @@ public class EnemyMovement : HealthScript {
         }
         if (collision.gameObject.tag == "Bullet")
         {
-            health -= collision.gameObject.GetComponent<FriendlyBullet>().damage;
+            //DoDam(Mathf.Clamp(damage, health, collision.gameObject.GetComponent<FriendlyBullet>().damage));
         }
     }
 }
