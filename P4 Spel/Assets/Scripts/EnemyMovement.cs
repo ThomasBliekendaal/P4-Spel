@@ -117,5 +117,9 @@ public class EnemyMovement : HealthScript {
         {
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Bullet")
+        {
+            health -= collision.gameObject.GetComponent<FriendlyBullet>().damage;
+        }
     }
 }
