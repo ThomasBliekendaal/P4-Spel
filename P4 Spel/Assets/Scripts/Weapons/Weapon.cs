@@ -31,7 +31,7 @@ public class Weapon : MonoBehaviour
         ammoInput.text = currentAmmo.ToString() + "/" + info.ammo.ToString();
         transform.localRotation = Quaternion.RotateTowards(transform.localRotation, rot, Time.deltaTime * 40);
         transform.Translate(new Vector3(0, -Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"))*Time.deltaTime * 0.4f);
-        if (Input.GetButtonDown("Reload"))
+        if (Input.GetButtonDown("Reload") && currentAmmo != info.ammo)
         {
             activeReload = true;
             StartCoroutine(Reload());
