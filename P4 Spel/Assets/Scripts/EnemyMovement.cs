@@ -54,6 +54,7 @@ public class EnemyMovement : HealthScript {
         if (health <= 0)
         {
             Destroy(gameObject);
+            print("hey");
         }
 
         if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)
