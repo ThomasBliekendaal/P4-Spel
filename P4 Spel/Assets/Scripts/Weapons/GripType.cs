@@ -5,5 +5,5 @@ using UnityEngine;
 public class GripType : MonoBehaviour
 {
     public Element element;
-    public enum Element { fire, frost, electric }
 }
+public enum Element { kinetic, electric }

@@ -8,16 +8,20 @@ public class FinishAssembly : MonoBehaviour
     public GameObject gun;
     private WeaponPartInfo info;
     public GameObject UI;
+    public Assembler assembler;
+    public GripType element;
 
     public void Start()
     {
         info = gun.GetComponent<WeaponPartInfo>();
+        element = gun.GetComponent<GripType>();
         Time.timeScale = 0;
     }
 
 
     public void OnButtonPress()
     {
+        element.element = assembler.chosenGrip.GetComponent<GripType>().element;
         UI.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

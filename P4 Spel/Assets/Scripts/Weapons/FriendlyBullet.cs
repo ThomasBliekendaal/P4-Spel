@@ -3,8 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FriendlyBullet : MonoBehaviour {
+
+    public float firerate;
     public float speed;
     public float damage;
+    public Element type;
+    public GameObject electric;
+    public GameObject electricType;
+
+    public void Start()
+    {
+        if (type == Element.electric)
+        {
+            electricType.SetActive(true);
+        }
+    }
 
     public void Update()
     {
@@ -13,10 +26,16 @@ public class FriendlyBullet : MonoBehaviour {
 
     public void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
         if(collision.gameObject.tag == "Enemy")
         {
+            if(type == Element.electric)
+            {
+                GameObject g = Instantiate(electric, transform.position, transform.rotation);
+                g.GetComponent<ElectricBeam>().target = collision.gameObject.transform;
+                g.GetComponent<ElectricBeam>().damage = damage / 4 / firerate;
+            }
             collision.gameObject.GetComponent<EnemyMovement>().DoDam(damage);
         }
+        Destroy(gameObject);
     }
 }
