@@ -502,6 +502,8 @@ MonoBehaviour:
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
 --- !u!195 &44418103
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1149,6 +1151,8 @@ MonoBehaviour:
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
 --- !u!195 &127852525
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3181,6 +3185,8 @@ MonoBehaviour:
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
 --- !u!195 &456885323
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4087,6 +4093,7 @@ MonoBehaviour:
   activeReload: 0
   ammoInput: {fileID: 1806981800}
   ammoVisual: {fileID: 975564088}
+  sc: 0
 --- !u!114 &540600642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4993,6 +5000,8 @@ MonoBehaviour:
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
 --- !u!195 &699520189
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5409,6 +5418,8 @@ MonoBehaviour:
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
 --- !u!195 &724208175
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5708,7 +5719,7 @@ GameObject:
   - component: {fileID: 777636779}
   m_Layer: 0
   m_Name: END (1)
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11187,6 +11198,8 @@ MonoBehaviour:
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
 --- !u!195 &1754003111
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -12948,6 +12961,8 @@ MonoBehaviour:
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
 --- !u!195 &2016908705
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -13232,6 +13247,8 @@ MonoBehaviour:
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
 --- !u!1 &2059761564
 GameObject:
   m_ObjectHideFlags: 0
@@ -13280,6 +13297,8 @@ MonoBehaviour:
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
 --- !u!195 &2059761567
 NavMeshAgent:
   m_ObjectHideFlags: 0

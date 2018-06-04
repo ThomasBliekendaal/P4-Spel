@@ -26,8 +26,8 @@ public class EnemyMovement : HealthScript {
     [Tooltip("Time before enemies can attack again.")]
     public float aggroCooldown;
 
-    private NavMeshAgent agent; // this is the agent component on the enemy. this will be automatically set to the correct one.
-    private Vector3 currentObjective; //current objective is saved because enemies temp. chang to players.
+    public NavMeshAgent agent; // this is the agent component on the enemy. this will be automatically set to the correct one.
+    public Vector3 currentObjective; //current objective is saved because enemies temp. chang to players.
     private bool isAggro = false; //This is true when the enemie is aggresive.
     private bool canAggro = true; //This is false during the cooldown.
 
@@ -54,7 +54,7 @@ public class EnemyMovement : HealthScript {
         if (health <= 0)
         {
             Destroy(gameObject);
-            print("hey");
+            return;
         }
 
         if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)
@@ -100,20 +100,20 @@ public class EnemyMovement : HealthScript {
         yield return new WaitForSeconds(aggroCooldown);
         canAggro = true;
     }
-
-    public void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject == splitter) //this checks if the object the enemies collide with is the splitter.
-        {
-            agent.SetDestination(roads[Random.Range(0, 3)].transform.position);
-            currentObjective = agent.destination;
-        }
-        if (col.gameObject.tag == ("RoadCollider")) //checks if the enemy collides with one of the road points which should set their destinations to the end.
-        {
-            agent.SetDestination(chest.transform.position);
-            currentObjective = agent.destination;
-        }
-    }
+    
+    //public void OnTriggerEnter(Collider col)
+    //{
+    //    if (col.gameObject == splitter) //this checks if the object the enemies collide with is the splitter.
+    //    {
+    //        agent.SetDestination(roads[Random.Range(0, 3)].transform.position);
+    //        currentObjective = agent.destination;
+    //    }
+    //    if (col.gameObject.tag == ("RoadCollider")) //checks if the enemy collides with one of the road points which should set their destinations to the end.
+    //    {
+    //        agent.SetDestination(chest.transform.position);
+    //        currentObjective = agent.destination;
+    //    }
+    //}
 
     public void OnCollisionEnter(Collision collision)
     {
