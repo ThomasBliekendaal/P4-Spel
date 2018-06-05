@@ -105,3 +105,4 @@ MonoBehaviour:
   ammo: 35
   type: 3
   ammoType: {fileID: 0}
+  info: A lot of ammo, but takes a while to reload.

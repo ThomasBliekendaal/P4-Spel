@@ -105,3 +105,4 @@ MonoBehaviour:
   ammo: 0
   type: 4
   ammoType: {fileID: 0}
+  info: More stable, but heavier stock

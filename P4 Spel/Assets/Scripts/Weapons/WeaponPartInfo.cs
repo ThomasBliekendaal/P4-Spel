@@ -16,6 +16,9 @@ public class WeaponPartInfo : MonoBehaviour
     public int ammo;
     public PartType type;
     public AmmoType ammoType;
+
+    [TextArea(1,3)]
+    public string info;
 }
 
 [System.Serializable]

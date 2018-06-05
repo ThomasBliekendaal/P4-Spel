@@ -136,6 +136,7 @@ MonoBehaviour:
   ammo: 0
   type: 5
   ammoType: {fileID: 0}
+  info: Standard kinetic grip.
 --- !u!114 &114845374407931238
 MonoBehaviour:
   m_ObjectHideFlags: 1

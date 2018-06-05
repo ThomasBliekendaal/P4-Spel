@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FinishAssembly : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class FinishAssembly : MonoBehaviour
     public GameObject UI;
     public Assembler assembler;
     public GripType element;
+    public Text infoText;
 
     public void Start()
     {
@@ -84,5 +86,15 @@ public class FinishAssembly : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void OnHoverEnter()
+    {
+        infoText.text = "Finish your weapon assembly and start the game.";
+    }
+
+    public void OnHoverExit()
+    {
+        infoText.text = "";
     }
 }

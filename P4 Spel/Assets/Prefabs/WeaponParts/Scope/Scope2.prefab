@@ -368,6 +368,7 @@ MonoBehaviour:
   ammo: 0
   type: 2
   ammoType: {fileID: 0}
+  info: A scope to zoom in.
 --- !u!114 &114980648640031636
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -13,6 +13,8 @@ public class AssemblerPanel : MonoBehaviour
     public bool grip;
     public Assembler assembler;
     public PartType type;
+    public Text infoName;
+    public Text infoText;
 
     public void OnButtonPress()
     {
@@ -64,5 +66,17 @@ public class AssemblerPanel : MonoBehaviour
         }
         StartCoroutine(assembler.SecondCheck());
         assembler.SetParts();
+    }
+
+    public void OnHoverEnter()
+    {
+        infoName.text = part.name;
+        infoText.text = part.GetComponent<WeaponPartInfo>().info;
+    }
+
+    public void OnHoverExit()
+    {
+        infoName.text = "";
+        infoText.text = "";
     }
 }

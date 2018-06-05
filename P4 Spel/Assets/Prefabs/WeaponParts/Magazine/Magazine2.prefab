@@ -105,3 +105,4 @@ MonoBehaviour:
   ammo: 20
   type: 3
   ammoType: {fileID: 0}
+  info: Magazine wth more capacity.

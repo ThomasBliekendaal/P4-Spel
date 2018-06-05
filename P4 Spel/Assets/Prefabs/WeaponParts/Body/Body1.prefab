@@ -267,3 +267,4 @@ MonoBehaviour:
   ammo: 0
   type: 0
   ammoType: {fileID: 11400000, guid: 708d1698b7d08124797cfe9f9689ce35, type: 2}
+  info: Standard kinetic body.

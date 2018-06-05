@@ -126,6 +126,7 @@ MonoBehaviour:
   ammo: 0
   type: 1
   ammoType: {fileID: 0}
+  info: Tripple barrel, rotates like a minigun.
 --- !u!114 &114178051675250434
 MonoBehaviour:
   m_ObjectHideFlags: 1

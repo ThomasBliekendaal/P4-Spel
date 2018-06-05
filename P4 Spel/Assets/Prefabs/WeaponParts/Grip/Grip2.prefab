@@ -160,3 +160,4 @@ MonoBehaviour:
   ammo: 0
   type: 5
   ammoType: {fileID: 0}
+  info: Electric grip, turns bullet into electric bullets

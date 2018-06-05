@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Assembler : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Assembler : MonoBehaviour
     public Transform bodyList;
 
     public Transform assamblePoint;
+    public Text infoName;
+    public Text infoText;
 
     public bool grip;
     public bool scope;
@@ -84,6 +87,8 @@ public class Assembler : MonoBehaviour
             p.body = true;
             p.assembler = GetComponent<Assembler>();
             p.type = bodys[i].GetComponent<WeaponPartInfo>().type;
+            p.infoName = infoName;
+            p.infoText = infoText;
         }
         if (chosenBody)
         {
@@ -98,6 +103,8 @@ public class Assembler : MonoBehaviour
                 p.assembler = GetComponent<Assembler>();
                 p.grip = true;
                 p.type = com.grip[i].GetComponent<WeaponPartInfo>().type;
+                p.infoName = infoName;
+                p.infoText = infoText;
             }
             for (int i = 0; i < com.scope.Length; i++)
             {
@@ -108,6 +115,8 @@ public class Assembler : MonoBehaviour
                 p.location = chosenBody.GetComponent<BodyAttachment>().scopePosition;
                 p.assembler = GetComponent<Assembler>();
                 p.type = com.scope[i].GetComponent<WeaponPartInfo>().type;
+                p.infoName = infoName;
+                p.infoText = infoText;
             }
             for (int i = 0; i < com.stock.Length; i++)
             {
@@ -118,6 +127,8 @@ public class Assembler : MonoBehaviour
                 p.location = chosenBody.GetComponent<BodyAttachment>().stockPosition;
                 p.assembler = GetComponent<Assembler>();
                 p.type = com.stock[i].GetComponent<WeaponPartInfo>().type;
+                p.infoName = infoName;
+                p.infoText = infoText;
             }
             for (int i = 0; i < com.magazine.Length; i++)
             {
@@ -128,6 +139,8 @@ public class Assembler : MonoBehaviour
                 p.location = chosenBody.GetComponent<BodyAttachment>().magazinePosition;
                 p.assembler = GetComponent<Assembler>();
                 p.type = com.magazine[i].GetComponent<WeaponPartInfo>().type;
+                p.infoName = infoName;
+                p.infoText = infoText;
             }
             if (chosenGrip)
             {
@@ -140,6 +153,8 @@ public class Assembler : MonoBehaviour
                     p.location = chosenGrip.GetComponent<GripAttachment>().barrelPosition;
                     p.assembler = GetComponent<Assembler>();
                     p.type = com.barrel[i].GetComponent<WeaponPartInfo>().type;
+                    p.infoName = infoName;
+                    p.infoText = infoText;
                 }
             }
         }

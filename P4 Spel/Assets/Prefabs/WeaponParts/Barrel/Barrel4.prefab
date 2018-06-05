@@ -105,3 +105,4 @@ MonoBehaviour:
   ammo: 0
   type: 1
   ammoType: {fileID: 0}
+  info: Sniper barrel, high damage

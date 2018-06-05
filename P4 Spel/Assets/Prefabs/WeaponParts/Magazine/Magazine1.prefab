@@ -105,3 +105,4 @@ MonoBehaviour:
   ammo: 8
   type: 3
   ammoType: {fileID: 0}
+  info: standard magazine
