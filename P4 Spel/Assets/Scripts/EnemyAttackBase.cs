@@ -79,24 +79,28 @@ public class EnemyAttackBase : MonoBehaviour {
         EnemyMovement em = gameObject.GetComponent<EnemyMovement>();
         if (attackType == State2.Ranged)
         {
-            if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= range)
+            if (type == State.BasicRanged)
             {
-                transform.LookAt(Camera.main.transform.position);
-                gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
-                GameObject bullet = Instantiate(rangedBullet, gameObject.transform, true);
+                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges[0])
+                {
+                    transform.LookAt(Camera.main.transform.position);
+                    gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
+                    GameObject bullet = Instantiate(rangedBullet, gameObject.transform, true);
+                    bullet.GetComponent<Bullet>().damage = enemyDamages[2];
+                }
+
             }
-                if (type == State.BasicRanged)
+            if (type == State.HuntingArty)
+            {
+                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges[1])
                 {
-                    if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges[0])
-                    {
-                        bullet.GetComponent<Bullet>().damage = enemyDamages[2];
+                    transform.LookAt(Camera.main.transform.position);
+                    gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
+                    GameObject bullet = Instantiate(rangedBullet, gameObject.transform, true);
+                    bullet.GetComponent<Bullet>().damage = enemyDamages[5];
                 }
-                if (type == State.HuntingArty)
-                {
-                        if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges[1])
-                        {
-                            bullet.GetComponent<Bullet>().damage = enemyDamages[5];
-                }
+            }
+        }
         if (attackType == State2.Runner)
         {
             em.RemoteControl(Camera.main.gameObject.transform);
