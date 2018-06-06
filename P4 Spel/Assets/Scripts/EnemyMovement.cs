@@ -28,7 +28,7 @@ public class EnemyMovement : HealthScript {
 
     public NavMeshAgent agent; // this is the agent component on the enemy. this will be automatically set to the correct one.
     public Vector3 currentObjective; //current objective is saved because enemies temp. chang to players.
-    private bool isAggro = false; //This is true when the enemie is aggresive.
+    public bool isAggro = false; //This is true when the enemie is aggresive.
     private bool canAggro = true; //This is false during the cooldown.
 
 	void Start () {
@@ -129,5 +129,10 @@ public class EnemyMovement : HealthScript {
         {
             //DoDam(Mathf.Clamp(damage, health, collision.gameObject.GetComponent<FriendlyBullet>().damage));
         }
+    }
+
+    public void RemoteControl(Transform target)
+    {
+        agent.SetDestination(target.position);
     }
 }

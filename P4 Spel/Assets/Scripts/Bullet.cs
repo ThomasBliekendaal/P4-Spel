@@ -5,16 +5,15 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     public float speed;
-    public GameObject host;
     public float damage;
-    
-	void Start () {
-        transform.rotation = host.transform.rotation;
+
+    void Start () {
+        
     }
 	
 	void Update () {
-        transform.Translate(0, 0, speed * Time.deltaTime, Space.Self);
-	}
+        transform.Translate(new Vector3(0, 0, speed) * Time.deltaTime);
+    }
 
     public void OnCollisionEnter(Collision collision)
     {
