@@ -85,6 +85,10 @@ public class EnemyMovement : HealthScript {
             agent.SetDestination(currentObjective);
         }
 
+        if (gameObject.GetComponent<EnemyAttackBase>().attackType == EnemyAttackBase.State2.Runner)
+        {
+            agent.SetDestination(Camera.main.transform.position);
+        }
     }
 
     public IEnumerator StayAggro(float aggTime)
@@ -100,20 +104,6 @@ public class EnemyMovement : HealthScript {
         yield return new WaitForSeconds(aggroCooldown);
         canAggro = true;
     }
-    
-    //public void OnTriggerEnter(Collider col)
-    //{
-    //    if (col.gameObject == splitter) //this checks if the object the enemies collide with is the splitter.
-    //    {
-    //        agent.SetDestination(roads[Random.Range(0, 3)].transform.position);
-    //        currentObjective = agent.destination;
-    //    }
-    //    if (col.gameObject.tag == ("RoadCollider")) //checks if the enemy collides with one of the road points which should set their destinations to the end.
-    //    {
-    //        agent.SetDestination(chest.transform.position);
-    //        currentObjective = agent.destination;
-    //    }
-    //}
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -125,9 +115,16 @@ public class EnemyMovement : HealthScript {
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Player")
         {
-            //DoDam(Mathf.Clamp(damage, health, collision.gameObject.GetComponent<FriendlyBullet>().damage));
+            if (gameObject.GetComponent<EnemyAttackBase>().attackType == EnemyAttackBase.State2.Runner)
+            {
+                Destroy(gameObject,1f);
+                gameObject.GetComponent<EnemyAttackBase>().pS.Play();
+                gameObject.GetComponent<EnemyAttackBase>().enabled = false;
+                gameObject.GetComponent<EnemyMovement>().enabled = false;
+                collision.gameObject.GetComponent<Rigidbody>().velocity += (transform.forward + transform.up) * 10;
+            }
         }
     }
 

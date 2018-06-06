@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    public float speed = 40;
+    public float speed = 10;
     public float damage;
 
     void Start () {
@@ -20,11 +20,15 @@ public class Bullet : MonoBehaviour {
         Destroy(gameObject, 5f);
         if(collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<HealthScript>().DoDam(damage);
+            collision.gameObject.GetComponent<PlayerScript>().DoDam(damage);
         }
         if(collision.gameObject.tag == "Untagged")
         {
             Destroy(gameObject);
+        }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            Physics.IgnoreCollision(gameObject.gameObject.GetComponent<Collider>(), collision.gameObject.GetComponent<Collider>());
         }
     }
 }
