@@ -64,8 +64,8 @@ public class AssemblerPanel : MonoBehaviour
         {
             assembler.magazine = true;
         }
-        StartCoroutine(assembler.SecondCheck());
         assembler.SetParts();
+        StartCoroutine(assembler.SecondCheck());
     }
 
     public void OnHoverEnter()
