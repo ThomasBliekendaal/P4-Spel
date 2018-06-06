@@ -24,18 +24,20 @@ public class EnemyAttackBase : MonoBehaviour {
     [Tooltip("Should be size 6")]
     public float[] enemyDamages;
 
+    public ParticleSystem pS;
+
     [Tooltip("For ranged Classes | should be 2")]
     public float[] ranges;
 
     public GameObject rangedBullet;
 
     private bool canAttack;
+    private bool canShoot = true;
 
     // Use this for initialization
     public void Awake()
     {
         EnemyMovement em = gameObject.GetComponent<EnemyMovement>();
-        InvokeRepeating("MeleeDamTimer", 0, 0.5f);
         if (type == State.BasicMelee)
         {
             em.health = enemyHealths[0];
@@ -89,9 +91,15 @@ public class EnemyAttackBase : MonoBehaviour {
                 if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges[0])
                 {
                     transform.LookAt(Camera.main.transform.position);
-                    gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
-                    GameObject bullet = Instantiate(rangedBullet, gameObject.transform, true);
-                    bullet.GetComponent<Bullet>().damage = enemyDamages[2];
+                    gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+                    if (canShoot == true)
+                    {
+                        canShoot = false;
+                        CanShooter();
+                        GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position,transform.rotation);
+                        bullet.GetComponent<Bullet>().damage = enemyDamages[2];
+                    }
+                    
                 }
             }
             if (type == State.HuntingArty)
@@ -99,23 +107,31 @@ public class EnemyAttackBase : MonoBehaviour {
                 if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges[1])
                 {
                     transform.LookAt(Camera.main.transform.position);
-                    gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, 0);
-                    GameObject bullet = Instantiate(rangedBullet, gameObject.transform, true);
-                    bullet.GetComponent<Bullet>().damage = enemyDamages[5];
+                    gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+                    if (canShoot == true)
+                    {
+                        canShoot = false;
+                        CanShooter();
+                        GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
+                        bullet.GetComponent<Bullet>().damage = enemyDamages[5];
+                    }                 
                 }
             }
-        }
-        if (attackType == State2.Runner)
-        {
-            em.RemoteControl(Camera.main.gameObject.transform);
         }
     }
 
     public IEnumerator MeleeDamTimer()
     {
-        canAttack = true;
-        yield return new WaitForSeconds(0.1f);
         canAttack = false;
+        yield return new WaitForSeconds(0.1f);
+        canAttack = true;
+    }
+
+    public IEnumerator CanShooter()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(0.7f);
+        canShoot = true;
     }
 
     public void OnCollisionStay(Collision col)
@@ -125,23 +141,19 @@ public class EnemyAttackBase : MonoBehaviour {
             GameObject p = col.gameObject;
             if(canAttack == true)
             {
+                canAttack = false;
+                MeleeDamTimer();
                 if (type == State.BasicMelee)
                 {
-                    p.GetComponent<EnemyMovement>().DoDam(enemyDamages[0]);
+                    p.GetComponent<PlayerScript>().DoDam(enemyDamages[0]);
                 }
                 if (type == State.BasicTank)
                 {
-                    p.GetComponent<EnemyMovement>().DoDam(enemyDamages[2]);
-                }
-                if (type == State.SuicideBomber)
-                {
-                    //Start explosion particle
-                    p.GetComponent<EnemyMovement>().DoDam(enemyDamages[3]);
-                    Destroy(gameObject);
+                    p.GetComponent<PlayerScript>().DoDam(enemyDamages[2]);
                 }
                 if (type == State.BuffTank)
                 {
-                    p.GetComponent<EnemyMovement>().DoDam(enemyDamages[4]);
+                    p.GetComponent<PlayerScript>().DoDam(enemyDamages[4]);
                 }
             }           
         }
