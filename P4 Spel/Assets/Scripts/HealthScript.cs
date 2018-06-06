@@ -32,4 +32,16 @@ public class HealthScript : MonoBehaviour {
     {
         health -= damage;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(gameObject.tag == "Enemy")
+        {
+            if(collision.gameObject.tag == "Player")
+            {
+                DoDam(gameObject.GetComponent<EnemyMovement>().damage);
+                print("getDamage");
+            }
+        }
+    }
 }

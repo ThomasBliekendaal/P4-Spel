@@ -26,8 +26,19 @@ public class PlayerScript : HealthScript {
 	void FixedUpdate () {
         Movement();
         Health();
+        if (Input.GetButtonDown("Jump"))
+        {
+            health -= 5;
+        }
     }
 
+    private void Update()
+    {
+        if(health <= minHealth)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void MovementStart()
     {
@@ -79,5 +90,17 @@ public class PlayerScript : HealthScript {
     {
         yield return new WaitForSeconds(0.5f);
         jumpCheck = true;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Bullet")
+        {
+            DoDam(collision.gameObject.GetComponent<Bullet>().damage);
+        }
+        if(collision.gameObject.tag == "Enemy")
+        {
+            DoDam(collision.gameObject.GetComponent<EnemyMovement>().damage);
+        }
     }
 }
