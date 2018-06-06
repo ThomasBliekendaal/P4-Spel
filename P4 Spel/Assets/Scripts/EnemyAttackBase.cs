@@ -77,6 +77,11 @@ public class EnemyAttackBase : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         EnemyMovement em = gameObject.GetComponent<EnemyMovement>();
+        if (em.isAggro == false)
+        {
+            return;
+        }
+
         if (attackType == State2.Ranged)
         {
             if (type == State.BasicRanged)
@@ -88,7 +93,6 @@ public class EnemyAttackBase : MonoBehaviour {
                     GameObject bullet = Instantiate(rangedBullet, gameObject.transform, true);
                     bullet.GetComponent<Bullet>().damage = enemyDamages[2];
                 }
-
             }
             if (type == State.HuntingArty)
             {
@@ -104,33 +108,6 @@ public class EnemyAttackBase : MonoBehaviour {
         if (attackType == State2.Runner)
         {
             em.RemoteControl(Camera.main.gameObject.transform);
-        }
-        if (em.isAggro == true)
-        {
-            if (type == State.BasicMelee)
-            {
-
-            }
-            if (type == State.BasicRanged)
-            {
-                
-            }
-            if (type == State.BasicTank)
-            {
-
-            }
-            if (type == State.SuicideBomber)
-            {
-                
-            }
-            if (type == State.BuffTank)
-            {
-
-            }
-            if (type == State.HuntingArty)
-            {
-
-            }
         }
     }
 

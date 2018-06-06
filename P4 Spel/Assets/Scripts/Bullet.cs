@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    public float speed;
+    public float speed = 40;
     public float damage;
 
     void Start () {
@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour {
     public void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject, 5f);
-        if(collision.gameObject.tag == "Ally")
+        if(collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<HealthScript>().DoDam(damage);
         }
