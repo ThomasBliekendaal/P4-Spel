@@ -5,7 +5,6 @@ using UnityEditorInternal;
 
 public class EnemyAttackBase : MonoBehaviour
 {
-
     public enum State
     {
         BasicMelee, BasicRanged, BasicTank, SuicideBomber, BuffTank, HuntingArty
@@ -19,18 +18,18 @@ public class EnemyAttackBase : MonoBehaviour
     public State type;
     [Tooltip("How this enemy attacks")]
     public State2 attackType;
-    [Tooltip("Should be size 6")]
-    public float[] enemySpeeds;
-    [Tooltip("Should be size 6")]
-    public float[] enemyHealths;
-    [Tooltip("Should be size 6")]
-    public float[] enemyDamages;
+    [Tooltip("The speed of the enemy")]
+    public EnemyClass enemySpeeds;
+    [Tooltip("The amount of health this enemy has")]
+    public EnemyClass enemyHealths;
+    [Tooltip("The amount of damage the enemy does")]
+    public EnemyClass enemyDamages;
 
     [Tooltip("The explosion particle system for the bomber.")]
     public ParticleSystem pS;
 
-    [Tooltip("For ranged Classes | should be 2")]
-    public float[] ranges;
+    [Tooltip("The range of the ranged classes")]
+    public EnemyRanges ranges;
 
     public GameObject rangedBullet;
 
@@ -43,39 +42,39 @@ public class EnemyAttackBase : MonoBehaviour
         EnemyMovement em = gameObject.GetComponent<EnemyMovement>();
         if (type == State.BasicMelee)
         {
-            em.health = enemyHealths[0];
-            em.speed = enemySpeeds[0];
-            em.damage = enemyDamages[0];
+            em.health = enemyHealths.BasicMelee;
+            em.speed = enemySpeeds.BasicMelee;
+            em.damage = enemyDamages.BasicMelee;
         }
         if (type == State.BasicRanged)
         {
-            em.health = enemyHealths[1];
-            em.speed = enemySpeeds[1];
-            em.damage = enemyDamages[1];
+            em.health = enemyHealths.BasicRanged;
+            em.speed = enemySpeeds.BasicRanged;
+            em.damage = enemyDamages.BasicRanged;
         }
         if (type == State.BasicTank)
         {
-            em.health = enemyHealths[2];
-            em.speed = enemySpeeds[2];
-            em.damage = enemyDamages[2];
+            em.health = enemyHealths.BasicTank;
+            em.speed = enemySpeeds.BasicTank;
+            em.damage = enemyDamages.BasicTank;
         }
         if (type == State.SuicideBomber)
         {
-            em.health = enemyHealths[3];
-            em.speed = enemySpeeds[3];
-            em.damage = enemyDamages[3];
+            em.health = enemyHealths.SuicideBomber;
+            em.speed = enemySpeeds.SuicideBomber;
+            em.damage = enemyDamages.SuicideBomber;
         }
         if (type == State.BuffTank)
         {
-            em.health = enemyHealths[4];
-            em.speed = enemySpeeds[4];
-            em.damage = enemyDamages[4];
+            em.health = enemyHealths.BuffTank;
+            em.speed = enemySpeeds.BuffTank;
+            em.damage = enemyDamages.BuffTank;
         }
         if (type == State.HuntingArty)
         {
-            em.health = enemyHealths[5];
-            em.speed = enemySpeeds[5];
-            em.damage = enemyDamages[5];
+            em.health = enemyHealths.HuntingArty;
+            em.speed = enemySpeeds.HuntingArty;
+            em.damage = enemyDamages.HuntingArty;
         }
     }
 
@@ -92,7 +91,7 @@ public class EnemyAttackBase : MonoBehaviour
         {
             if (type == State.BasicRanged)
             {
-                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges[0])
+                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges.BasicRangedRange)
                 {
                     transform.LookAt(Camera.main.transform.position);
                     gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
@@ -101,14 +100,14 @@ public class EnemyAttackBase : MonoBehaviour
                         canShoot = false;
                         CanShooter();
                         GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
-                        bullet.GetComponent<Bullet>().damage = enemyDamages[2];
+                        bullet.GetComponent<Bullet>().damage = enemyDamages.BasicRanged;
                     }
 
                 }
             }
             if (type == State.HuntingArty)
             {
-                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges[1])
+                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges.HuntingArtyRange)
                 {
                     transform.LookAt(Camera.main.transform.position);
                     gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
@@ -117,7 +116,7 @@ public class EnemyAttackBase : MonoBehaviour
                         canShoot = false;
                         CanShooter();
                         GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
-                        bullet.GetComponent<Bullet>().damage = enemyDamages[5];
+                        bullet.GetComponent<Bullet>().damage = enemyDamages.HuntingArty;
                     }
                 }
             }
@@ -149,17 +148,35 @@ public class EnemyAttackBase : MonoBehaviour
                 MeleeDamTimer();
                 if (type == State.BasicMelee)
                 {
-                    p.GetComponent<PlayerScript>().DoDam(enemyDamages[0]);
+                    p.GetComponent<PlayerScript>().DoDam(enemyDamages.BasicMelee);
                 }
                 if (type == State.BasicTank)
                 {
-                    p.GetComponent<PlayerScript>().DoDam(enemyDamages[2]);
+                    p.GetComponent<PlayerScript>().DoDam(enemyDamages.BasicTank);
                 }
                 if (type == State.BuffTank)
                 {
-                    p.GetComponent<PlayerScript>().DoDam(enemyDamages[4]);
+                    p.GetComponent<PlayerScript>().DoDam(enemyDamages.BuffTank);
                 }
             }
         }
     }
+}
+
+[System.Serializable]
+public class EnemyClass
+{
+    public float BasicMelee;
+    public float BasicRanged;
+    public float BasicTank;
+    public float SuicideBomber;
+    public float BuffTank;
+    public float HuntingArty;
+}
+
+[System.Serializable]
+public class EnemyRanges
+{
+    public float BasicRangedRange;
+    public float HuntingArtyRange;
 }

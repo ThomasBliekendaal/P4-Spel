@@ -514,7 +514,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!114 &44418102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,7 +1428,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!114 &127852524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4390,7 +4392,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!114 &456885322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7445,7 +7448,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!114 &699520188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7904,7 +7908,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!114 &724208174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17382,7 +17387,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!1 &1661078379
 GameObject:
   m_ObjectHideFlags: 0
@@ -18447,7 +18453,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!114 &1754003110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21227,7 +21234,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!114 &2016908704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21450,7 +21458,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!195 &2037468604
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -21781,7 +21790,8 @@ MonoBehaviour:
   ranges:
   - 0
   - 0
-  rangedBullet: {fileID: 0}
+  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+    type: 2}
 --- !u!114 &2059761566
 MonoBehaviour:
   m_ObjectHideFlags: 0
