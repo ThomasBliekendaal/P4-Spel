@@ -850,7 +850,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -275.74, y: -26.894012}
+  m_AnchoredPosition: {x: -275.74, y: -26.894043}
   m_SizeDelta: {x: -551.49, y: -53.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &91823526
@@ -1649,7 +1649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0010070801}
+  m_AnchoredPosition: {x: 0, y: -0.0009765625}
   m_SizeDelta: {x: 0, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &138957666
@@ -1920,6 +1920,7 @@ GameObject:
   - component: {fileID: 183256902}
   - component: {fileID: 183256901}
   - component: {fileID: 183256900}
+  - component: {fileID: 183256904}
   m_Layer: 0
   m_Name: Roads
   m_TagString: RoadCollider
@@ -1994,6 +1995,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 97
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &183256904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 183256899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97df12fd58581234fb668ca2d4df2cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paths:
+  - {fileID: 777636778}
 --- !u!1 &184490438
 GameObject:
   m_ObjectHideFlags: 0
@@ -2950,7 +2964,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0010070801}
+  m_AnchoredPosition: {x: 0, y: -0.0009765625}
   m_SizeDelta: {x: 0, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &267748781
@@ -3216,7 +3230,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0010070801}
+  m_AnchoredPosition: {x: 0, y: -0.0009765625}
   m_SizeDelta: {x: 0, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &302618600
@@ -4110,6 +4124,7 @@ GameObject:
   - component: {fileID: 436881674}
   - component: {fileID: 436881673}
   - component: {fileID: 436881672}
+  - component: {fileID: 436881676}
   m_Layer: 0
   m_Name: Roads (1)
   m_TagString: RoadCollider
@@ -4184,6 +4199,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 98
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &436881676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 436881671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97df12fd58581234fb668ca2d4df2cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paths:
+  - {fileID: 777636778}
 --- !u!1 &455016455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,6 +4566,7 @@ GameObject:
   - component: {fileID: 470976992}
   - component: {fileID: 470976991}
   - component: {fileID: 470976990}
+  - component: {fileID: 470976994}
   m_Layer: 0
   m_Name: Splitter
   m_TagString: Untagged
@@ -4612,6 +4641,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 96
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &470976994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 470976989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97df12fd58581234fb668ca2d4df2cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paths:
+  - {fileID: 183256899}
+  - {fileID: 436881671}
+  - {fileID: 1316363717}
 --- !u!1 &476842912
 GameObject:
   m_ObjectHideFlags: 0
@@ -5046,7 +5090,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -275.74, y: -26.894012}
+  m_AnchoredPosition: {x: -275.74, y: -26.894043}
   m_SizeDelta: {x: -551.49, y: -53.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &509856171
@@ -7912,7 +7956,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -275.74, y: -26.894012}
+  m_AnchoredPosition: {x: -275.74, y: -26.894043}
   m_SizeDelta: {x: -551.49, y: -53.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &730433959
@@ -8335,6 +8379,7 @@ GameObject:
   - component: {fileID: 777636781}
   - component: {fileID: 777636780}
   - component: {fileID: 777636779}
+  - component: {fileID: 777636784}
   m_Layer: 0
   m_Name: END (1)
   m_TagString: Finish
@@ -8424,6 +8469,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 100
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &777636784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 777636778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97df12fd58581234fb668ca2d4df2cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paths: []
 --- !u!1 &788897167
 GameObject:
   m_ObjectHideFlags: 0
@@ -9563,7 +9620,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0010070801}
+  m_AnchoredPosition: {x: 0, y: -0.0009765625}
   m_SizeDelta: {x: 0, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &897561843
@@ -10983,7 +11040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0010070801}
+  m_AnchoredPosition: {x: 0, y: -0.0009765625}
   m_SizeDelta: {x: 0, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1068727847
@@ -13316,7 +13373,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -275.74, y: -26.894012}
+  m_AnchoredPosition: {x: -275.74, y: -26.894043}
   m_SizeDelta: {x: -551.49, y: -53.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1257573872
@@ -13904,6 +13961,7 @@ GameObject:
   - component: {fileID: 1316363720}
   - component: {fileID: 1316363719}
   - component: {fileID: 1316363718}
+  - component: {fileID: 1316363722}
   m_Layer: 0
   m_Name: Roads (2)
   m_TagString: RoadCollider
@@ -13978,6 +14036,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 99
   m_LocalEulerAnglesHint: {x: 0, y: 150, z: 0}
+--- !u!114 &1316363722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1316363717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97df12fd58581234fb668ca2d4df2cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paths:
+  - {fileID: 777636778}
 --- !u!1 &1316754805
 GameObject:
   m_ObjectHideFlags: 0
@@ -20246,7 +20317,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0010070801}
+  m_AnchoredPosition: {x: 0, y: -0.0009765625}
   m_SizeDelta: {x: 0, y: -0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1974136997
@@ -22051,7 +22122,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -275.74, y: -26.894012}
+  m_AnchoredPosition: {x: -275.74, y: -26.894043}
   m_SizeDelta: {x: -551.49, y: -53.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2147320137
