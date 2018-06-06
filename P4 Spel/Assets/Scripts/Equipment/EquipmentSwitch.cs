@@ -8,14 +8,23 @@ public class EquipmentSwitch : MonoBehaviour {
     public int current;
     public Image image;
     public EquipmentInfo[] items;
-    public bool b;
+    public GameObject weapon;
 
     public void Update()
     {
-        if (b)
+        if (Input.GetButtonDown("Switch"))
         {
             Switch(1);
-            b = false;
+        }
+        if (Input.GetButtonDown("Use"))
+        {
+            GameObject g = Instantiate(items[current].item, transform.position, transform.rotation);
+            g.GetComponent<Rigidbody>().velocity += transform.forward * 8;
+            if (g.GetComponent<GunDeploy>())
+            {
+                g.GetComponent<GunDeploy>().weapon = weapon;
+            }
+            Destroy(g.GetComponent<Rigidbody>(), 2);
         }
     }
 
@@ -32,6 +41,8 @@ public class EquipmentSwitch : MonoBehaviour {
         }
         image.sprite = items[current].sprite;
     }
+
+    public IEnumerator TriggerTimer;
 }
 
 [System.Serializable]
