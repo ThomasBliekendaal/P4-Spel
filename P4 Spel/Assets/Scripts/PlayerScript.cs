@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : HealthScript {
+public class PlayerScript : HealthScript
+{
     public GameObject pCamera;
     public float walkSpeed;
     public int jumps;
@@ -18,16 +19,29 @@ public class PlayerScript : HealthScript {
     public float weaponSlower;
     private bool jumpCheck;
 
-    void Start () {
+    void Start()
+    {
         MovementStart();
         health = maxHealth;
     }
-	
-	void FixedUpdate () {
+
+    void FixedUpdate()
+    {
         Movement();
         Health();
+        if (Input.GetButtonDown("Jump"))
+        {
+            health -= 5;
+        }
     }
 
+    private void Update()
+    {
+        if (health <= minHealth)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     public void MovementStart()
     {
@@ -40,7 +54,7 @@ public class PlayerScript : HealthScript {
         if (jumps <= 0 && jumpCheck)
         {
             Debug.DrawRay(gameObject.transform.position, -transform.up, Color.red, rayLength);
-            if (Physics.Raycast(transform.position, -transform.up, out hit,rayLength) && hit.collider.gameObject != null)
+            if (Physics.Raycast(transform.position, -transform.up, out hit, rayLength) && hit.collider.gameObject != null)
             {
                 jumps = totalJumps;
             }
@@ -57,7 +71,7 @@ public class PlayerScript : HealthScript {
         }
         if (gameObject.GetComponent<Rigidbody>().velocity.y < 0)
         {
-            gameObject.GetComponent<Rigidbody>().velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;        
+            gameObject.GetComponent<Rigidbody>().velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
         else if (gameObject.GetComponent<Rigidbody>().velocity.y > 0 && !Input.GetButton("Jump"))
         {
@@ -79,5 +93,17 @@ public class PlayerScript : HealthScript {
     {
         yield return new WaitForSeconds(0.5f);
         jumpCheck = true;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bullet")
+        {
+            DoDam(collision.gameObject.GetComponent<Bullet>().damage);
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            DoDam(collision.gameObject.GetComponent<EnemyMovement>().damage);
+        }
     }
 }

@@ -468,6 +468,7 @@ GameObject:
   - component: {fileID: 44418104}
   - component: {fileID: 44418103}
   - component: {fileID: 44418102}
+  - component: {fileID: 44418101}
   m_Layer: 0
   m_Name: Enemy Melee (6)
   m_TagString: Enemy
@@ -475,6 +476,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &44418101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 44418100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackType: 1
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
+  rangedBullet: {fileID: 0}
 --- !u!114 &44418102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,8 +526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206a4e50a419e4a83c3abaa1e03789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 19
-  maxHealth: 20
+  health: 1
+  maxHealth: 1
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
@@ -1341,6 +1381,7 @@ GameObject:
   - component: {fileID: 127852526}
   - component: {fileID: 127852525}
   - component: {fileID: 127852524}
+  - component: {fileID: 127852523}
   m_Layer: 0
   m_Name: Enemy Melee (7)
   m_TagString: Enemy
@@ -1348,6 +1389,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &127852523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 127852522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackType: 1
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
+  rangedBullet: {fileID: 0}
 --- !u!114 &127852524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,8 +1439,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206a4e50a419e4a83c3abaa1e03789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 19
-  maxHealth: 20
+  health: 1
+  maxHealth: 1
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
@@ -4264,6 +4344,7 @@ GameObject:
   - component: {fileID: 456885324}
   - component: {fileID: 456885323}
   - component: {fileID: 456885322}
+  - component: {fileID: 456885321}
   m_Layer: 0
   m_Name: Enemy Melee (4)
   m_TagString: Enemy
@@ -4271,6 +4352,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &456885321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 456885320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackType: 1
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
+  rangedBullet: {fileID: 0}
 --- !u!114 &456885322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4282,8 +4402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206a4e50a419e4a83c3abaa1e03789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 19
-  maxHealth: 20
+  health: 1
+  maxHealth: 1
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
@@ -7279,6 +7399,7 @@ GameObject:
   - component: {fileID: 699520190}
   - component: {fileID: 699520189}
   - component: {fileID: 699520188}
+  - component: {fileID: 699520187}
   m_Layer: 0
   m_Name: Enemy Melee (1)
   m_TagString: Enemy
@@ -7286,6 +7407,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &699520187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 699520186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackType: 1
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
+  rangedBullet: {fileID: 0}
 --- !u!114 &699520188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7297,8 +7457,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206a4e50a419e4a83c3abaa1e03789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 19
-  maxHealth: 20
+  health: 1
+  maxHealth: 1
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
@@ -7698,6 +7858,7 @@ GameObject:
   - component: {fileID: 724208176}
   - component: {fileID: 724208175}
   - component: {fileID: 724208174}
+  - component: {fileID: 724208173}
   m_Layer: 0
   m_Name: Enemy Melee (8)
   m_TagString: Enemy
@@ -7705,6 +7866,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &724208173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 724208172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackType: 1
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
+  rangedBullet: {fileID: 0}
 --- !u!114 &724208174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7716,8 +7916,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206a4e50a419e4a83c3abaa1e03789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 19
-  maxHealth: 20
+  health: 1
+  maxHealth: 1
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
@@ -16810,12 +17010,12 @@ Prefab:
     - target: {fileID: 114574984666493688, guid: 9c26cf88ff94d6b40a2f9eba5139f881,
         type: 2}
       propertyPath: maxHealth
-      value: 20
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114574984666493688, guid: 9c26cf88ff94d6b40a2f9eba5139f881,
         type: 2}
       propertyPath: health
-      value: 19
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114583185471661720, guid: 9c26cf88ff94d6b40a2f9eba5139f881, type: 2}
@@ -17157,10 +17357,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   attackType: 1
-  enemySpeeds: []
-  enemyHealths: []
-  enemyDamages: []
-  ranges: []
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
   rangedBullet: {fileID: 0}
 --- !u!1 &1661078379
 GameObject:
@@ -18180,6 +18401,7 @@ GameObject:
   - component: {fileID: 1754003112}
   - component: {fileID: 1754003111}
   - component: {fileID: 1754003110}
+  - component: {fileID: 1754003109}
   m_Layer: 0
   m_Name: Enemy Melee (5)
   m_TagString: Enemy
@@ -18187,6 +18409,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1754003109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1754003108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackType: 1
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
+  rangedBullet: {fileID: 0}
 --- !u!114 &1754003110
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18198,8 +18459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206a4e50a419e4a83c3abaa1e03789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 19
-  maxHealth: 20
+  health: 1
+  maxHealth: 1
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
@@ -20920,6 +21181,7 @@ GameObject:
   - component: {fileID: 2016908706}
   - component: {fileID: 2016908705}
   - component: {fileID: 2016908704}
+  - component: {fileID: 2016908703}
   m_Layer: 0
   m_Name: Enemy Melee (2)
   m_TagString: Enemy
@@ -20927,6 +21189,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2016908703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2016908702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackType: 1
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
+  rangedBullet: {fileID: 0}
 --- !u!114 &2016908704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20938,8 +21239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206a4e50a419e4a83c3abaa1e03789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 19
-  maxHealth: 20
+  health: 1
+  maxHealth: 1
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
@@ -21103,6 +21404,7 @@ GameObject:
   - component: {fileID: 2037468605}
   - component: {fileID: 2037468604}
   - component: {fileID: 2037468610}
+  - component: {fileID: 2037468603}
   m_Layer: 0
   m_Name: Enemy Melee
   m_TagString: Enemy
@@ -21110,6 +21412,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2037468603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2037468602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackType: 1
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
+  rangedBullet: {fileID: 0}
 --- !u!195 &2037468604
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -21225,8 +21566,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206a4e50a419e4a83c3abaa1e03789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 19
-  maxHealth: 20
+  health: 1
+  maxHealth: 1
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
@@ -21394,6 +21735,7 @@ GameObject:
   - component: {fileID: 2059761568}
   - component: {fileID: 2059761567}
   - component: {fileID: 2059761566}
+  - component: {fileID: 2059761565}
   m_Layer: 0
   m_Name: Enemy Melee (3)
   m_TagString: Enemy
@@ -21401,6 +21743,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &2059761565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2059761564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  attackType: 1
+  enemySpeeds:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyHealths:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  enemyDamages:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  pS: {fileID: 0}
+  ranges:
+  - 0
+  - 0
+  rangedBullet: {fileID: 0}
 --- !u!114 &2059761566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21412,8 +21793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80206a4e50a419e4a83c3abaa1e03789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 19
-  maxHealth: 20
+  health: 1
+  maxHealth: 1
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyMovement : HealthScript {
+public class EnemyMovement : HealthScript
+{
     [Header("Main enemy characteristics")]
     [Tooltip("The movement speed. (try to keep this balanced)")]
     public float speed;
@@ -31,7 +32,8 @@ public class EnemyMovement : HealthScript {
     public bool isAggro = false; //This is true when the enemie is aggresive.
     private bool canAggro = true; //This is false during the cooldown.
 
-	void Start () {
+    void Start()
+    {
         player = Camera.main.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(splitter.transform.position);
@@ -59,14 +61,14 @@ public class EnemyMovement : HealthScript {
 
         if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)
         {
-            if(canAggro == true)
+            if (canAggro == true)
             {
                 isAggro = true;
                 StartCoroutine(StayAggro(aggroTime));
             }
         }
 
-        if(isAggro == true)
+        if (isAggro == true)
         {
             if (Vector3.Distance(transform.position, player.transform.position) > aggroRadius)
             {
@@ -76,7 +78,7 @@ public class EnemyMovement : HealthScript {
             }
         }
 
-        if(isAggro == true)
+        if (isAggro == true)
         {
             agent.SetDestination(player.transform.position);
         }
@@ -85,6 +87,10 @@ public class EnemyMovement : HealthScript {
             agent.SetDestination(currentObjective);
         }
 
+        if (gameObject.GetComponent<EnemyAttackBase>().attackType == EnemyAttackBase.State2.Runner)
+        {
+            agent.SetDestination(Camera.main.transform.position);
+        }
     }
 
     public IEnumerator StayAggro(float aggTime)
@@ -100,20 +106,6 @@ public class EnemyMovement : HealthScript {
         yield return new WaitForSeconds(aggroCooldown);
         canAggro = true;
     }
-    
-    //public void OnTriggerEnter(Collider col)
-    //{
-    //    if (col.gameObject == splitter) //this checks if the object the enemies collide with is the splitter.
-    //    {
-    //        agent.SetDestination(roads[Random.Range(0, 3)].transform.position);
-    //        currentObjective = agent.destination;
-    //    }
-    //    if (col.gameObject.tag == ("RoadCollider")) //checks if the enemy collides with one of the road points which should set their destinations to the end.
-    //    {
-    //        agent.SetDestination(chest.transform.position);
-    //        currentObjective = agent.destination;
-    //    }
-    //}
 
     public void OnCollisionEnter(Collision collision)
     {
@@ -125,9 +117,16 @@ public class EnemyMovement : HealthScript {
         {
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Player")
         {
-            //DoDam(Mathf.Clamp(damage, health, collision.gameObject.GetComponent<FriendlyBullet>().damage));
+            if (gameObject.GetComponent<EnemyAttackBase>().attackType == EnemyAttackBase.State2.Runner)
+            {
+                Destroy(gameObject, 1f);
+                gameObject.GetComponent<EnemyAttackBase>().pS.Play();
+                gameObject.GetComponent<EnemyAttackBase>().enabled = false;
+                gameObject.GetComponent<EnemyMovement>().enabled = false;
+                collision.gameObject.GetComponent<Rigidbody>().velocity += (transform.forward + transform.up) * 10;
+            }
         }
     }
 

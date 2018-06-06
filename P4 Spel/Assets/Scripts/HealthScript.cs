@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HealthScript : MonoBehaviour {
+public class HealthScript : MonoBehaviour
+{
     [Header("Health properties")]
     [Tooltip("Health value.")]
     public float health;
@@ -24,12 +25,25 @@ public class HealthScript : MonoBehaviour {
 
     }
 
-    public void Health () {
-        healthBar.fillAmount = 1 / maxHealth * health;        
-	}
+    public void Health()
+    {
+        healthBar.fillAmount = 1 / maxHealth * health;
+    }
 
     public void DoDam(float damage)
     {
         health -= damage;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (gameObject.tag == "Enemy")
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                DoDam(gameObject.GetComponent<EnemyMovement>().damage);
+                print("getDamage");
+            }
+        }
     }
 }
