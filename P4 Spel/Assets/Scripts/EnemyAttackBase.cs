@@ -30,6 +30,8 @@ public class EnemyAttackBase : MonoBehaviour
 
     [Tooltip("The range of the ranged classes")]
     public EnemyRanges ranges;
+    [Tooltip("Firing Rate per second")]
+    public float shootingSpeed;
 
     public GameObject rangedBullet;
 
@@ -100,7 +102,8 @@ public class EnemyAttackBase : MonoBehaviour
                     {
                         GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
                         bullet.GetComponent<Bullet>().damage = enemyDamages.BasicRanged;
-                        CanShooter();
+                        canShoot = false;
+                        StartCoroutine(CanShooter(shootingSpeed));
                     }
 
                 }
@@ -117,7 +120,8 @@ public class EnemyAttackBase : MonoBehaviour
                     {
                         GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
                         bullet.GetComponent<Bullet>().damage = enemyDamages.HuntingArty;
-                        CanShooter();
+                        canShoot = false;
+                        StartCoroutine(CanShooter(shootingSpeed));
                     }
                 }
             }
@@ -131,10 +135,9 @@ public class EnemyAttackBase : MonoBehaviour
         canAttack = true;
     }
 
-    public IEnumerator CanShooter()
+    public IEnumerator CanShooter(float fireRate)
     {
-        canShoot = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(fireRate);
         canShoot = true;
     }
 

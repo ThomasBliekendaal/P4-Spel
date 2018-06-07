@@ -599,6 +599,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &44418102
@@ -1724,6 +1725,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &127852524
@@ -5048,6 +5050,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &456885322
@@ -8539,6 +8542,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &699520188
@@ -8999,6 +9003,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 10
     HuntingArtyRange: 40
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &724208174
@@ -18193,7 +18198,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1500555411
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19790,6 +19795,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!1 &1661078379
@@ -20856,6 +20862,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &1754003110
@@ -24214,6 +24221,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &2016908704
@@ -24438,6 +24446,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!195 &2037468604
@@ -24844,6 +24853,7 @@ MonoBehaviour:
   ranges:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
+  shootingSpeed: 1
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &2059761566
