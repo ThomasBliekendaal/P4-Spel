@@ -134,7 +134,7 @@ public class EnemyAttackBase : MonoBehaviour
     public IEnumerator CanShooter()
     {
         canShoot = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(1f);
         canShoot = true;
     }
 
