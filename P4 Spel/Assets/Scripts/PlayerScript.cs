@@ -29,10 +29,6 @@ public class PlayerScript : HealthScript
     {
         Movement();
         Health();
-        if (Input.GetButtonDown("Jump"))
-        {
-            health -= 5;
-        }
     }
 
     private void Update()

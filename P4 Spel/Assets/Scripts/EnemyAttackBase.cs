@@ -91,32 +91,33 @@ public class EnemyAttackBase : MonoBehaviour
         {
             if (type == State.BasicRanged)
             {
-                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges.BasicRangedRange)
+                em.aggroRadius = ranges.BasicRangedRange;
+                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) < ranges.BasicRangedRange)
                 {
                     transform.LookAt(Camera.main.transform.position);
                     gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
                     if (canShoot == true)
                     {
-                        canShoot = false;
-                        CanShooter();
                         GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
                         bullet.GetComponent<Bullet>().damage = enemyDamages.BasicRanged;
+                        CanShooter();
                     }
 
                 }
             }
             if (type == State.HuntingArty)
             {
-                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= ranges.HuntingArtyRange)
+                em.aggroRadius = ranges.HuntingArtyRange;
+
+                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) < ranges.HuntingArtyRange)
                 {
                     transform.LookAt(Camera.main.transform.position);
                     gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
                     if (canShoot == true)
                     {
-                        canShoot = false;
-                        CanShooter();
                         GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
                         bullet.GetComponent<Bullet>().damage = enemyDamages.HuntingArty;
+                        CanShooter();
                     }
                 }
             }
@@ -133,7 +134,7 @@ public class EnemyAttackBase : MonoBehaviour
     public IEnumerator CanShooter()
     {
         canShoot = false;
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.1f);
         canShoot = true;
     }
 

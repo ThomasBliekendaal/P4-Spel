@@ -53,6 +53,7 @@ public class EnemyMovement : HealthScript
 
     void Update()
     {
+        agent.speed = speed;
         if (health <= 0)
         {
             Destroy(gameObject);
