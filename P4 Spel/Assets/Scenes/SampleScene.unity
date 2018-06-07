@@ -487,33 +487,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 10
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 75
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 5
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 1000
+    HuntingArtyRange: 0
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &44418102
@@ -1401,33 +1401,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 10
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 75
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 5
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 1000
+    HuntingArtyRange: 0
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &127852524
@@ -4365,33 +4365,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 10
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 75
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 5
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 1000
+    HuntingArtyRange: 0
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &456885322
@@ -7421,33 +7421,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 10
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 75
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 5
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 1000
+    HuntingArtyRange: 0
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &699520188
@@ -7881,33 +7881,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 6
+    BasicRanged: 6
+    BasicTank: 6
+    SuicideBomber: 10
+    BuffTank: 4
+    HuntingArty: 3
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 100
+    BasicRanged: 75
+    BasicTank: 300
+    SuicideBomber: 50
+    BuffTank: 1000
+    HuntingArty: 200
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 10
+    BasicRanged: 5
+    BasicTank: 30
+    SuicideBomber: 40
+    BuffTank: 30
+    HuntingArty: 10
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 10
+    HuntingArtyRange: 40
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &724208174
@@ -17360,33 +17360,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 10
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 75
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 5
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 1000
+    HuntingArtyRange: 0
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!1 &1661078379
@@ -18426,33 +18426,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 10
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 75
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 5
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 1000
+    HuntingArtyRange: 0
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &1754003110
@@ -21207,33 +21207,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 10
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 75
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 5
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 1000
+    HuntingArtyRange: 0
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &2016908704
@@ -21431,33 +21431,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 10
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 75
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 5
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 1000
+    HuntingArtyRange: 0
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!195 &2037468604
@@ -21763,33 +21763,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4501b878321829349b6c270d274f74db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  attackType: 1
+  type: 1
+  attackType: 0
   enemySpeeds:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 10
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyHealths:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 75
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   enemyDamages:
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
-  - 0
+    BasicMelee: 0
+    BasicRanged: 5
+    BasicTank: 0
+    SuicideBomber: 0
+    BuffTank: 0
+    HuntingArty: 0
   pS: {fileID: 0}
   ranges:
-  - 0
-  - 0
+    BasicRangedRange: 1000
+    HuntingArtyRange: 0
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
 --- !u!114 &2059761566
