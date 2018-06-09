@@ -10,6 +10,7 @@ public class TurretDeploy : MonoBehaviour {
     public bool active;
     public GameObject activeTurret;
     public float distance;
+    public Material on;
 
 	void Update () {
         if (active)
@@ -33,6 +34,7 @@ public class TurretDeploy : MonoBehaviour {
 
     public void SetTurret()
     {
+        GetComponent<Renderer>().material = on;
         activeTurret = Instantiate(turret, transform.position + Vector3.up * 30,Quaternion.identity);
         falling = true;
     }

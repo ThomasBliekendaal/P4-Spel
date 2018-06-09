@@ -12,6 +12,7 @@ public class ElectricBeam : MonoBehaviour
     public bool active;
     public List<Transform> targets;
     public float damage;
+    public GameObject elecImpact;
 
     public void Start()
     {
@@ -27,8 +28,10 @@ public class ElectricBeam : MonoBehaviour
             {
                 if (transform.position == target.position)
                 {
-                    CheckForEnemy();
                     target.GetComponent<HealthScript>().DoDam(damage);
+                    GameObject g = Instantiate(elecImpact, transform.position, transform.rotation);
+                    Destroy(g, 1);
+                    CheckForEnemy();
                 }
             }
         }
@@ -73,7 +76,7 @@ public class ElectricBeam : MonoBehaviour
         else
         {
             active = false;
-            Destroy(gameObject, 0.3f);
+            Destroy(gameObject, 0.1f);
         }
     }
 }

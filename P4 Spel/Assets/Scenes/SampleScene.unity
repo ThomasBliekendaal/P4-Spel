@@ -23375,6 +23375,7 @@ MonoBehaviour:
   active: 0
   activeTurret: {fileID: 0}
   distance: 0
+  on: {fileID: 2100000, guid: e273dc6a6a0b4ff49b35caa98363934a, type: 2}
 --- !u!64 &1952951229
 MeshCollider:
   m_ObjectHideFlags: 0
