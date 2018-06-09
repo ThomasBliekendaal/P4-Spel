@@ -7,16 +7,27 @@ public class TurretDeploy : MonoBehaviour {
     public GameObject impact;
     public GameObject turret;
     public bool falling;
-    public bool active;
     public GameObject activeTurret;
     public float distance;
     public Material on;
+    public Transform rotation;
+    public GameObject cam;
+    public float camDistance;
 
 	void Update () {
-        if (active)
+        camDistance = Vector3.Distance(transform.position, cam.transform.parent.position);
+        if(camDistance <= 5 && !activeTurret)
         {
-            active = false;
-            SetTurret();
+            rotation.gameObject.SetActive(true);
+            rotation.LookAt(cam.transform);
+            if (Input.GetButtonDown("Interact"))
+            {
+                SetTurret();
+            }
+        }
+        else if(!activeTurret)
+        {
+            rotation.gameObject.SetActive(false);
         }
         if (falling)
         {
@@ -34,6 +45,7 @@ public class TurretDeploy : MonoBehaviour {
 
     public void SetTurret()
     {
+        rotation.gameObject.SetActive(false);
         GetComponent<Renderer>().material = on;
         activeTurret = Instantiate(turret, transform.position + Vector3.up * 30,Quaternion.identity);
         falling = true;
