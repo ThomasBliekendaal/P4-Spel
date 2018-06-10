@@ -97,12 +97,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   fireRate: 0
-  reloadSpeed: 2
+  reloadSpeed: 0.5
   accuracy: 0
   stability: 0
   weight: 0
   swapSpeed: 0
-  ammo: 35
+  ammo: 120
   type: 3
   ammoType: {fileID: 0}
   info: A lot of ammo, but takes a while to reload.

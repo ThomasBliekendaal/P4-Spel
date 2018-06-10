@@ -5,7 +5,6 @@ using UnityEngine;
 public class TurretDeploy : MonoBehaviour {
 
     public GameObject impact;
-    public GameObject turret;
     public bool falling;
     public GameObject activeTurret;
     public float distance;
@@ -13,6 +12,7 @@ public class TurretDeploy : MonoBehaviour {
     public Transform rotation;
     public GameObject cam;
     public float camDistance;
+    public GameObject ui;
 
 	void Update () {
         camDistance = Vector3.Distance(transform.position, cam.transform.parent.position);
@@ -22,7 +22,11 @@ public class TurretDeploy : MonoBehaviour {
             rotation.LookAt(cam.transform);
             if (Input.GetButtonDown("Interact"))
             {
-                SetTurret();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+                Time.timeScale = 0;
+                ui.SetActive(true);
+                ui.GetComponent<TurretUI>().location = gameObject;
             }
         }
         else if(!activeTurret)
@@ -43,7 +47,7 @@ public class TurretDeploy : MonoBehaviour {
         }
 	}
 
-    public void SetTurret()
+    public void SetTurret(GameObject turret)
     {
         rotation.gameObject.SetActive(false);
         GetComponent<Renderer>().material = on;

@@ -97,12 +97,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   fireRate: 0
-  reloadSpeed: 4
+  reloadSpeed: 2
   accuracy: 0
   stability: 0
   weight: 0
   swapSpeed: 0
-  ammo: 20
+  ammo: 60
   type: 3
   ammoType: {fileID: 0}
   info: Magazine wth more capacity.
