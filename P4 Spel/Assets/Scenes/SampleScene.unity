@@ -19668,7 +19668,7 @@ MonoBehaviour:
     rocket:
       towerName: Rocket Tower
       towerInfo: It shoots Rockets
-      tower: {fileID: 1877521227894668, guid: 60710323c0d36d24a9535cf5f83df007, type: 2}
+      tower: {fileID: 1697916350802218, guid: 3c800a7a33616654397201e60c815399, type: 2}
     frost:
       towerName: Frost Tower
       towerInfo: It Freezes your enemies

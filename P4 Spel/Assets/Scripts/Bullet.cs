@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-
+        Destroy(gameObject,8);
     }
 
     void Update()
@@ -20,10 +20,10 @@ public class Bullet : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject, 5f);
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerScript>().DoDam(damage);
+            Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Untagged")
         {
