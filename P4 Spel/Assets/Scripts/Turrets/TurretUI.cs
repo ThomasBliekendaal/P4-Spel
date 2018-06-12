@@ -18,6 +18,22 @@ public class TurretUI : MonoBehaviour {
         SetInfo();
     }
 
+    public void Update()
+    {
+        if (Input.GetButtonDown("Interact"))
+        {
+            CloseUi();
+        }
+    }
+
+    public void CloseUi()
+    {
+        Time.timeScale = 1;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        gameObject.SetActive(false);
+    }
+
     public void SetInfo()
     {
         if (tower == TowerType.minigun)
@@ -60,10 +76,7 @@ public class TurretUI : MonoBehaviour {
         {
             location.GetComponent<TurretDeploy>().SetTurret(towerInfo.fire.tower);
         }
-        Time.timeScale = 1;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        gameObject.SetActive(false);
+        CloseUi();
     }
 
     public void Minigun()
@@ -85,6 +98,12 @@ public class TurretUI : MonoBehaviour {
     {
         tower = TowerType.fire;
         SetInfo();
+    }
+
+    public void HoverExit()
+    {
+        InputName.text = "";
+        InputInfo.text = "";
     }
 }
 

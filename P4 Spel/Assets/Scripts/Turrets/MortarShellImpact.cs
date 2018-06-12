@@ -7,6 +7,7 @@ public class MortarShellImpact : MonoBehaviour {
     public GameObject impact;
     public ParticleSystem particle;
     public GameObject shell;
+    public float damage;
 
     public void Start()
     {
@@ -21,5 +22,13 @@ public class MortarShellImpact : MonoBehaviour {
         Destroy(g, 7);
         shell.SetActive(false);
         Destroy(gameObject, 3);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 8);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].gameObject.tag == "Enemy")
+            {
+                colliders[i].GetComponent<HealthScript>().DoDam(damage *  (1/ Vector3.Distance(transform.position, colliders[i].transform.position)));
+            }
+        }
     }
 }
