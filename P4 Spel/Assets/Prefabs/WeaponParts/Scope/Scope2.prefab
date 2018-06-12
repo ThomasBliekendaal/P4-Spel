@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4430147388689284}
   - component: {fileID: 20002177931279962}
   - component: {fileID: 124843859534921396}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4352363169687406}
   - component: {fileID: 33871756544552024}
   - component: {fileID: 23489613879040572}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 224785722098008648}
   - component: {fileID: 222316834332857484}
   - component: {fileID: 114237087552008942}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Panel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 224042449686972292}
   - component: {fileID: 222425227390424794}
   - component: {fileID: 114039799129046484}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 33095907163355290}
   - component: {fileID: 23954231914051280}
   - component: {fileID: 114514193449370166}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Scope2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 223970257365457552}
   - component: {fileID: 114980648640031636}
   - component: {fileID: 114424867112243762}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

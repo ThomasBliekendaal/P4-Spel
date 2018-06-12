@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 223810056062572254}
   - component: {fileID: 114373713256687438}
   - component: {fileID: 114886770895887880}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33756814828686340}
   - component: {fileID: 23539431717701540}
   - component: {fileID: 114942189223810126}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Scope1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 4580342298967542}
   - component: {fileID: 20113694951934784}
   - component: {fileID: 124301358128780012}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 224149374499825432}
   - component: {fileID: 222297327411265934}
   - component: {fileID: 114527002701187606}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 33337296944575414}
   - component: {fileID: 23376216956683018}
   - component: {fileID: 65118809022188994}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -29,29 +29,43 @@ public class Mortar : MonoBehaviour {
             barrel.LookAt(enemy[0].position + Vector3.up * 150);
             if (!active)
             {
-                StartCoroutine(ShootTimer(enemy[0]));
+                StartCoroutine(ShootTimer(enemy[0], enemy[0].position));
                 active = true;
             }
         }
     }
 
-    public IEnumerator ShootTimer(Transform position)
+    public IEnumerator ShootTimer(Transform position, Vector3 otherPos)
     {
-        yield return new WaitForSeconds(1);
-        StartCoroutine(Fire(position.position));
+        yield return new WaitForSeconds(4);
+        if(position != null)
+        {
+            StartCoroutine(Fire(position, otherPos));
+        }
+        else
+        {
+            StartCoroutine(Fire(null, otherPos));
+        }
     }
 
-    public IEnumerator Fire(Vector3 target)
+    public IEnumerator Fire(Transform target, Vector3 pos)
     {
         GameObject g = Instantiate(shellStart, firePoint.position, firePoint.rotation);
         yield return new WaitForSeconds(3);
         Destroy(g);
-        Impact(target);
+        if(target != null)
+        {
+            Impact(target.position);
+        }
+        else
+        {
+            Impact(pos);
+        }
     }
 
     public void Impact(Vector3 position)
     {
-        GameObject g = Instantiate(shellImpact, position + Vector3.up * 50, Quaternion.identity);
+        GameObject g = Instantiate(shellImpact, position + Vector3.up * 90, Quaternion.identity);
         active = false;
     }
 }

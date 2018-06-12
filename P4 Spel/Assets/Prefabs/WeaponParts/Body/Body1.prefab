@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4401574397836702}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GripPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4315870802812886}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: StockPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 114508597494463268}
   - component: {fileID: 114363764433573264}
   - component: {fileID: 114357518018579326}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4189107155861032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ScopePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4367537465810438}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MagazinePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
