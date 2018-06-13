@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1675164965271088}
   m_LocalRotation: {x: -0.0000014603136, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.027, y: 0, z: 0.3664}
+  m_LocalPosition: {x: 0.069, y: 0, z: 0.3664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4882147174242582}
@@ -150,7 +150,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1276242782526148}
   m_LocalRotation: {x: -0.70710576, y: -0, z: -0, w: 0.70710784}
-  m_LocalPosition: {x: 242.88821, y: 25.213886, z: 322.60092}
+  m_LocalPosition: {x: 241.44667, y: 25.213886, z: 321.63223}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4401574397836702}
@@ -224,8 +224,8 @@ MonoBehaviour:
   - {fileID: 1116843659923670, guid: 97dfdca9b977f5d448240506abcdbef6, type: 2}
   - {fileID: 1766501866155302, guid: b7c938771206d9c4a8d4caa8b080d4d2, type: 2}
   scope:
-  - {fileID: 1173993511739816, guid: ebb735a779fc1ab4e8b0b4cb68adf6f2, type: 2}
-  - {fileID: 1540871781652742, guid: 0ef151e47a43a3d4db5e69c23781160c, type: 2}
+  - {fileID: 1662951947611930, guid: 45f39065b8f642249829dbe39607babf, type: 2}
+  - {fileID: 1978346612237902, guid: ba1dafd8aa02e0341b3eb6a2d6433157, type: 2}
   barrel:
   - {fileID: 1555234633248284, guid: ffa2214e5d2288e4a87082d827a68e26, type: 2}
   - {fileID: 1061342378367994, guid: ac3cf9d0ec6801744a43664d15684d52, type: 2}

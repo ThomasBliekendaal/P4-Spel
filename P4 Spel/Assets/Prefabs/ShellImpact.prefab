@@ -176,6 +176,8 @@ MonoBehaviour:
   particle: {fileID: 198953862781893250}
   shell: {fileID: 1720990049952374}
   damage: 25
+  impactGround: {fileID: 1939064554970662, guid: 10f38bfe05872e94e9d273e4e5bf66c4,
+    type: 2}
 --- !u!136 &136033044290319592
 CapsuleCollider:
   m_ObjectHideFlags: 1

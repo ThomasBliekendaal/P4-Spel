@@ -13,8 +13,11 @@ public class TurretDeploy : MonoBehaviour {
     public GameObject cam;
     public float camDistance;
     public GameObject ui;
+    public GameObject minimap;
+    public Material used;
 
-	void Update () {
+
+    void Update () {
         camDistance = Vector3.Distance(transform.position, cam.transform.parent.position);
         if(camDistance <= 5 && !activeTurret)
         {
@@ -53,5 +56,6 @@ public class TurretDeploy : MonoBehaviour {
         GetComponent<Renderer>().material = on;
         activeTurret = Instantiate(turret, transform.position + Vector3.up * 30,Quaternion.identity);
         falling = true;
+        minimap.GetComponent<Renderer>().material = used;
     }
 }

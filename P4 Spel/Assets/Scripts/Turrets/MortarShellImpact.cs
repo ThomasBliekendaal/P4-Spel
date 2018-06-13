@@ -8,6 +8,7 @@ public class MortarShellImpact : MonoBehaviour {
     public ParticleSystem particle;
     public GameObject shell;
     public float damage;
+    public GameObject impactGround;
 
     public void Start()
     {
@@ -22,7 +23,9 @@ public class MortarShellImpact : MonoBehaviour {
         Destroy(g, 7);
         shell.SetActive(false);
         Destroy(gameObject, 3);
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 8);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, 7);
+        GameObject g2 = Instantiate(impactGround, transform.position + Vector3.up * 0.2f, Quaternion.identity);
+        Destroy(g2, 3);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Enemy")
