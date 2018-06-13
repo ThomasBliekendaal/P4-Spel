@@ -89,6 +89,15 @@ public class EnemyAttackBase : MonoBehaviour
             return;
         }
 
+        if(type == State.BuffTank)
+        {
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int i = 0; i < enemies.Length ; i++)
+            {
+                enemies[i].GetComponent<EnemyMovement>().health += enemies[i].GetComponent<EnemyMovement>().maxHealth / 200 * Time.deltaTime;
+            }
+        }
+
         if (attackType == State2.Ranged)
         {
             if (type == State.BasicRanged)

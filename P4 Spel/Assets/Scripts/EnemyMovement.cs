@@ -10,12 +10,8 @@ public class EnemyMovement : HealthScript
     public float speed;
     [Tooltip("The Amount of damage per hit. (keep it balanced)")]
     public float damage;
-    [Tooltip("The end objective to which the enemy needs to walk.")]
-    public GameObject chest;
     [Tooltip("When the enemy collides with the splitter collider (which should be just before the road splits into 3) the enemy takes one of the three roads.")]
     public GameObject splitter;
-    [Tooltip("There should be 3 gameobjects in to which the enemy can walk after colliding with the splitter.")]
-    public GameObject[] roads;
 
     [Header("Aggresion options")]
     [Tooltip("The players gameobject.")]
@@ -43,11 +39,9 @@ public class EnemyMovement : HealthScript
     private void Awake()
     {
         player = Camera.main.gameObject;
+        splitter = GameObject.FindGameObjectWithTag("Splitter");
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(splitter.transform.position);
-        //Temporary\\
-        GetComponent<Renderer>().material.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
-        //Temorary\\
         health = maxHealth;
     }
 
