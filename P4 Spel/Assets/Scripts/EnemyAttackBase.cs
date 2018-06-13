@@ -38,6 +38,11 @@ public class EnemyAttackBase : MonoBehaviour
     private bool canAttack;
     private bool canShoot = true;
 
+    // This is the mortar script made by jelmer and edited by stefan
+    public GameObject shellStart;
+    public GameObject shellImpact;
+    public bool active;
+
     // Use this for initialization
     public void Awake()
     {
@@ -127,10 +132,11 @@ public class EnemyAttackBase : MonoBehaviour
                     gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
                     if (canShoot == true)
                     {
-                        GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
-                        bullet.GetComponent<Bullet>().damage = enemyDamages.HuntingArty;
-                        canShoot = false;
-                        StartCoroutine(CanShooter(shootingSpeed));
+                        if (!active)
+                        {
+                            StartCoroutine(ShootTimer());
+                            active = true;
+                        }
                     }
                 }
             }
@@ -142,6 +148,26 @@ public class EnemyAttackBase : MonoBehaviour
         canAttack = false;
         yield return new WaitForSeconds(0.1f);
         canAttack = true;
+    }
+
+    public IEnumerator ShootTimer()
+    {
+        yield return new WaitForSeconds(shootingSpeed);
+        StartCoroutine(Fire());
+    }
+
+    public IEnumerator Fire()
+    {
+        GameObject g = Instantiate(shellStart, transform.position, transform.rotation);
+        yield return new WaitForSeconds(1);
+        Destroy(g);
+        Impact(Camera.main.transform.position);
+    }
+
+    public void Impact(Vector3 position)
+    {
+        GameObject g = Instantiate(shellImpact, position + Vector3.up * 90, Quaternion.identity);
+        active = false;
     }
 
     public IEnumerator CanShooter(float fireRate)
