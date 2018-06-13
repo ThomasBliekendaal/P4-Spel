@@ -37,7 +37,7 @@ public class Mortar : MonoBehaviour {
 
     public IEnumerator ShootTimer(Transform position, Vector3 otherPos)
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         if(position != null)
         {
             StartCoroutine(Fire(position, otherPos));
@@ -51,7 +51,7 @@ public class Mortar : MonoBehaviour {
     public IEnumerator Fire(Transform target, Vector3 pos)
     {
         GameObject g = Instantiate(shellStart, firePoint.position, firePoint.rotation);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         Destroy(g);
         if(target != null)
         {

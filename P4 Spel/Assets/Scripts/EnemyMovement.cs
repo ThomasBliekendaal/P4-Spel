@@ -38,6 +38,7 @@ public class EnemyMovement : HealthScript
 
     private void Awake()
     {
+        Physics.IgnoreLayerCollision(11, 11);
         player = Camera.main.gameObject;
         splitter = GameObject.FindGameObjectWithTag("Splitter");
         agent = GetComponent<NavMeshAgent>();
@@ -47,6 +48,10 @@ public class EnemyMovement : HealthScript
 
     void Update()
     {
+        if(player == null)
+        {
+            return;
+        }
         agent.speed = speed;
         if (health <= 0)
         {
@@ -106,7 +111,7 @@ public class EnemyMovement : HealthScript
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Physics.IgnoreCollision(collision.collider, gameObject.GetComponent<Collider>());
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
         }
         if (collision.gameObject.tag == "Finish")
         {

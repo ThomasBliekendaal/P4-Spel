@@ -164,9 +164,9 @@ public class EnemyAttackBase : MonoBehaviour
         Impact(Camera.main.transform.position);
     }
 
-    public void Impact(Vector3 position)
+    public void Impact(Vector3 location)
     {
-        GameObject g = Instantiate(shellImpact, position + Vector3.up * 90, Quaternion.identity);
+        Instantiate(shellImpact, (new Vector3(location.x,location.y + 5,location.z)),(gameObject.transform.rotation));
         active = false;
     }
 
