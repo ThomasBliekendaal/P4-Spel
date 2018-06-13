@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Bullet
   - RoadCollider
+  - Splitter
   layers:
   - Default
   - TransparentFX
