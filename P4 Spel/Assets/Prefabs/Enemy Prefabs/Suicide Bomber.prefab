@@ -171,7 +171,7 @@ MonoBehaviour:
     BasicMelee: 10
     BasicRanged: 10
     BasicTank: 10
-    SuicideBomber: 80
+    SuicideBomber: 60
     BuffTank: 10
     HuntingArty: 10
   pS: {fileID: 198854256742340658, guid: 3f49646bd798abb478acd9d6ee039d11, type: 2}
@@ -204,4 +204,4 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1

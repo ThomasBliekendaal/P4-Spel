@@ -19,6 +19,8 @@ public class PlayerScript : HealthScript
     public float weaponSlower;
     private bool jumpCheck;
 
+    public bool godMode;
+
     void Start()
     {
         MovementStart();
@@ -33,10 +35,24 @@ public class PlayerScript : HealthScript
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            GodMode();
+        }
+        if(godMode == true)
+        {
+            health = maxHealth;
+        }
         if (health <= minHealth)
         {
             Destroy(gameObject);
         }
+    }
+
+    public void GodMode()
+    {
+        godMode = !godMode;
+        print(godMode);
     }
 
     public void MovementStart()

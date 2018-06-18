@@ -156,8 +156,8 @@ MonoBehaviour:
   shootingSpeed: 2
   rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
     type: 2}
-  shellStart: {fileID: 1996959934838470, guid: c0ec42eb92ed21d478e496d5c393901f, type: 2}
-  shellImpact: {fileID: 1903589751972586, guid: c28122a34a163374180ed9817ecdc081,
+  shellStart: {fileID: 1996959934838470, guid: 6fc30e54a99074a438615bdbca96c5c4, type: 2}
+  shellImpact: {fileID: 1903589751972586, guid: c5d1bd7e3e9c41349ad8aa3d8e39e790,
     type: 2}
   active: 0
 --- !u!114 &114342353796195098
@@ -205,4 +205,4 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1

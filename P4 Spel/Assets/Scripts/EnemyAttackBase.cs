@@ -112,7 +112,7 @@ public class EnemyAttackBase : MonoBehaviour
 
         if(type == State.SuicideBomber)
         {
-            if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= 3)
+            if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= 1.5f)
             {
                 Destroy(gameObject, 3);
                 Instantiate(pS, transform.position, transform.rotation);
@@ -121,13 +121,13 @@ public class EnemyAttackBase : MonoBehaviour
                 {
                     if (colliders[i].gameObject.tag == "Enemy")
                     {
-                        colliders[i].GetComponent<EnemyMovement>().DoDam(enemyDamages.SuicideBomber/2 * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                        colliders[i].GetComponent<EnemyMovement>().DoDam(enemyDamages.SuicideBomber * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
                     }
                     else
                     {
                         if (colliders[i].gameObject.tag == "Player")
                         {
-                            colliders[i].GetComponent<HealthScript>().DoDam(enemyDamages.SuicideBomber*1.5f * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                            colliders[i].GetComponent<HealthScript>().DoDam(enemyDamages.SuicideBomber * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
                         }
                     }
                 }
@@ -189,7 +189,7 @@ public class EnemyAttackBase : MonoBehaviour
 
     public void Impact(Vector3 location)
     {
-        Instantiate(shellImpact, (new Vector3(location.x,location.y + 5,location.z)),(gameObject.transform.rotation));
+        Instantiate(shellImpact, (new Vector3(location.x,location.y + 70,location.z)),(gameObject.transform.rotation));
         active = false;
     }
 
