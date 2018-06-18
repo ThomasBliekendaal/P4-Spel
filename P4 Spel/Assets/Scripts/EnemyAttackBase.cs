@@ -47,41 +47,48 @@ public class EnemyAttackBase : MonoBehaviour
     public void Awake()
     {
         EnemyMovement em = gameObject.GetComponent<EnemyMovement>();
+        Renderer r = gameObject.GetComponent<Renderer>();
         if (type == State.BasicMelee)
         {
             em.health = enemyHealths.BasicMelee;
             em.speed = enemySpeeds.BasicMelee;
             em.damage = enemyDamages.BasicMelee;
+            r.material.color = Color.blue;
         }
         if (type == State.BasicRanged)
         {
             em.health = enemyHealths.BasicRanged;
             em.speed = enemySpeeds.BasicRanged;
             em.damage = enemyDamages.BasicRanged;
+            r.material.color = Color.red;
         }
         if (type == State.BasicTank)
         {
             em.health = enemyHealths.BasicTank;
             em.speed = enemySpeeds.BasicTank;
             em.damage = enemyDamages.BasicTank;
+            r.material.color = Color.green;
         }
         if (type == State.SuicideBomber)
         {
             em.health = enemyHealths.SuicideBomber;
             em.speed = enemySpeeds.SuicideBomber;
             em.damage = enemyDamages.SuicideBomber;
+            r.material.color = Color.white;
         }
         if (type == State.BuffTank)
         {
             em.health = enemyHealths.BuffTank;
             em.speed = enemySpeeds.BuffTank;
             em.damage = enemyDamages.BuffTank;
+            r.material.color = Color.magenta;
         }
         if (type == State.HuntingArty)
         {
             em.health = enemyHealths.HuntingArty;
             em.speed = enemySpeeds.HuntingArty;
             em.damage = enemyDamages.HuntingArty;
+            r.material.color = Color.black;
         }
     }
 
@@ -100,6 +107,30 @@ public class EnemyAttackBase : MonoBehaviour
             for (int i = 0; i < enemies.Length ; i++)
             {
                 enemies[i].GetComponent<EnemyMovement>().health += enemies[i].GetComponent<EnemyMovement>().maxHealth / 200 * Time.deltaTime;
+            }
+        }
+
+        if(type == State.SuicideBomber)
+        {
+            if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) <= 3)
+            {
+                Destroy(gameObject, 3);
+                Instantiate(pS, transform.position, transform.rotation);
+                Collider[] colliders = Physics.OverlapSphere(transform.position, 10);
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    if (colliders[i].gameObject.tag == "Enemy")
+                    {
+                        colliders[i].GetComponent<EnemyMovement>().DoDam(enemyDamages.SuicideBomber/2 * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                    }
+                    else
+                    {
+                        if (colliders[i].gameObject.tag == "Player")
+                        {
+                            colliders[i].GetComponent<HealthScript>().DoDam(enemyDamages.SuicideBomber*1.5f * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                        }
+                    }
+                }
             }
         }
 
@@ -126,18 +157,10 @@ public class EnemyAttackBase : MonoBehaviour
             {
                 em.aggroRadius = ranges.HuntingArtyRange;
 
-                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) < ranges.HuntingArtyRange)
+                if (!active)
                 {
-                    transform.LookAt(Camera.main.transform.position);
-                    gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
-                    if (canShoot == true)
-                    {
-                        if (!active)
-                        {
-                            StartCoroutine(ShootTimer());
-                            active = true;
-                        }
-                    }
+                    StartCoroutine(ShootTimer());
+                    active = true;
                 }
             }
         }

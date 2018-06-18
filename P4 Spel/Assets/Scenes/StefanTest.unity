@@ -2202,6 +2202,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &140009924
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2917,6 +2919,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &194449383
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4289,6 +4293,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &290278295
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4903,6 +4909,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &334338228
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5445,6 +5453,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &394789164
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8292,6 +8302,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &562288138
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9066,6 +9078,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &616109614
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10914,7 +10928,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &699794041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12567,6 +12581,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &801354622
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12767,7 +12783,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4691406484969260, guid: b2b3299fde3d3754d965bb9dcdcabd00, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 244.39272
+      value: 276.08
       objectReference: {fileID: 0}
     - target: {fileID: 4691406484969260, guid: b2b3299fde3d3754d965bb9dcdcabd00, type: 2}
       propertyPath: m_LocalRotation.x
@@ -12797,6 +12813,10 @@ Prefab:
     - target: {fileID: 1613908537238114, guid: b2b3299fde3d3754d965bb9dcdcabd00, type: 2}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1613908537238114, guid: b2b3299fde3d3754d965bb9dcdcabd00, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2b3299fde3d3754d965bb9dcdcabd00, type: 2}
@@ -13880,6 +13900,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &900114201
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15872,6 +15894,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1041532148
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18047,6 +18071,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1153206911
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18508,6 +18534,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1172017218
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20135,6 +20163,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1307606063
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20263,6 +20293,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1310684221
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -20864,6 +20896,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1349380608
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22577,6 +22611,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1470370613
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22778,6 +22814,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1477419144
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -25057,6 +25095,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1659271032
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26079,6 +26119,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1720257593
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26121,6 +26163,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1726558922
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -28062,6 +28106,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1862284223
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29137,6 +29183,8 @@ MonoBehaviour:
   cam: {fileID: 282840810}
   camDistance: 0
   ui: {fileID: 1450264846}
+  minimap: {fileID: 0}
+  used: {fileID: 0}
 --- !u!64 &1952951229
 MeshCollider:
   m_ObjectHideFlags: 0

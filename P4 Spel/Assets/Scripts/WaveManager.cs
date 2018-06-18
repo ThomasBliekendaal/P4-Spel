@@ -24,8 +24,12 @@ public class WaveManager : MonoBehaviour {
     //debug
     public GameObject[] enemies;
 
-	// Use this for initialization
-	void Start () {
+    //killall
+    private string[] cheatCode;
+    private int index;
+
+    // Use this for initialization
+    void Start () {
         for (int i = 0; i < mA; i++)
         {
             GameObject e = Instantiate(basicMelee, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0,spawnLocations.Length)].transform.position, Random.rotation);
@@ -36,6 +40,8 @@ public class WaveManager : MonoBehaviour {
             GameObject e = Instantiate(basicRanged, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
             e.gameObject.name = "branged" + i;
         }
+        cheatCode = new string[] { "k", "i", "l", "l", "a", "l", "l" };
+        index = 0;
     }
 	
 	// Update is called once per frame
@@ -49,6 +55,34 @@ public class WaveManager : MonoBehaviour {
             NextWave();
         }
 	}
+
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            if (Input.GetKeyDown(cheatCode[index]))
+            {
+                // Add 1 to index to check the next key in the code
+                index++;
+            }
+            // Wrong key entered, we reset code typing
+            else
+            {
+                index = 0;
+            }
+        }
+
+        // If index reaches the length of the cheatCode string, 
+        // the entire code was correctly entered
+        if (index == cheatCode.Length)
+        {
+            for (int i = 0; i < enemies.Length; i++)
+            {
+                Destroy(enemies[i]);
+                index = 0;
+            }
+        }
+    }
 
     public void Arty()
     {
@@ -84,6 +118,10 @@ public class WaveManager : MonoBehaviour {
             GameObject e = Instantiate(basicTank, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
             e.gameObject.name = "btank" + i;
         }
+
+        SpecialEventArty();
+        SpecialEventBomber();
+        SpecialEventBuffTank();
     }
 
     public void SpecialEventArty() // 50%
@@ -94,7 +132,6 @@ public class WaveManager : MonoBehaviour {
             {
                 GameObject e = Instantiate(huntingArty, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
                 e.gameObject.name = "Arty";
-                e.GetComponent<Material>().color = Color.cyan;
                 Arty();
             }
         }
@@ -108,7 +145,6 @@ public class WaveManager : MonoBehaviour {
             {
                 GameObject e = Instantiate(buffTank, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
                 e.gameObject.name = "Buff";
-                e.GetComponent<Material>().color = Color.red;
                 Tank();
             }
         }
@@ -122,7 +158,6 @@ public class WaveManager : MonoBehaviour {
             {
                 GameObject e = Instantiate(suicideBomber, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
                 e.gameObject.name = "Bomber";
-                e.GetComponent<Material>().color = Color.black;
                 Bomber();
             }
         }

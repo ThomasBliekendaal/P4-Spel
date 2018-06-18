@@ -30,7 +30,14 @@ public class MortarShellImpact : MonoBehaviour {
         {
             if (colliders[i].gameObject.tag == "Enemy")
             {
-                colliders[i].GetComponent<HealthScript>().DoDam(damage *  (1/ Vector3.Distance(transform.position, colliders[i].transform.position)));
+                colliders[i].GetComponent<EnemyMovement>().DoDam(damage *  (1/ Vector3.Distance(transform.position, colliders[i].transform.position)));
+            }
+            else
+            {
+                if (colliders[i].gameObject.tag == "Player")
+                {
+                    colliders[i].GetComponent<PlayerScript>().DoDam(damage * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                }
             }
         }
     }
