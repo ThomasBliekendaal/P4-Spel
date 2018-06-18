@@ -12,6 +12,8 @@ public class FinishAssembly : MonoBehaviour
     public Assembler assembler;
     public GripType element;
     public Text infoText;
+    public WeaponSwap swap;
+    public GameObject weaponBeforeThing;
 
     public void Start()
     {
@@ -23,20 +25,14 @@ public class FinishAssembly : MonoBehaviour
 
     public void OnButtonPress()
     {
+        GameObject g = Instantiate(weaponBeforeThing, gun.transform.parent.position, gun.transform.rotation, gun.transform.parent);
         element.element = assembler.chosenGrip.GetComponent<GripType>().element;
-        UI.SetActive(true);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        hand.transform.parent.parent.GetComponent<PlayerScript>().enabled = true;
-        Time.timeScale = 1;
-        hand.parent.gameObject.SetActive(true);
         gun.transform.position = hand.position;
         gun.transform.rotation = hand.rotation;
         gun.transform.localScale = hand.localScale;
         gun.transform.SetParent(hand);
         gun.transform.localScale = new Vector3(1, 1, 1);
         gun.GetComponent<Weapon>().enabled = true;
-        Destroy(transform.parent.gameObject);
         foreach (Transform child in gun.transform)
         {
             if (child.GetComponent<WeaponPartInfo>())
@@ -86,6 +82,24 @@ public class FinishAssembly : MonoBehaviour
                 }
             }
         }
+        swap.AddGun(gun);
+        swap.Switch(0);
+        g.GetComponent<Weapon>().otherPos = gun.GetComponent<Weapon>().otherPos;
+        g.GetComponent<Weapon>().ammoInput = gun.GetComponent<Weapon>().ammoInput;
+        g.GetComponent<Weapon>().ammoVisual = gun.GetComponent<Weapon>().ammoVisual;
+        gun = g;
+        assembler.assamblePoint = gun.transform;
+        assembler.stock = false;
+        assembler.magazine = false;
+        assembler.body = false;
+        assembler.barrel = false;
+        assembler.grip = false;
+        assembler.scope = false;
+        assembler.chosenBody = null;
+        assembler.chosenGrip = null;
+        assembler.check = true;
+        info = gun.GetComponent<WeaponPartInfo>();
+        element = gun.GetComponent<GripType>();
     }
 
     public void OnHoverEnter()

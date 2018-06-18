@@ -16,6 +16,11 @@ public class EquipmentSwitch : MonoBehaviour {
     public GameObject weapon;
     public Image fillBar;
 
+    public void Start()
+    {
+        Switch(0);
+    }
+
     public void Update()
     {
         if (Input.GetButtonDown("Switch"))
@@ -44,7 +49,7 @@ public class EquipmentSwitch : MonoBehaviour {
 
     public void Switch(int i)
     {
-        current++;
+        current += i;
         if(current >= items.Length)
         {
             current = 0;

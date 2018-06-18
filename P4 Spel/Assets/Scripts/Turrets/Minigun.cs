@@ -14,6 +14,8 @@ public class Minigun : MonoBehaviour {
     public float fireRate;
     public bool active;
     public List<Transform> enemy;
+    public LayerMask mask;
+    public RaycastHit hit;
 
     public bool activeFire;
 
@@ -23,12 +25,15 @@ public class Minigun : MonoBehaviour {
         if (active)
         {
             enemy = new List<Transform>();
-            Collider[] colliders = Physics.OverlapSphere(transform.position, range);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, range, mask);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject.tag == "Enemy")
                 {
-                    enemy.Add(colliders[i].transform);
+                    if(Physics.Raycast(transform.position,(colliders[i].transform.position - transform.position).normalized,out hit,range) && hit.transform.gameObject == colliders[i].gameObject)
+                    {
+                        enemy.Add(colliders[i].transform);
+                    }
                 }
             }
 

@@ -14,6 +14,7 @@ public class FrostTower : MonoBehaviour {
 
     public bool active;
     public GameObject particle;
+    public LayerMask mask;
 
     public void Start()
     {
@@ -32,7 +33,7 @@ public class FrostTower : MonoBehaviour {
         if (active)
         {
             enemies = new List<GameObject>();
-            Collider[] colliders = Physics.OverlapSphere(transform.position, range);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, range, mask);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].gameObject.tag == "Enemy")

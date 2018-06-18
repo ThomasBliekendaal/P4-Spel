@@ -11,11 +11,12 @@ public class Mortar : MonoBehaviour {
     public GameObject shellImpact;
     public bool active;
     public float fireRate;
+    public LayerMask mask;
 
     public void Update()
     {
         enemy = new List<Transform>();
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, range, mask);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Enemy")

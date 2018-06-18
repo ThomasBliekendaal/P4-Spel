@@ -20,14 +20,19 @@ public class Weapon : MonoBehaviour
     public Text ammoInput;
     public Image ammoVisual;
     public bool sc;
+    public bool dontCheck;
 
     public void OnEnable()
     {
-        StartCoroutine(StartTimer());
+        if (!dontCheck)
+        {
+            StartCoroutine(StartTimer());
+        }
     }
 
     public void Update()
     {
+        transform.parent.parent.parent.GetComponent<PlayerScript>().weaponSlower = (2 / info.weight);
         ammoInput.text = currentAmmo.ToString() + "/" + info.ammo.ToString();
         transform.localRotation = Quaternion.RotateTowards(transform.localRotation, rot, Time.deltaTime * 40);
         transform.Translate(new Vector3(0, -Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"))*Time.deltaTime * 0.4f);
@@ -91,7 +96,7 @@ public class Weapon : MonoBehaviour
     public IEnumerator StartTimer()
     {
         yield return new WaitForEndOfFrame();
-        transform.parent.parent.parent.GetComponent<PlayerScript>().weaponSlower = (2 / info.weight);
+        dontCheck = true;
         rot = transform.localRotation;
         currentAmmo = info.ammo;
         foreach (Transform child1 in transform)
