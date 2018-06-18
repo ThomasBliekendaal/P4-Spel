@@ -175,7 +175,7 @@ MonoBehaviour:
   impact: {fileID: 1757874832948558, guid: 701eab3fbdbca8c4ab3852ce145d3216, type: 2}
   particle: {fileID: 198953862781893250}
   shell: {fileID: 1720990049952374}
-  damage: 25
+  damage: 17
   impactGround: {fileID: 1569400594063378, guid: 5e0d64a8fd54cfb48b7c7101b93f69c9,
     type: 2}
 --- !u!136 &136033044290319592

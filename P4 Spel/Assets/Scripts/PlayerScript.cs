@@ -115,7 +115,11 @@ public class PlayerScript : HealthScript
         }
         if (collision.gameObject.tag == "Enemy")
         {
-            DoDam(collision.gameObject.GetComponent<EnemyMovement>().damage);
+            EnemyAttackBase eAb = collision.gameObject.GetComponent<EnemyAttackBase>();
+            if (eAb.attackType == EnemyAttackBase.State2.Melee)
+            {
+                DoDam(collision.gameObject.GetComponent<EnemyMovement>().damage);
+            }
         }
     }
 }
