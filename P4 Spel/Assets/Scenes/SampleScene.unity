@@ -7846,7 +7846,7 @@ GameObject:
   - component: {fileID: 523387481}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Ally
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7943,6 +7943,7 @@ MonoBehaviour:
   fallMultiplier: 2.5
   lowJumpMultiplier: 1.25
   weaponSlower: 0
+  godMode: 0
 --- !u!136 &523387484
 CapsuleCollider:
   m_ObjectHideFlags: 0
