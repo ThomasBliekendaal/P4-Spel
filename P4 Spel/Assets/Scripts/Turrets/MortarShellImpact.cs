@@ -23,9 +23,17 @@ public class MortarShellImpact : MonoBehaviour {
         Destroy(g, 7);
         shell.SetActive(false);
         Destroy(gameObject, 3);
+        if(collision.gameObject.tag == "Enemy")
+        {
+            GameObject g2 = Instantiate(impactGround, transform.position + new Vector3(0,-collision.transform.localScale.y,0) + Vector3.up * 0.2f, Quaternion.identity);
+            Destroy(g2, 3);
+        }
+        else
+        {
+            GameObject g2 = Instantiate(impactGround, transform.position + Vector3.up * 0.2f, Quaternion.identity);
+            Destroy(g2, 3);
+        }
         Collider[] colliders = Physics.OverlapSphere(transform.position, 7);
-        GameObject g2 = Instantiate(impactGround, transform.position + Vector3.up * 0.2f, Quaternion.identity);
-        Destroy(g2, 3);
         for (int i = 0; i < colliders.Length; i++)
         {
             if (colliders[i].gameObject.tag == "Enemy")

@@ -263,3 +263,4 @@ MonoBehaviour:
   shellImpact: {fileID: 1903589751972586, guid: c28122a34a163374180ed9817ecdc081,
     type: 2}
   active: 0
+  fireRate: 2

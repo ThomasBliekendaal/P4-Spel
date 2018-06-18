@@ -44,7 +44,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1563459795177640
 GameObject:
   m_ObjectHideFlags: 0
@@ -53,6 +53,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4878787539030206}
+  - component: {fileID: 114024521659005198}
   m_Layer: 0
   m_Name: Frost_Tower
   m_TagString: Untagged
@@ -62,7 +63,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1843346250017406
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
@@ -104,7 +105,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.705, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4926463171712928}
   m_Father: {fileID: 4878787539030206}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -128,13 +130,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1563459795177640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 235.75, y: 25.86, z: 273.72}
+  m_LocalPosition: {x: 242.56001, y: 25.213886, z: 247.5545}
   m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 4471762047475060}
   - {fileID: 4935019049869244}
   - {fileID: 4075425269235244}
-  - {fileID: 4926463171712928}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -144,12 +145,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1843346250017406}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.98, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.2750006, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4878787539030206}
-  m_RootOrder: 3
+  m_Father: {fileID: 4075425269235244}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!4 &4935019049869244
 Transform:
@@ -248,6 +249,24 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1990212394253738}
   m_Mesh: {fileID: 4300000, guid: 7d14a3eb163c33946a19f1792416a568, type: 3}
+--- !u!114 &114024521659005198
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1563459795177640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d32daf923d75840a99eeaf72387479, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 10
+  slowTime: 10
+  slowStrenght: 2
+  enemies: []
+  slowed: []
+  active: 0
+  particle: {fileID: 1442775167827814}
 --- !u!114 &114310744810029534
 MonoBehaviour:
   m_ObjectHideFlags: 1

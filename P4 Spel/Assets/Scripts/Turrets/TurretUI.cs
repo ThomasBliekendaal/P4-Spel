@@ -28,7 +28,6 @@ public class TurretUI : MonoBehaviour {
 
     public void CloseUi()
     {
-        Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         gameObject.SetActive(false);

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WallDeploy : MonoBehaviour
 {
-
     public GameObject wall;
     public GameObject smoke;
     public bool falling;
@@ -21,7 +20,7 @@ public class WallDeploy : MonoBehaviour
         {
             distance = Vector3.Distance(transform.position, currentWall.position);
             currentWall.Translate(new Vector3(0, -40, 0) * Time.deltaTime);
-            if (distance <= 0.5)
+            if (distance <= 0.5f)
             {
                 falling = false;
                 GameObject g = Instantiate(smoke, transform.position, transform.rotation);
@@ -34,7 +33,7 @@ public class WallDeploy : MonoBehaviour
 
     public IEnumerator Counter()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(2);
         transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
         GameObject g = Instantiate(wall, transform.position + Vector3.up * 60, transform.rotation);
         currentWall = g.transform;

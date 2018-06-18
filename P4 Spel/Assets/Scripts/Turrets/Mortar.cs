@@ -10,6 +10,7 @@ public class Mortar : MonoBehaviour {
     public GameObject shellStart;
     public GameObject shellImpact;
     public bool active;
+    public float fireRate;
 
     public void Update()
     {
@@ -37,7 +38,7 @@ public class Mortar : MonoBehaviour {
 
     public IEnumerator ShootTimer(Transform position, Vector3 otherPos)
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(fireRate);
         if(position != null)
         {
             StartCoroutine(Fire(position, otherPos));
@@ -51,6 +52,7 @@ public class Mortar : MonoBehaviour {
     public IEnumerator Fire(Transform target, Vector3 pos)
     {
         GameObject g = Instantiate(shellStart, firePoint.position, firePoint.rotation);
+        active = false;
         yield return new WaitForSeconds(5);
         Destroy(g);
         if(target != null)
@@ -66,6 +68,5 @@ public class Mortar : MonoBehaviour {
     public void Impact(Vector3 position)
     {
         GameObject g = Instantiate(shellImpact, position + Vector3.up * 90, Quaternion.identity);
-        active = false;
     }
 }

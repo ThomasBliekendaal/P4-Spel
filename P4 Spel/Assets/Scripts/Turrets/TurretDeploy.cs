@@ -27,7 +27,6 @@ public class TurretDeploy : MonoBehaviour {
             {
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.None;
-                Time.timeScale = 0;
                 ui.SetActive(true);
                 ui.GetComponent<TurretUI>().location = gameObject;
             }
