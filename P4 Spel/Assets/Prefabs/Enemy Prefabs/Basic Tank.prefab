@@ -131,7 +131,7 @@ MonoBehaviour:
   enemySpeeds:
     BasicMelee: 4
     BasicRanged: 4
-    BasicTank: 4
+    BasicTank: 3
     SuicideBomber: 4
     BuffTank: 4
     HuntingArty: 4

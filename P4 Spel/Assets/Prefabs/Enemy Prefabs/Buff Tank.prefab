@@ -133,7 +133,7 @@ MonoBehaviour:
     BasicRanged: 4
     BasicTank: 4
     SuicideBomber: 4
-    BuffTank: 4
+    BuffTank: 3
     HuntingArty: 4
   enemyHealths:
     BasicMelee: 50

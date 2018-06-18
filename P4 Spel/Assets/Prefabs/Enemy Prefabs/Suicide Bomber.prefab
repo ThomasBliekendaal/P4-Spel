@@ -154,12 +154,12 @@ MonoBehaviour:
   type: 3
   attackType: 2
   enemySpeeds:
-    BasicMelee: 4
+    BasicMelee: 4.5
     BasicRanged: 4
-    BasicTank: 4
-    SuicideBomber: 4
-    BuffTank: 4
-    HuntingArty: 4
+    BasicTank: 3
+    SuicideBomber: 7
+    BuffTank: 3
+    HuntingArty: 2
   enemyHealths:
     BasicMelee: 50
     BasicRanged: 50
@@ -171,7 +171,7 @@ MonoBehaviour:
     BasicMelee: 10
     BasicRanged: 10
     BasicTank: 10
-    SuicideBomber: 10
+    SuicideBomber: 80
     BuffTank: 10
     HuntingArty: 10
   pS: {fileID: 198854256742340658, guid: 3f49646bd798abb478acd9d6ee039d11, type: 2}

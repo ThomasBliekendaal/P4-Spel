@@ -129,7 +129,7 @@ MonoBehaviour:
   type: 0
   attackType: 1
   enemySpeeds:
-    BasicMelee: 4
+    BasicMelee: 4.5
     BasicRanged: 4
     BasicTank: 4
     SuicideBomber: 4

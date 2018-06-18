@@ -134,7 +134,7 @@ MonoBehaviour:
     BasicTank: 4
     SuicideBomber: 4
     BuffTank: 4
-    HuntingArty: 4
+    HuntingArty: 2
   enemyHealths:
     BasicMelee: 50
     BasicRanged: 50
@@ -148,7 +148,7 @@ MonoBehaviour:
     BasicTank: 10
     SuicideBomber: 10
     BuffTank: 10
-    HuntingArty: 10
+    HuntingArty: 40
   pS: {fileID: 0}
   ranges:
     BasicRangedRange: 1000
