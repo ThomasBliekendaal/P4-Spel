@@ -265,4 +265,7 @@ MonoBehaviour:
   fireRate: 15
   active: 1
   enemy: []
+  mask:
+    serializedVersion: 2
+    m_Bits: 2048
   activeFire: 0

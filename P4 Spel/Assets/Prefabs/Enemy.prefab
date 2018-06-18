@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4903247376023130}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shooter
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 195170233808557724}
   - component: {fileID: 114574984666493688}
   - component: {fileID: 114583185471661720}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -157,19 +157,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   maxHealth: 100
+  minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
   damage: 10
-  chest: {fileID: 0}
   splitter: {fileID: 0}
-  roads:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   player: {fileID: 0}
   aggroTime: 4
   aggroRadius: 10
   aggroCooldown: 4
+  agent: {fileID: 0}
+  currentObjective: {x: 0, y: 0, z: 0}
+  isAggro: 0
 --- !u!114 &114583185471661720
 MonoBehaviour:
   m_ObjectHideFlags: 1

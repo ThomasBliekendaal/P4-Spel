@@ -264,3 +264,6 @@ MonoBehaviour:
     type: 2}
   active: 0
   fireRate: 2
+  mask:
+    serializedVersion: 2
+    m_Bits: 2048

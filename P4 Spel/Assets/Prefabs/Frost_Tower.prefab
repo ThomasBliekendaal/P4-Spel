@@ -267,6 +267,9 @@ MonoBehaviour:
   slowed: []
   active: 0
   particle: {fileID: 1442775167827814}
+  mask:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!114 &114310744810029534
 MonoBehaviour:
   m_ObjectHideFlags: 1
