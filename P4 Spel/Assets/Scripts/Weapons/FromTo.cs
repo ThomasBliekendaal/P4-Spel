@@ -10,6 +10,9 @@ public class FromTo : MonoBehaviour {
     public void OnButtonPress()
     {
         from.SetActive(false);
-        to.SetActive(true);
+        if (to)
+        {
+            to.SetActive(true);
+        }
     }
 }
