@@ -222,7 +222,7 @@ MonoBehaviour:
   swapSpeed: 0
   ammo: 0
   type: 0
-  ammoType: {fileID: 0}
+  ammoType: {fileID: 11400000, guid: 708d1698b7d08124797cfe9f9689ce35, type: 2}
   info: A sniper Body
 --- !u!114 &114442599306600512
 MonoBehaviour:

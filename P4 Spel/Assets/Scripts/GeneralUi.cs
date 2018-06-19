@@ -39,15 +39,27 @@ public class GeneralUi : MonoBehaviour {
             Time.timeScale = 0;
             playerUi.GetComponent<PlayerScript>().openMenu = true;
             playerUi.GetComponent<EquipmentSwitch>().openMenuEquip = true;
-            playerWep.GetComponent<Weapon>().openMenuWeap = true;
+            foreach (Transform child in playerWep.transform)
+            {
+                if (child.GetComponent<Weapon>())
+                {
+                    child.GetComponent<Weapon>().openMenuWeap = true;
+                }
+            }
             Cursor.lockState = CursorLockMode.None;
         }
         else
         {
+            foreach (Transform child in playerWep.transform)
+            {
+                if (child.GetComponent<Weapon>())
+                {
+                    child.GetComponent<Weapon>().openMenuWeap = false;
+                }
+            }
             Time.timeScale = 1;
             playerUi.GetComponent<PlayerScript>().openMenu = false;
             playerUi.GetComponent<EquipmentSwitch>().openMenuEquip = false;
-            playerWep.GetComponent<Weapon>().openMenuWeap = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
     }
@@ -57,7 +69,13 @@ public class GeneralUi : MonoBehaviour {
         Time.timeScale = 1;
         playerUi.GetComponent<PlayerScript>().openMenu = false;
         playerUi.GetComponent<EquipmentSwitch>().openMenuEquip = false;
-        playerWep.GetComponent<Weapon>().openMenuWeap = false;
+        foreach (Transform child in playerWep.transform)
+        {
+            if (child.GetComponent<Weapon>())
+            {
+                child.GetComponent<Weapon>().openMenuWeap = false;
+            }
+        }
         Cursor.lockState = CursorLockMode.Locked;
     }
 }
