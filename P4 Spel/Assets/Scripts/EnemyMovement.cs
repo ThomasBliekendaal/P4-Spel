@@ -27,6 +27,8 @@ public class EnemyMovement : HealthScript
     public Vector3 currentObjective; //current objective is saved because enemies temp. chang to players.
     public bool isAggro = false; //This is true when the enemie is aggresive.
     private bool canAggro = true; //This is false during the cooldown.
+    private bool dying;
+    private Color col;
 
     void Start()
     {
@@ -59,8 +61,16 @@ public class EnemyMovement : HealthScript
         agent.speed = speed;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            col = gameObject.GetComponent<Renderer>().material.color;
+            dying = true;
+            Destroy(gameObject,0.5f);
             return;
+        }
+
+        if (dying == true)
+        {
+            Renderer ren = gameObject.GetComponent<Renderer>();
+            ren.material.color = new Color(col.r, col.g, col.b, col.a - 0.1f*Time.deltaTime);
         }
 
         if(gameObject.transform.position.y < 1)

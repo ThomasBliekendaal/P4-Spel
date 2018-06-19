@@ -21,6 +21,9 @@ public class Dissulf : MonoBehaviour {
     public float startingY;
     private float firstStartingY;
 
+    private ParticleSystem p;
+    public bool canCrash;
+
     // Use this for initialization
     void Start () {
         gameObject.GetComponent<Renderer>().material = mainMaterial;
