@@ -28,7 +28,8 @@ public class EnemyMovement : HealthScript
     public bool isAggro = false; //This is true when the enemie is aggresive.
     private bool canAggro = true; //This is false during the cooldown.
     private bool dying;
-    private Color col;
+
+    public ParticleSystem dyingAnimation;
 
     void Start()
     {
@@ -61,16 +62,20 @@ public class EnemyMovement : HealthScript
         agent.speed = speed;
         if (health <= 0)
         {
-            col = gameObject.GetComponent<Renderer>().material.color;
             dying = true;
-            Destroy(gameObject,0.5f);
-            return;
+            Destroy(gameObject,0.7f);
         }
 
         if (dying == true)
         {
-            Renderer ren = gameObject.GetComponent<Renderer>();
-            ren.material.color = new Color(col.r, col.g, col.b, col.a - 0.1f*Time.deltaTime);
+            transform.Translate(0, -1f * Time.deltaTime, 0);
+            gameObject.GetComponent<Collider>().enabled = false;
+            gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            if (dyingAnimation)
+            {
+                dyingAnimation.Play();
+            }
+            return;
         }
 
         if(gameObject.transform.position.y < 1)

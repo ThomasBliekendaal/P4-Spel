@@ -24,18 +24,14 @@ public class WaveManager : MonoBehaviour {
     public int rA = 3;
     public int tA;
 
+    public GameObject[] portalRotatorz;
+
     //debug
     public GameObject[] enemies;
 
-    //killall
-    private string[] cheatCode;
-    private int index;
-
     // Use this for initialization
     void Start () {
-        NextWave();
-        cheatCode = new string[] { "k", "a" };
-        index = 0;
+        StartCoroutine(NextWave());
     }
 	
 	// Update is called once per frame
@@ -57,30 +53,22 @@ public class WaveManager : MonoBehaviour {
     public IEnumerator TillNextWave(float timeToNextWave)
     {
         yield return new WaitForSeconds(timeToNextWave);
-        NextWave();
+        StartCoroutine(NextWave());
         timerStarted = false;
     }
 
     private void Update()
     {
-        if (Input.anyKeyDown)
-        {
-            if (Input.GetKeyDown(cheatCode[index]))
-            {
-                index++;
-            }
-            else
-            {
-                index = 0;
-            }
-        }
-        if (index == cheatCode.Length)
+        if (Input.GetKeyDown(KeyCode.K))
         {
             for (int i = 0; i < enemies.Length; i++)
             {
                 Destroy(enemies[i]);
-                index = 0;
             }
+        }
+        for (int i = 0; i < portalRotatorz.Length; i++)
+        {
+            portalRotatorz[i].transform.Rotate(0, 50 * Time.deltaTime, 0);
         }
     }
 
@@ -99,7 +87,7 @@ public class WaveManager : MonoBehaviour {
         print("A tank has spawned!");
     }
 
-    public void NextWave()
+    public IEnumerator NextWave()
     {
         wave++;
         print("WAVE" + wave);
@@ -107,16 +95,19 @@ public class WaveManager : MonoBehaviour {
         {
             GameObject e = Instantiate(basicMelee, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
             e.gameObject.name = "bmelee" + i;
+            yield return new WaitForSeconds(1.1f);
         }
         for (int i = 0; i < rA; i++)
         {
             GameObject e = Instantiate(basicRanged, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
             e.gameObject.name = "branged" + i;
+            yield return new WaitForSeconds(1.1f);
         }
         for (int i = 0; i < tA; i++)
         {
             GameObject e = Instantiate(basicTank, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
             e.gameObject.name = "btank" + i;
+            yield return new WaitForSeconds(1.1f);
         }
 
         SpecialEventArty();
