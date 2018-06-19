@@ -8,5 +8,4 @@ public class AmmoType : ScriptableObject
     public enum Type { kinetic, explosive, piercing }
     public Type ammoType;
     public GameObject projectile;
-
 }

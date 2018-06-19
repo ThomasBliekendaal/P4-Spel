@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   element: 1
+  elementSprite: {fileID: 21300000, guid: 3b35c695e06058348b359d3184a370e7, type: 3}
 --- !u!114 &114844008111132194
 MonoBehaviour:
   m_ObjectHideFlags: 1

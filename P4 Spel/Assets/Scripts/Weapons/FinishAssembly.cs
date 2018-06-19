@@ -27,6 +27,7 @@ public class FinishAssembly : MonoBehaviour
     {
         GameObject g = Instantiate(weaponBeforeThing, gun.transform.parent.position, gun.transform.rotation, gun.transform.parent);
         element.element = assembler.chosenGrip.GetComponent<GripType>().element;
+        element.elementSprite = assembler.chosenGrip.GetComponent<GripType>().elementSprite;
         gun.transform.position = hand.position;
         gun.transform.rotation = hand.rotation;
         gun.transform.localScale = hand.localScale;

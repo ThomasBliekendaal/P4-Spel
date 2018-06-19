@@ -13,7 +13,7 @@ public class EquipmentSwitch : MonoBehaviour {
     public Text nameInput;
     public Image[] lamps;
     public EquipmentInfo[] items;
-    public GameObject weapon;
+    public GameObject hand;
     public Image fillBar;
     public bool openMenuEquip;
 
@@ -36,7 +36,13 @@ public class EquipmentSwitch : MonoBehaviour {
                 g.GetComponent<Rigidbody>().velocity += transform.forward * 8;
                 if (g.GetComponent<GunDeploy>())
                 {
-                    g.GetComponent<GunDeploy>().weapon = weapon;
+                    foreach(Transform child in hand.transform)
+                    {
+                        if (child.GetComponent<Weapon>())
+                        {
+                            g.GetComponent<GunDeploy>().weapon = child.gameObject;
+                        }
+                    }
                     Destroy(g, 30);
                 }
                 Destroy(g.GetComponent<Rigidbody>(), 2);

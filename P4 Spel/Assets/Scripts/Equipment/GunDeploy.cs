@@ -72,7 +72,7 @@ public class GunDeploy : MonoBehaviour
     public IEnumerator Fire()
     {
         r = new Vector3(Random.Range(5 / -info.accuracy, 5 / info.accuracy), Random.Range(2 / -info.accuracy, 2 / info.accuracy), Random.Range(2 / -info.accuracy, 2 / info.accuracy));
-        activeWeapon.transform.Translate(0, 1 / info.stability, 0);
+        activeWeapon.transform.Translate(-1 / info.stability, 0, 0);
         GameObject g = Instantiate(info.ammoType.projectile, rotationPoint.transform.position, rotationPoint.transform.rotation);
         g.transform.Rotate(r);
         g.GetComponent<FriendlyBullet>().type = activeWeapon.GetComponent<GripType>().element;

@@ -165,7 +165,7 @@ public class Weapon : MonoBehaviour
     {
         ammoVisual.fillAmount = 0;
         StartCoroutine(ReloadVisual());
-        yield return new WaitForSeconds(5/info.reloadSpeed);
+        yield return new WaitForSeconds(info.reloadSpeed);
         currentAmmo = info.ammo;
         activeReload = false;
         StopCoroutine(ReloadVisual());
@@ -175,7 +175,7 @@ public class Weapon : MonoBehaviour
     public IEnumerator ReloadVisual()
     {
         yield return new WaitForSeconds(0.01f);
-        ammoVisual.fillAmount += 1 / (5 / info.reloadSpeed) / 50;
+        ammoVisual.fillAmount += (0.01f/(info.reloadSpeed - info.reloadSpeed/2.5f));
         if (activeReload)
         {
             StartCoroutine(ReloadVisual());
