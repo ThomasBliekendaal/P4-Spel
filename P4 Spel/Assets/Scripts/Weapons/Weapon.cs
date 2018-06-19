@@ -21,6 +21,7 @@ public class Weapon : MonoBehaviour
     public Image ammoVisual;
     public bool sc;
     public bool dontCheck;
+    public bool openMenuWeap;
 
     public void OnEnable()
     {
@@ -32,62 +33,65 @@ public class Weapon : MonoBehaviour
 
     public void Update()
     {
-        transform.parent.parent.parent.GetComponent<PlayerScript>().weaponSlower = (2 / info.weight);
-        ammoInput.text = currentAmmo.ToString() + "/" + info.ammo.ToString();
-        transform.localRotation = Quaternion.RotateTowards(transform.localRotation, rot, Time.deltaTime * 40);
-        transform.Translate(new Vector3(0, -Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"))*Time.deltaTime * 0.4f);
-        if (Input.GetButtonDown("Reload") && currentAmmo != info.ammo)
+        if (!openMenuWeap)
         {
-            activeReload = true;
-            StartCoroutine(Reload());
-        }
-        if(Input.GetButtonDown("Fire2") || Input.GetButtonUp("Fire2"))
-        {
-            sc = true;
-        }
-        if (Input.GetButton("Fire2") && !activeReload)
-        {
-            if(sc)
+            transform.parent.parent.parent.GetComponent<PlayerScript>().weaponSlower = (2 / info.weight);
+            ammoInput.text = currentAmmo.ToString() + "/" + info.ammo.ToString();
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, rot, Time.deltaTime * 40);
+            transform.Translate(new Vector3(0, -Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y")) * Time.deltaTime * 0.4f);
+            if (Input.GetButtonDown("Reload") && currentAmmo != info.ammo)
             {
-                if(transform.position == otherPos.position)
+                activeReload = true;
+                StartCoroutine(Reload());
+            }
+            if (Input.GetButtonDown("Fire2") || Input.GetButtonUp("Fire2"))
+            {
+                sc = true;
+            }
+            if (Input.GetButton("Fire2") && !activeReload)
+            {
+                if (sc)
                 {
-                    sc = false;
+                    if (transform.position == otherPos.position)
+                    {
+                        sc = false;
+                    }
+                    transform.position = Vector3.MoveTowards(transform.position, otherPos.position, Time.deltaTime * 2);
                 }
-                transform.position = Vector3.MoveTowards(transform.position, otherPos.position, Time.deltaTime * 2);
+                else
+                {
+                    transform.position = Vector3.MoveTowards(transform.position, otherPos.position, Time.deltaTime);
+                }
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position, otherPos.position, Time.deltaTime);
-            }
-        }
-        else
-        {
-            if (sc)
-            {
-                if (transform.position == transform.parent.position)
+                if (sc)
                 {
-                    sc = false;
+                    if (transform.position == transform.parent.position)
+                    {
+                        sc = false;
+                    }
+                    transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, Time.deltaTime * 2);
                 }
-                transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, Time.deltaTime * 2);
-            }
-            else
-            {
-                transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, Time.deltaTime);
-            } 
-        }
-        if (Input.GetButton("Fire1"))
-        {
-            if (active == false)
-            {
-                if(currentAmmo > 0 && !activeReload)
+                else
                 {
-                    active = true;
-                    StartCoroutine(Fire2());
+                    transform.position = Vector3.MoveTowards(transform.position, transform.parent.position, Time.deltaTime);
                 }
-                else if (!activeReload)
+            }
+            if (Input.GetButton("Fire1"))
+            {
+                if (active == false)
                 {
-                    activeReload = true;
-                    StartCoroutine(Reload());
+                    if (currentAmmo > 0 && !activeReload)
+                    {
+                        active = true;
+                        StartCoroutine(Fire2());
+                    }
+                    else if (!activeReload)
+                    {
+                        activeReload = true;
+                        StartCoroutine(Reload());
+                    }
                 }
             }
         }

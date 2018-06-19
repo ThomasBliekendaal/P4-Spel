@@ -18,6 +18,7 @@ public class PlayerScript : HealthScript
     public float lowJumpMultiplier = 2f;
     public float weaponSlower;
     private bool jumpCheck;
+    public bool openMenu;
 
     public bool godMode;
 
@@ -29,8 +30,11 @@ public class PlayerScript : HealthScript
 
     void FixedUpdate()
     {
-        Movement();
-        Health();
+        if (!openMenu)
+        {
+            Movement();
+            Health();
+        }
     }
 
     private void Update()

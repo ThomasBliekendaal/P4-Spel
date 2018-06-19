@@ -15,6 +15,7 @@ public class EquipmentSwitch : MonoBehaviour {
     public EquipmentInfo[] items;
     public GameObject weapon;
     public Image fillBar;
+    public bool openMenuEquip;
 
     public void Start()
     {
@@ -23,27 +24,30 @@ public class EquipmentSwitch : MonoBehaviour {
 
     public void Update()
     {
-        if (Input.GetButtonDown("Switch"))
+        if (!openMenuEquip)
         {
-            Switch(1);
-        }
-        if (Input.GetButtonDown("Use") && items[current].allow)
-        {
-            GameObject g = Instantiate(items[current].item, transform.position, transform.rotation);
-            g.GetComponent<Rigidbody>().velocity += transform.forward * 8;
-            if (g.GetComponent<GunDeploy>())
+            if (Input.GetButtonDown("Switch"))
             {
-                g.GetComponent<GunDeploy>().weapon = weapon;
-                Destroy(g, 30);
+                Switch(1);
             }
-            Destroy(g.GetComponent<Rigidbody>(), 2);
-            StartCoroutine(TriggerTimer(g.GetComponent<Collider>()));
-            StartCoroutine(EquipableCooldown(current));
-        }
-        if(items[current].currentFill != items[current].cooldown)
-        {
-            float f = (1 / items[current].cooldown * items[current].currentFill);
-            fillBar.fillAmount = f;
+            if (Input.GetButtonDown("Use") && items[current].allow)
+            {
+                GameObject g = Instantiate(items[current].item, transform.position, transform.rotation);
+                g.GetComponent<Rigidbody>().velocity += transform.forward * 8;
+                if (g.GetComponent<GunDeploy>())
+                {
+                    g.GetComponent<GunDeploy>().weapon = weapon;
+                    Destroy(g, 30);
+                }
+                Destroy(g.GetComponent<Rigidbody>(), 2);
+                StartCoroutine(TriggerTimer(g.GetComponent<Collider>()));
+                StartCoroutine(EquipableCooldown(current));
+            }
+            if (items[current].currentFill != items[current].cooldown)
+            {
+                float f = (1 / items[current].cooldown * items[current].currentFill);
+                fillBar.fillAmount = f;
+            }
         }
     }
 
