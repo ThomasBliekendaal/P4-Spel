@@ -133,34 +133,36 @@ public class EnemyAttackBase : MonoBehaviour
                 }
             }
         }
-
-        if (attackType == State2.Ranged)
+        if (Camera.main)
         {
-            if (type == State.BasicRanged)
+            if (attackType == State2.Ranged)
             {
-                em.aggroRadius = ranges.BasicRangedRange;
-                if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) < ranges.BasicRangedRange)
+                if (type == State.BasicRanged)
                 {
-                    transform.LookAt(Camera.main.transform.position);
-                    gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
-                    if (canShoot == true)
+                    em.aggroRadius = ranges.BasicRangedRange;
+                    if (Vector3.Distance(gameObject.transform.position, Camera.main.transform.position) < ranges.BasicRangedRange)
                     {
-                        GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
-                        bullet.GetComponent<Bullet>().damage = enemyDamages.BasicRanged;
-                        canShoot = false;
-                        StartCoroutine(CanShooter(shootingSpeed));
+                        transform.LookAt(Camera.main.transform.position);
+                        gameObject.transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+                        if (canShoot == true)
+                        {
+                            GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
+                            bullet.GetComponent<Bullet>().damage = enemyDamages.BasicRanged;
+                            canShoot = false;
+                            StartCoroutine(CanShooter(shootingSpeed));
+                        }
+
                     }
-
                 }
-            }
-            if (type == State.HuntingArty)
-            {
-                em.aggroRadius = ranges.HuntingArtyRange;
-
-                if (!active)
+                if (type == State.HuntingArty)
                 {
-                    StartCoroutine(ShootTimer());
-                    active = true;
+                    em.aggroRadius = ranges.HuntingArtyRange;
+
+                    if (!active)
+                    {
+                        StartCoroutine(ShootTimer());
+                        active = true;
+                    }
                 }
             }
         }

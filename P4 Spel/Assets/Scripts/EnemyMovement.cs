@@ -38,6 +38,10 @@ public class EnemyMovement : HealthScript
 
     private void Awake()
     {
+        if (!Camera.main)
+        {
+            return;
+        }
         Physics.IgnoreLayerCollision(11, 11);
         player = Camera.main.gameObject;
         splitter = GameObject.FindGameObjectWithTag("Splitter");
@@ -57,6 +61,11 @@ public class EnemyMovement : HealthScript
         {
             Destroy(gameObject);
             return;
+        }
+
+        if(gameObject.transform.position.y < 1)
+        {
+            Destroy(gameObject);
         }
 
         if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)

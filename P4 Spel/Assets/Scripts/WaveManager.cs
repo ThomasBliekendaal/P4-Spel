@@ -14,11 +14,14 @@ public class WaveManager : MonoBehaviour {
     public GameObject buffTank;
     public GameObject huntingArty;
 
+    public float timeBetweenWaves = 5;
+    public bool timerStarted;
+
     public GameObject[] spawnLocations;
     public float radius = 3;
 
-    public int mA = 7;
-    public int rA = 5;
+    public int mA = 1;
+    public int rA = 3;
     public int tA;
 
     //debug
@@ -30,31 +33,33 @@ public class WaveManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        for (int i = 0; i < mA; i++)
-        {
-            GameObject e = Instantiate(basicMelee, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0,spawnLocations.Length)].transform.position, Random.rotation);
-            e.gameObject.name = "bmelee" + i;
-        }
-        for (int i = 0; i < rA; i++)
-        {
-            GameObject e = Instantiate(basicRanged, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
-            e.gameObject.name = "branged" + i;
-        }
-        cheatCode = new string[] { "k", "i", "l", "l", "a", "l", "l" };
+        NextWave();
+        cheatCode = new string[] { "k", "a" };
         index = 0;
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length == 0)
+        if (enemies.Length < 1)
         {
-            mA += 3;
-            rA += 2;
-            tA += 1;
-            NextWave();
+            if (timerStarted == false)
+            {
+                timerStarted = true;
+                StartCoroutine(TillNextWave(timeBetweenWaves));
+                mA += 3;
+                rA += 2;
+                tA += 1;
+            }
         }
 	}
+
+    public IEnumerator TillNextWave(float timeToNextWave)
+    {
+        yield return new WaitForSeconds(timeToNextWave);
+        NextWave();
+        timerStarted = false;
+    }
 
     private void Update()
     {
@@ -62,18 +67,13 @@ public class WaveManager : MonoBehaviour {
         {
             if (Input.GetKeyDown(cheatCode[index]))
             {
-                // Add 1 to index to check the next key in the code
                 index++;
             }
-            // Wrong key entered, we reset code typing
             else
             {
                 index = 0;
             }
         }
-
-        // If index reaches the length of the cheatCode string, 
-        // the entire code was correctly entered
         if (index == cheatCode.Length)
         {
             for (int i = 0; i < enemies.Length; i++)

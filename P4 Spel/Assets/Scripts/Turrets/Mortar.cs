@@ -68,6 +68,6 @@ public class Mortar : MonoBehaviour {
 
     public void Impact(Vector3 position)
     {
-        GameObject g = Instantiate(shellImpact, position + Vector3.up * 90, Quaternion.identity);
+        Instantiate(shellImpact, position + Vector3.up * 90, Quaternion.identity);
     }
 }

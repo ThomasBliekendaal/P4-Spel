@@ -18,33 +18,36 @@ public class TurretDeploy : MonoBehaviour {
 
 
     void Update () {
-        camDistance = Vector3.Distance(transform.position, cam.transform.parent.position);
-        if(camDistance <= 5 && !activeTurret)
+        if (cam)
         {
-            rotation.gameObject.SetActive(true);
-            rotation.LookAt(cam.transform);
-            if (Input.GetButtonDown("Interact"))
+            camDistance = Vector3.Distance(transform.position, cam.transform.parent.position);
+            if (camDistance <= 5 && !activeTurret)
             {
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
-                ui.SetActive(true);
-                ui.GetComponent<TurretUI>().location = gameObject;
+                rotation.gameObject.SetActive(true);
+                rotation.LookAt(cam.transform);
+                if (Input.GetButtonDown("Interact"))
+                {
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                    ui.SetActive(true);
+                    ui.GetComponent<TurretUI>().location = gameObject;
+                }
             }
-        }
-        else if(!activeTurret)
-        {
-            rotation.gameObject.SetActive(false);
-        }
-        if (falling)
-        {
-            distance = Vector3.Distance(transform.position + (Vector3.up * 0.9f), activeTurret.transform.position);
-            activeTurret.transform.Translate(-Vector3.up * 20 * Time.deltaTime);
-            if(distance <= 0.5f)
+            else if (!activeTurret)
             {
-                GameObject g = Instantiate(impact, transform.position + (Vector3.up * 0.9f), Quaternion.identity);
+                rotation.gameObject.SetActive(false);
+            }
+            if (falling)
+            {
+                distance = Vector3.Distance(transform.position + (Vector3.up * 0.9f), activeTurret.transform.position);
+                activeTurret.transform.Translate(-Vector3.up * 20 * Time.deltaTime);
+                if (distance <= 0.5f)
+                {
+                    GameObject g = Instantiate(impact, transform.position + (Vector3.up * 0.9f), Quaternion.identity);
                     Destroy(g, 3);
-                falling = false;
-                activeTurret.transform.position = transform.position + (Vector3.up * 0.9f);
+                    falling = false;
+                    activeTurret.transform.position = transform.position + (Vector3.up * 0.9f);
+                }
             }
         }
 	}
