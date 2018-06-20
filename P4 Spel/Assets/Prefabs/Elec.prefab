@@ -54,7 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkAmount: 5
-  range: 15
+  range: 10
   target: {fileID: 0}
   speed: 120
   active: 1

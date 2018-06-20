@@ -260,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   fireRate: 5
-  reloadSpeed: 1
+  reloadSpeed: 0
   accuracy: 0
   stability: 0
   weight: 0

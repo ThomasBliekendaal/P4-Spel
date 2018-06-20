@@ -127,9 +127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  fireRate: 10
+  fireRate: 2
   reloadSpeed: -0.5
-  accuracy: 25
+  accuracy: 15
   stability: 10
   weight: 0
   swapSpeed: 1

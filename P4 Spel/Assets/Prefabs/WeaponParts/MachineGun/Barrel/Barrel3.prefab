@@ -128,10 +128,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579465cef2a74994c8e49b666b573ba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 3
+  damage: 10
   fireRate: 25
   reloadSpeed: 0
-  accuracy: 1
+  accuracy: -10
   stability: 30
   weight: 4
   swapSpeed: 2
