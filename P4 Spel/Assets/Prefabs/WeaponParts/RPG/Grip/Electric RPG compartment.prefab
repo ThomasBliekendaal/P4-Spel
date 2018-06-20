@@ -9,76 +9,76 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1706897068120946}
+  m_RootGameObject: {fileID: 1186540873695758}
   m_IsPrefabParent: 1
---- !u!1 &1706897068120946
+--- !u!1 &1060368603007920
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4300218151372290}
-  - component: {fileID: 33356861070080836}
-  - component: {fileID: 23266116834328406}
-  - component: {fileID: 114806859422977176}
-  - component: {fileID: 114939575950701844}
-  - component: {fileID: 114170331416951406}
-  m_Layer: 10
-  m_Name: ElectricSniperCompartment
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1867670779306224
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4378680429951166}
-  m_Layer: 10
+  - component: {fileID: 4840493619351108}
+  m_Layer: 0
   m_Name: BarrelPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4300218151372290
+--- !u!1 &1186540873695758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4180425829707898}
+  - component: {fileID: 33883165586361750}
+  - component: {fileID: 23645365235721788}
+  - component: {fileID: 114961469844192964}
+  - component: {fileID: 114644766162286138}
+  - component: {fileID: 114552662322919866}
+  m_Layer: 0
+  m_Name: Electric RPG compartment
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4180425829707898
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1706897068120946}
+  m_GameObject: {fileID: 1186540873695758}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.16529119, y: 0.4006202, z: 0.00050668506}
+  m_LocalPosition: {x: 0.27467668, y: 0, z: 5.473676e-10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4378680429951166}
+  - {fileID: 4840493619351108}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4378680429951166
+--- !u!4 &4840493619351108
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1867670779306224}
+  m_GameObject: {fileID: 1060368603007920}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.3646015, y: -0.000103666214, z: -0.0020816026}
+  m_LocalPosition: {x: 0.2215544, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4300218151372290}
+  m_Father: {fileID: 4180425829707898}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23266116834328406
+--- !u!23 &23645365235721788
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1706897068120946}
+  m_GameObject: {fileID: 1186540873695758}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -88,7 +88,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100002, guid: 22b96fe38a748d14d8eaa48b5b5ca066, type: 3}
+  - {fileID: 2100000, guid: 2dc183a5353dd2148a0258d5defbad55, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,19 +108,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33356861070080836
+--- !u!33 &33883165586361750
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1706897068120946}
-  m_Mesh: {fileID: 4300028, guid: 22b96fe38a748d14d8eaa48b5b5ca066, type: 3}
---- !u!114 &114170331416951406
+  m_GameObject: {fileID: 1186540873695758}
+  m_Mesh: {fileID: 4300006, guid: 2dc183a5353dd2148a0258d5defbad55, type: 3}
+--- !u!114 &114552662322919866
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1706897068120946}
+  m_GameObject: {fileID: 1186540873695758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3664663a4e8c08549b334ef9647052c9, type: 3}
@@ -128,12 +128,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   element: 1
   elementSprite: {fileID: 21300000, guid: 3b35c695e06058348b359d3184a370e7, type: 3}
---- !u!114 &114806859422977176
+--- !u!114 &114644766162286138
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1706897068120946}
+  m_GameObject: {fileID: 1186540873695758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00201c755cf0aeb43827b70b378db6cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrelPosition: {fileID: 4840493619351108}
+--- !u!114 &114961469844192964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186540873695758}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 579465cef2a74994c8e49b666b573ba4, type: 3}
@@ -150,15 +162,3 @@ MonoBehaviour:
   type: 5
   ammoType: {fileID: 0}
   info: 
---- !u!114 &114939575950701844
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1706897068120946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00201c755cf0aeb43827b70b378db6cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barrelPosition: {fileID: 4378680429951166}
