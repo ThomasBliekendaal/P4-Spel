@@ -142,9 +142,16 @@ public class Weapon : MonoBehaviour
             }
             transform.Translate(-1 / info.stability, 0, 0);
             transform.Rotate(new Vector3(0, 10 / info.stability, 0) * -3);
-            g.GetComponent<FriendlyBullet>().damage = info.damage;
-            g.GetComponent<FriendlyBullet>().type = gameObject.GetComponent<GripType>().element;
-            g.GetComponent<FriendlyBullet>().firerate = info.fireRate;
+            if (g.GetComponent<FriendlyRocket>())
+            {
+                g.GetComponent<FriendlyRocket>().damage = info.damage;
+            }
+            else
+            {
+                g.GetComponent<FriendlyBullet>().damage = info.damage;
+                g.GetComponent<FriendlyBullet>().type = gameObject.GetComponent<GripType>().element;
+                g.GetComponent<FriendlyBullet>().firerate = info.fireRate;
+            }
             g.transform.Rotate(r);
             Destroy(g, 2);
             transform.parent.parent.Rotate(new Vector3(-1 / info.stability, 0, 0) * 10);
