@@ -32,7 +32,7 @@ public class FriendlyBullet : MonoBehaviour {
             {
                 GameObject g = Instantiate(electric, transform.position, transform.rotation);
                 g.GetComponent<ElectricBeam>().target = collision.gameObject.transform;
-                g.GetComponent<ElectricBeam>().damage = damage / 4 / firerate;
+                g.GetComponent<ElectricBeam>().damage = damage / 2;
             }
             collision.gameObject.GetComponent<EnemyMovement>().DoDam(damage);
         }
