@@ -154,7 +154,7 @@ MonoBehaviour:
     BasicRangedRange: 1000
     HuntingArtyRange: 0
   shootingSpeed: 1
-  rangedBullet: {fileID: 1345204408683252, guid: 629a7bdfbd9057841826dd5709be07a9,
+  rangedBullet: {fileID: 1027190995615204, guid: f108c7d1ce3259d498b9b3e69a616319,
     type: 2}
   shellStart: {fileID: 0}
   shellImpact: {fileID: 0}
@@ -184,6 +184,7 @@ MonoBehaviour:
   agent: {fileID: 0}
   currentObjective: {x: 0, y: 0, z: 0}
   isAggro: 0
+  dyingAnimation: {fileID: 0}
 --- !u!195 &195902034135025632
 NavMeshAgent:
   m_ObjectHideFlags: 1
