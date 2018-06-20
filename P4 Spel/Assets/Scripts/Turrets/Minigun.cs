@@ -16,12 +16,13 @@ public class Minigun : MonoBehaviour {
     public List<Transform> enemy;
     public LayerMask mask;
     public RaycastHit hit;
+    public Vector3 rotateSpeed;
 
     public bool activeFire;
 
     public void Update()
     {
-        rotation.Rotate(10, 0, 0);
+        rotation.Rotate(rotateSpeed * Time.deltaTime);
         if (active)
         {
             enemy = new List<Transform>();

@@ -119,6 +119,7 @@ public class Towers
 public class TurretInfo
 {
     public string towerName;
+    [TextArea]
     public string towerInfo;
     public GameObject tower;
 }
