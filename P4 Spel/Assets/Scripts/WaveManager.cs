@@ -59,16 +59,17 @@ public class WaveManager : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                Destroy(enemies[i]);
-            }
-        }
         for (int i = 0; i < portalRotatorz.Length; i++)
         {
             portalRotatorz[i].transform.Rotate(0, 50 * Time.deltaTime, 0);
+        }
+    }
+
+    public void KillAll()
+    {
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            Destroy(enemies[i]);
         }
     }
 

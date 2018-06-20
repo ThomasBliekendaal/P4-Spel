@@ -20,7 +20,7 @@ public class PlayerScript : HealthScript
     private bool jumpCheck;
     public bool openMenu;
 
-    public bool godMode;
+    public bool godmode;
 
     void Start()
     {
@@ -39,24 +39,19 @@ public class PlayerScript : HealthScript
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            GodMode();
-        }
-        if(godMode == true)
-        {
-            health = maxHealth;
-        }
         if (health <= minHealth)
         {
             Destroy(gameObject);
         }
+        if (godmode)
+        {
+            health = maxHealth;
+        }
     }
 
-    public void GodMode()
+    public void ToggleGod()
     {
-        godMode = !godMode;
-        print(godMode);
+        godmode = !godmode;
     }
 
     public void MovementStart()
