@@ -17,34 +17,37 @@ public class MortarShellImpact : MonoBehaviour {
 
     public void OnCollisionEnter(Collision collision)
     {
-        GameObject g = Instantiate(impact, transform.position, Quaternion.identity);
-        GetComponent<Collider>().isTrigger = true;
-        particle.Stop();
-        Destroy(g, 7);
-        shell.SetActive(false);
-        Destroy(gameObject, 3);
-        if(collision.gameObject.tag == "Enemy")
+        if(collision.gameObject.tag != "Shell")
         {
-            GameObject g2 = Instantiate(impactGround, transform.position + new Vector3(0,-collision.transform.localScale.y,0) + Vector3.up * 0.2f, Quaternion.identity);
-            Destroy(g2, 3);
-        }
-        else
-        {
-            GameObject g2 = Instantiate(impactGround, transform.position + Vector3.up * 0.2f, Quaternion.identity);
-            Destroy(g2, 3);
-        }
-        Collider[] colliders = Physics.OverlapSphere(transform.position, 7);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            if (colliders[i].gameObject.tag == "Enemy")
+            GameObject g = Instantiate(impact, transform.position, Quaternion.identity);
+            GetComponent<Collider>().isTrigger = true;
+            particle.Stop();
+            Destroy(g, 7);
+            shell.SetActive(false);
+            Destroy(gameObject, 3);
+            if (collision.gameObject.tag == "Enemy")
             {
-                colliders[i].GetComponent<EnemyMovement>().DoDam(damage *  (1/ Vector3.Distance(transform.position, colliders[i].transform.position)));
+                GameObject g2 = Instantiate(impactGround, transform.position + new Vector3(0, -collision.transform.localScale.y, 0) + Vector3.up * 0.2f, Quaternion.identity);
+                Destroy(g2, 3);
             }
             else
             {
-                if (colliders[i].gameObject.tag == "Player")
+                GameObject g2 = Instantiate(impactGround, transform.position + Vector3.up * 0.2f, Quaternion.identity);
+                Destroy(g2, 3);
+            }
+            Collider[] colliders = Physics.OverlapSphere(transform.position, 7);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].gameObject.tag == "Enemy")
                 {
-                    colliders[i].GetComponent<PlayerScript>().DoDam(damage * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                    colliders[i].GetComponent<EnemyMovement>().DoDam(damage * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                }
+                else
+                {
+                    if (colliders[i].gameObject.tag == "Player")
+                    {
+                        colliders[i].GetComponent<PlayerScript>().DoDam(damage * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                    }
                 }
             }
         }

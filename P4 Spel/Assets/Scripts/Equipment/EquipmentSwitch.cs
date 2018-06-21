@@ -38,7 +38,7 @@ public class EquipmentSwitch : MonoBehaviour {
                 {
                     foreach(Transform child in hand.transform)
                     {
-                        if (child.GetComponent<Weapon>())
+                        if (child.GetComponent<Weapon>() && child.gameObject.activeInHierarchy)
                         {
                             g.GetComponent<GunDeploy>().weapon = child.gameObject;
                         }

@@ -79,7 +79,7 @@ public class GunDeploy : MonoBehaviour
         g.GetComponent<FriendlyBullet>().damage = info.damage;
         g.GetComponent<FriendlyBullet>().firerate = info.fireRate;
         Destroy(g, 5);
-        yield return new WaitForSeconds(1 / info.fireRate);
+        yield return new WaitForSeconds(info.fireRate);
         if (activeFire)
         {
             StartCoroutine(Fire());

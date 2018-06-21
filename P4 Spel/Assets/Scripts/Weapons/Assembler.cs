@@ -9,6 +9,8 @@ public class Assembler : MonoBehaviour
     public GameObject[] bodys;
     public GameObject chosenBody;
     public GameObject chosenGrip;
+    public WeaponSwap swap;
+    public GameObject startGame;
 
     public GameObject panel;
 
@@ -157,6 +159,10 @@ public class Assembler : MonoBehaviour
                     p.infoText = infoText;
                 }
             }
+        }
+        if(swap.weapons.Count != 0)
+        {
+            startGame.SetActive(true);
         }
     }
 

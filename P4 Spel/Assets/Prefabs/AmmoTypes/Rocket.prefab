@@ -142,9 +142,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
-  speed: 60
+  speed: 80
   explosion: {fileID: 1276101021411474, guid: 34a5aadb14e41304baed27576d0c1163, type: 2}
-  range: 5
+  range: 4
   mask:
     serializedVersion: 2
     m_Bits: 2048
