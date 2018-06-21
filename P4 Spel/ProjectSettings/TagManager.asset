@@ -11,6 +11,7 @@ TagManager:
   - RoadCollider
   - Splitter
   - Shell
+  - Currency
   layers:
   - Default
   - TransparentFX

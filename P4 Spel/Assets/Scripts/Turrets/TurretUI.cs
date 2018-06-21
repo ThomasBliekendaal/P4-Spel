@@ -5,12 +5,47 @@ using UnityEngine.UI;
 
 public class TurretUI : MonoBehaviour {
 
-	public enum TowerType { minigun,rocket,frost,fire};
+	public enum TowerType { minigun,rocket,frost};
     public Text InputName;
     public Text InputInfo;
     public TowerType tower;
     public GameObject location;
     public Towers towerInfo;
+    public Currency currency;
+
+    public void OnEnable()
+    {
+        if(currency.currency < towerInfo.minigun.cost)
+        {
+            towerInfo.minigun.allowBuy = false;
+            towerInfo.minigun.disabled.SetActive(true);
+        }
+        else
+        {
+            towerInfo.minigun.allowBuy = true;
+            towerInfo.minigun.disabled.SetActive(false);
+        }
+        if (currency.currency < towerInfo.rocket.cost)
+        {
+            towerInfo.rocket.allowBuy = false;
+            towerInfo.rocket.disabled.SetActive(true);
+        }
+        else
+        {
+            towerInfo.rocket.allowBuy = true;
+            towerInfo.rocket.disabled.SetActive(false);
+        }
+        if (currency.currency < towerInfo.frost.cost)
+        {
+            towerInfo.frost.allowBuy = false;
+            towerInfo.frost.disabled.SetActive(true);
+        }
+        else
+        {
+            towerInfo.frost.allowBuy = true;
+            towerInfo.frost.disabled.SetActive(false);
+        }
+    }
 
     public void Awake()
     {
@@ -50,32 +85,28 @@ public class TurretUI : MonoBehaviour {
             InputName.text = towerInfo.frost.towerName;
             InputInfo.text = towerInfo.frost.towerInfo;
         }
-        else if (tower == TowerType.fire)
-        {
-            InputName.text = towerInfo.fire.towerName;
-            InputInfo.text = towerInfo.fire.towerInfo;
-        }
     }
 
     public void Finish()
     {
-        if(tower == TowerType.minigun)
+        if(tower == TowerType.minigun && towerInfo.minigun.allowBuy)
         {
             location.GetComponent<TurretDeploy>().SetTurret(towerInfo.minigun.tower);
+            currency.currency -= towerInfo.minigun.cost;
+            CloseUi();
         }
-        else if (tower == TowerType.rocket)
+        else if (tower == TowerType.rocket && towerInfo.rocket.allowBuy)
         {
             location.GetComponent<TurretDeploy>().SetTurret(towerInfo.rocket.tower);
+            currency.currency -= towerInfo.rocket.cost;
+            CloseUi();
         }
-        else if (tower == TowerType.frost)
+        else if (tower == TowerType.frost && towerInfo.frost.allowBuy)
         {
             location.GetComponent<TurretDeploy>().SetTurret(towerInfo.frost.tower);
+            currency.currency -= towerInfo.frost.cost;
+            CloseUi();
         }
-        else if (tower == TowerType.fire)
-        {
-            location.GetComponent<TurretDeploy>().SetTurret(towerInfo.fire.tower);
-        }
-        CloseUi();
     }
 
     public void Minigun()
@@ -93,11 +124,6 @@ public class TurretUI : MonoBehaviour {
         tower = TowerType.frost;
         SetInfo();
     }
-    public void Fire()
-    {
-        tower = TowerType.fire;
-        SetInfo();
-    }
 
     public void HoverExit()
     {
@@ -112,7 +138,6 @@ public class Towers
     public TurretInfo minigun;
     public TurretInfo rocket;
     public TurretInfo frost;
-    public TurretInfo fire;
 }
 
 [System.Serializable]
@@ -122,4 +147,7 @@ public class TurretInfo
     [TextArea]
     public string towerInfo;
     public GameObject tower;
+    public int cost;
+    public GameObject disabled;
+    public bool allowBuy;
 }
