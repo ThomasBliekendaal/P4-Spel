@@ -131,14 +131,11 @@ public class WaveManager : MonoBehaviour {
 
     public void SpecialEventBuffTank() // 25% t/4
     {
-        if (wave >= amountOfWaves - amountOfWaves / 4)
+        if (wave == amountOfWaves)
         {
-            if (Random.Range(0, 3) == 0)
-            {
-                GameObject e = Instantiate(buffTank, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
-                e.gameObject.name = "Buff";
-                Tank();
-            }
+            GameObject e = Instantiate(buffTank, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
+            e.gameObject.name = "Buff";
+            Tank();
         }
     }
 

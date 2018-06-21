@@ -36,6 +36,7 @@ public class EnemyMovement : HealthScript
         player = Camera.main.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(splitter.transform.position);
+        currentObjective = splitter.transform.position;
         health = maxHealth;
     }
 
@@ -45,11 +46,12 @@ public class EnemyMovement : HealthScript
         {
             return;
         }
-        Physics.IgnoreLayerCollision(11, 11);
         player = Camera.main.gameObject;
         splitter = GameObject.FindGameObjectWithTag("Splitter");
         agent = GetComponent<NavMeshAgent>();
+        agent.speed = speed;
         agent.SetDestination(splitter.transform.position);
+        currentObjective = splitter.transform.position;
         health = maxHealth;
     }
 
@@ -133,10 +135,6 @@ public class EnemyMovement : HealthScript
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
-        }
         if (collision.gameObject.tag == "Finish")
         {
             Destroy(gameObject);

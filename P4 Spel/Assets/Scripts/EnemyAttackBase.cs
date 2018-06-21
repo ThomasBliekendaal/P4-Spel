@@ -18,12 +18,6 @@ public class EnemyAttackBase : MonoBehaviour
     public State type;
     [Tooltip("How this enemy attacks")]
     public State2 attackType;
-    [Tooltip("The speed of the enemy")]
-    public EnemyClass enemySpeeds;
-    [Tooltip("The amount of health this enemy has")]
-    public EnemyClass enemyHealths;
-    [Tooltip("The amount of damage the enemy does")]
-    public EnemyClass enemyDamages;
 
     [Tooltip("The explosion particle system for the bomber.")]
     public ParticleSystem pS;
@@ -50,44 +44,26 @@ public class EnemyAttackBase : MonoBehaviour
         Renderer r = gameObject.GetComponent<Renderer>();
         if (type == State.BasicMelee)
         {
-            em.health = enemyHealths.BasicMelee;
-            em.speed = enemySpeeds.BasicMelee;
-            em.damage = enemyDamages.BasicMelee;
             r.material.color = Color.blue;
         }
         if (type == State.BasicRanged)
         {
-            em.health = enemyHealths.BasicRanged;
-            em.speed = enemySpeeds.BasicRanged;
-            em.damage = enemyDamages.BasicRanged;
             r.material.color = Color.red;
         }
         if (type == State.BasicTank)
         {
-            em.health = enemyHealths.BasicTank;
-            em.speed = enemySpeeds.BasicTank;
-            em.damage = enemyDamages.BasicTank;
             r.material.color = Color.green;
         }
         if (type == State.SuicideBomber)
         {
-            em.health = enemyHealths.SuicideBomber;
-            em.speed = enemySpeeds.SuicideBomber;
-            em.damage = enemyDamages.SuicideBomber;
             r.material.color = Color.white;
         }
         if (type == State.BuffTank)
         {
-            em.health = enemyHealths.BuffTank;
-            em.speed = enemySpeeds.BuffTank;
-            em.damage = enemyDamages.BuffTank;
             r.material.color = Color.magenta;
         }
         if (type == State.HuntingArty)
         {
-            em.health = enemyHealths.HuntingArty;
-            em.speed = enemySpeeds.HuntingArty;
-            em.damage = enemyDamages.HuntingArty;
             r.material.color = Color.black;
         }
     }
@@ -107,6 +83,8 @@ public class EnemyAttackBase : MonoBehaviour
             for (int i = 0; i < enemies.Length ; i++)
             {
                 enemies[i].GetComponent<EnemyMovement>().health += enemies[i].GetComponent<EnemyMovement>().maxHealth / 200 * Time.deltaTime;
+                enemies[i].GetComponent<Renderer>().material.color = Color.grey;
+                print(enemies[i]);
             }
         }
 
@@ -121,13 +99,13 @@ public class EnemyAttackBase : MonoBehaviour
                 {
                     if (colliders[i].gameObject.tag == "Enemy")
                     {
-                        colliders[i].GetComponent<EnemyMovement>().DoDam(enemyDamages.SuicideBomber * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                        colliders[i].GetComponent<EnemyMovement>().DoDam(em.damage * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
                     }
                     else
                     {
                         if (colliders[i].gameObject.tag == "Player")
                         {
-                            colliders[i].GetComponent<HealthScript>().DoDam(enemyDamages.SuicideBomber * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
+                            colliders[i].GetComponent<HealthScript>().DoDam(em.damage * (1 / Vector3.Distance(transform.position, colliders[i].transform.position)));
                         }
                     }
                 }
@@ -147,7 +125,7 @@ public class EnemyAttackBase : MonoBehaviour
                         if (canShoot == true)
                         {
                             GameObject bullet = Instantiate(rangedBullet, gameObject.transform.position, transform.rotation);
-                            bullet.GetComponent<Bullet>().damage = enemyDamages.BasicRanged;
+                            bullet.GetComponent<Bullet>().damage = em.damage;
                             canShoot = false;
                             StartCoroutine(CanShooter(shootingSpeed));
                         }
@@ -210,17 +188,18 @@ public class EnemyAttackBase : MonoBehaviour
             {
                 canAttack = false;
                 MeleeDamTimer();
+                EnemyMovement em = gameObject.GetComponent<EnemyMovement>();
                 if (type == State.BasicMelee)
                 {
-                    p.GetComponent<PlayerScript>().DoDam(enemyDamages.BasicMelee);
+                    p.GetComponent<PlayerScript>().DoDam(em.damage);
                 }
                 if (type == State.BasicTank)
                 {
-                    p.GetComponent<PlayerScript>().DoDam(enemyDamages.BasicTank);
+                    p.GetComponent<PlayerScript>().DoDam(em.damage);
                 }
                 if (type == State.BuffTank)
                 {
-                    p.GetComponent<PlayerScript>().DoDam(enemyDamages.BuffTank);
+                    p.GetComponent<PlayerScript>().DoDam(em.damage);
                 }
             }
         }
