@@ -148,6 +148,9 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 2048
+  element: 0
+  elec: {fileID: 1472712602952520, guid: 4b1392fc98a60744993a76dfb1f43ca5, type: 2}
+  elecLifeTime: 3
 --- !u!136 &136811111166716132
 CapsuleCollider:
   m_ObjectHideFlags: 1

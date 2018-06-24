@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class FriendlyRocket : MonoBehaviour {
     public float damage;
+    public float fireRate;
     public float speed;
     public GameObject explosion;
     public float range;
     public LayerMask mask;
+    public Element element;
+    public GameObject elec;
 
     public void Update()
     {
@@ -21,16 +24,37 @@ public class FriendlyRocket : MonoBehaviour {
 
     public void Explosion()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range, mask);
-        for (int i = 0; i < colliders.Length; i++)
+        if(element == Element.electric)
         {
-            if(colliders[i].tag == "Enemy")
+            GameObject g = Instantiate(elec, transform.position, transform.rotation);
+            g.GetComponent<ElectricityBall>().damage = damage / 2;
+            g.GetComponent<ElectricityBall>().fireRate = fireRate;
+            g.GetComponent<ElectricityBall>().lifeTime = 3 /(24 / damage);
+            Destroy(gameObject);
+            Collider[] colliders = Physics.OverlapSphere(transform.position, range, mask);
+            for (int i = 0; i < colliders.Length; i++)
             {
-                colliders[i].GetComponent<EnemyMovement>().DoDam(damage / Vector3.Distance(transform.position,colliders[i].transform.position));
+                if (colliders[i].tag == "Enemy")
+                {
+                    colliders[i].GetComponent<EnemyMovement>().DoDam(damage / Vector3.Distance(transform.position, colliders[i].transform.position/2));
+                }
             }
+            GameObject g2 = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(g2, 4);
         }
-        GameObject g = Instantiate(explosion, transform.position, Quaternion.identity);
-        Destroy(g, 4);
-        Destroy(gameObject);
+        else
+        {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, range, mask);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].tag == "Enemy")
+                {
+                    colliders[i].GetComponent<EnemyMovement>().DoDam(damage / Vector3.Distance(transform.position, colliders[i].transform.position));
+                }
+            }
+            GameObject g = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(g, 4);
+            Destroy(gameObject);
+        }
     }
 }

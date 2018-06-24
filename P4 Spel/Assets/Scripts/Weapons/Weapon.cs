@@ -145,6 +145,8 @@ public class Weapon : MonoBehaviour
             if (g.GetComponent<FriendlyRocket>())
             {
                 g.GetComponent<FriendlyRocket>().damage = info.damage;
+                g.GetComponent<FriendlyRocket>().fireRate = info.fireRate;
+                g.GetComponent<FriendlyRocket>().element = gameObject.GetComponent<GripType>().element;
             }
             else
             {

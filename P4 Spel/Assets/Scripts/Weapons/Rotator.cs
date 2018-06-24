@@ -9,6 +9,6 @@ public class Rotator : MonoBehaviour
 
     public void Update()
     {
-        transform.Rotate(r);
+        transform.Rotate(r * Time.deltaTime);
     }
 }
