@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     private void Awake()
     {
-        Physics.IgnoreLayerCollision(0, 11);
+        //Physics.IgnoreLayerCollision(0, 11);
         TrailRenderer tR = gameObject.GetComponent<TrailRenderer>();
         Renderer rM = gameObject.GetComponent<Renderer>();
         active = possibleColors[Random.Range(0, possibleColors.Length)];
@@ -44,11 +44,14 @@ public class Bullet : MonoBehaviour
         {
             if(collision.gameObject.tag != "Floor")
             {
-                bouncing = true;
-                Rigidbody rB = gameObject.GetComponent<Rigidbody>();
-                rB.AddForce(10, 0, 0);
-                rB.mass = 1.1f;
-                Destroy(gameObject, 0.1f);
+                if(collision.gameObject.tag != "Splitter")
+                {
+                    bouncing = true;
+                    Rigidbody rB = gameObject.GetComponent<Rigidbody>();
+                    rB.AddForce(10, 0, 0);
+                    rB.mass = 1.1f;
+                    Destroy(gameObject, 0.1f);
+                }
             }
         }
         if(collision.gameObject.tag == "Floor")

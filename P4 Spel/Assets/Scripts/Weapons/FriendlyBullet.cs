@@ -35,6 +35,7 @@ public class FriendlyBullet : MonoBehaviour {
                 g.GetComponent<ElectricBeam>().damage = damage / 2;
             }
             collision.gameObject.GetComponent<EnemyMovement>().DoDam(damage);
+            print("HIT");
         }
         Destroy(gameObject);
     }

@@ -15,11 +15,6 @@ public class HealthScript : MonoBehaviour
     [Tooltip("This is the image component which shows the current amount of health.")]
     public Image healthBar;
 
-    private void Awake()
-    {
-        health = maxHealth;
-    }
-
     void Update()
     {
 
@@ -33,17 +28,5 @@ public class HealthScript : MonoBehaviour
     public void DoDam(float damage)
     {
         health -= damage;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (gameObject.tag == "Enemy")
-        {
-            if (collision.gameObject.tag == "Player")
-            {
-                DoDam(gameObject.GetComponent<EnemyMovement>().damage);
-                print("getDamage");
-            }
-        }
     }
 }
