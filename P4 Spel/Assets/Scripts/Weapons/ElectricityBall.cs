@@ -13,7 +13,8 @@ public class ElectricityBall : MonoBehaviour {
     public bool activeFire;
     [Range(0.5f,3)]
     public float lifeTime;
-
+    public float maxup;
+    public bool down;
     public void Start()
     {
         Destroy(gameObject, lifeTime);
@@ -21,7 +22,26 @@ public class ElectricityBall : MonoBehaviour {
 
     public void Update()
     {
-        if (!target)
+        if (down)
+        {
+            transform.position += (-Vector3.up * Time.deltaTime);
+            maxup -= Time.deltaTime;
+        }
+        else
+        {
+            transform.position += (Vector3.up * Time.deltaTime);
+            maxup += Time.deltaTime;
+        }
+        if(maxup >= 3)
+        {
+            down = true;
+        }
+        else if(maxup <= 0)
+        {
+            down = false;
+        }
+        
+        if (!target || target == null)
         {
             RaycastHit hit;
             Collider[] colliders = Physics.OverlapSphere(transform.position, range, mask);

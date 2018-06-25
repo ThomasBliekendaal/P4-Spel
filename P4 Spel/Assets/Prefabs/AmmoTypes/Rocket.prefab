@@ -53,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1376427013082792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 242.19662, y: 25.401, z: 348.24808}
+  m_LocalPosition: {x: 241.993, y: 25.250269, z: 334.26007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4319937169498752}
@@ -66,13 +66,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1362146139004834}
-  m_LocalRotation: {x: -0.50000006, y: 0.50000006, z: 0.50000006, w: 0.49999997}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.49999866, y: 0.5000014, z: 0.5000014, w: -0.49999866}
+  m_LocalPosition: {x: 0, y: 0, z: 0.03741455}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4308905197121016}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 270}
 --- !u!23 &23003138561884436
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 30
+  fireRate: 0
   speed: 80
   explosion: {fileID: 1276101021411474, guid: 34a5aadb14e41304baed27576d0c1163, type: 2}
   range: 4
@@ -150,7 +151,6 @@ MonoBehaviour:
     m_Bits: 2048
   element: 0
   elec: {fileID: 1472712602952520, guid: 4b1392fc98a60744993a76dfb1f43ca5, type: 2}
-  elecLifeTime: 3
 --- !u!136 &136811111166716132
 CapsuleCollider:
   m_ObjectHideFlags: 1

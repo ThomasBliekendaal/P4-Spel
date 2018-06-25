@@ -26,7 +26,7 @@ public class FriendlyRocket : MonoBehaviour {
     {
         if(element == Element.electric)
         {
-            GameObject g = Instantiate(elec, transform.position, transform.rotation);
+            GameObject g = Instantiate(elec, transform.position + -transform.forward, transform.rotation);
             g.GetComponent<ElectricityBall>().damage = damage / 2;
             g.GetComponent<ElectricityBall>().fireRate = fireRate;
             g.GetComponent<ElectricityBall>().lifeTime = 3 /(24 / damage);
