@@ -13,6 +13,9 @@ public class EnemyMovement : HealthScript
     [Tooltip("When the enemy collides with the splitter collider (which should be just before the road splits into 3) the enemy takes one of the three roads.")]
     public GameObject splitter;
 
+    [Tooltip("The amount of money you get by killing it")]
+    public int lootMoney;
+
     [Header("Aggresion options")]
     [Tooltip("The players gameobject.")]
     public GameObject player;
@@ -28,6 +31,7 @@ public class EnemyMovement : HealthScript
     public bool isAggro = false; //This is true when the enemie is aggresive.
     private bool canAggro = true; //This is false during the cooldown.
     private bool dying;
+    private bool hasGiven;
 
     public ParticleSystem dyingAnimation;
 
@@ -76,6 +80,7 @@ public class EnemyMovement : HealthScript
             if (dyingAnimation)
             {
                 dyingAnimation.Play();
+                GiveSomethingToAnotherSomething(lootMoney);
             }
             return;
         }
@@ -116,6 +121,16 @@ public class EnemyMovement : HealthScript
         if (gameObject.GetComponent<EnemyAttackBase>().attackType == EnemyAttackBase.State2.Runner)
         {
             agent.SetDestination(Camera.main.transform.position);
+        }
+    }
+
+    public void GiveSomethingToAnotherSomething(int cash)
+    {
+        if(hasGiven == false)
+        {
+            hasGiven = true;
+            GameObject cH = GameObject.FindGameObjectWithTag("Currency");
+            cH.GetComponent<Currency>().currency += cash;
         }
     }
 
