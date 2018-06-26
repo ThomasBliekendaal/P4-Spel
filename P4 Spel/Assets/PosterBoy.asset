@@ -42,7 +42,7 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 1.2
+      intensity: 1.99
       radius: 0.67
       sampleCount: 6
       downsampling: 1
@@ -113,11 +113,11 @@ MonoBehaviour:
     m_Settings:
       tonemapping:
         tonemapper: 2
-        neutralBlackIn: 0.034
-        neutralWhiteIn: 1
-        neutralBlackOut: -0.038
-        neutralWhiteOut: 13.3
-        neutralWhiteLevel: 13.3
+        neutralBlackIn: 0.013
+        neutralWhiteIn: 3.4
+        neutralBlackOut: -0.032
+        neutralWhiteOut: 10.5
+        neutralWhiteLevel: 10.2
         neutralWhiteClip: 7.45
       basic:
         postExposure: 0.83
