@@ -61,6 +61,7 @@ public class Minigun : MonoBehaviour {
         {
             GameObject g = Instantiate(bullet, bulletPosition.position, bulletPosition.rotation);
             g.GetComponent<FriendlyBullet>().damage = damage;
+            g.GetComponent<FriendlyBullet>().turret = true;
             g.transform.Rotate(Random.Range(-spread,spread), Random.Range(-spread, spread), Random.Range(-spread, spread));
             Destroy(g, 3);
         }

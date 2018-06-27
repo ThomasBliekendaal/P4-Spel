@@ -339,6 +339,9 @@ MonoBehaviour:
   type: 0
   electric: {fileID: 1751969980651496, guid: f4609ee6fb3ccda4ba94fe90233f92a7, type: 2}
   electricType: {fileID: 1592714473874576}
+  damagePopUp: {fileID: 1931766374718968, guid: cd1e9d5c0ba69264d8b5a751cd75230e,
+    type: 2}
+  turret: 0
 --- !u!198 &198630276279958204
 ParticleSystem:
   m_ObjectHideFlags: 1

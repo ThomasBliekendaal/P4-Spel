@@ -10,6 +10,8 @@ public class FriendlyBullet : MonoBehaviour {
     public Element type;
     public GameObject electric;
     public GameObject electricType;
+    public GameObject damagePopUp;
+    public bool turret;
 
     public void Start()
     {
@@ -33,6 +35,13 @@ public class FriendlyBullet : MonoBehaviour {
                 GameObject g = Instantiate(electric, transform.position, transform.rotation);
                 g.GetComponent<ElectricBeam>().target = collision.gameObject.transform;
                 g.GetComponent<ElectricBeam>().damage = damage / 2;
+            }
+            if (!turret)
+            {
+                GameObject d = Instantiate(damagePopUp, transform.position, Quaternion.identity);
+                d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage);
+                d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));
+                Destroy(d, 1.5f);
             }
             collision.gameObject.GetComponent<EnemyMovement>().DoDam(damage);
             print("HIT");

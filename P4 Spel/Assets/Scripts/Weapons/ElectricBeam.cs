@@ -13,6 +13,8 @@ public class ElectricBeam : MonoBehaviour
     public List<Transform> targets;
     public float damage;
     public GameObject elecImpact;
+    public GameObject damagePopUp;
+    public Color color;
 
     public void Start()
     {
@@ -29,6 +31,11 @@ public class ElectricBeam : MonoBehaviour
                 if (transform.position == target.position)
                 {
                     target.GetComponent<HealthScript>().DoDam(damage);
+                    GameObject d = Instantiate(damagePopUp, transform.position, Quaternion.identity);
+                    d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage);
+                    d.GetComponent<DamagePopUp>().text.color = color;
+                    d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));
+                    Destroy(d, 1.5f);
                     GameObject g = Instantiate(elecImpact, transform.position, transform.rotation);
                     Destroy(g, 1);
                     CheckForEnemy();

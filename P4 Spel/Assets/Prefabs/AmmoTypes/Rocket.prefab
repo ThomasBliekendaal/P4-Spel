@@ -151,6 +151,8 @@ MonoBehaviour:
     m_Bits: 2048
   element: 0
   elec: {fileID: 1472712602952520, guid: 4b1392fc98a60744993a76dfb1f43ca5, type: 2}
+  damagePopUp: {fileID: 1931766374718968, guid: cd1e9d5c0ba69264d8b5a751cd75230e,
+    type: 2}
 --- !u!136 &136811111166716132
 CapsuleCollider:
   m_ObjectHideFlags: 1

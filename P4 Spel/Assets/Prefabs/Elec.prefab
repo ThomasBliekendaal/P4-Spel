@@ -61,6 +61,9 @@ MonoBehaviour:
   targets: []
   damage: 0
   elecImpact: {fileID: 1522432891411938, guid: 570769b689025174b9298a3258dd9d7a, type: 2}
+  damagePopUp: {fileID: 1931766374718968, guid: cd1e9d5c0ba69264d8b5a751cd75230e,
+    type: 2}
+  color: {r: 0, g: 0.9680033, b: 1, a: 1}
 --- !u!198 &198245785549049670
 ParticleSystem:
   m_ObjectHideFlags: 1
