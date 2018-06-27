@@ -175,7 +175,7 @@ MonoBehaviour:
   minHealth: 0
   healthBar: {fileID: 0}
   speed: 6
-  damage: 10
+  damage: 35
   splitter: {fileID: 0}
   player: {fileID: 0}
   aggroTime: 4
