@@ -21,11 +21,15 @@ public class PlayerScript : HealthScript
     public bool openMenu;
 
     public bool godmode;
+    private Vector3 startPos;
+    private Quaternion startRot;
 
     void Start()
     {
         MovementStart();
         health = maxHealth;
+        startPos = transform.position;
+        startRot = transform.rotation;
     }
 
     void FixedUpdate()
@@ -41,7 +45,7 @@ public class PlayerScript : HealthScript
     {
         if (health <= minHealth)
         {
-            Destroy(gameObject);
+            RespawnCheck();
         }
         if (godmode)
         {
@@ -59,6 +63,27 @@ public class PlayerScript : HealthScript
         totalJumps = jumps;
         walkSpeed2 = walkSpeed;
     }
+
+    public void RespawnCheck()
+    {
+        if (GameObject.FindGameObjectWithTag("EnemyObjective"))
+        {
+            GameObject eO = GameObject.FindGameObjectWithTag("EnemyObjective");
+            eO.GetComponent<EnemyObjective>().Respawner(gameObject);
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>().Lose();
+        }
+    }
+
+    public void Respawn()
+    {
+        transform.position = startPos;
+        transform.rotation = startRot;
+        health = maxHealth;
+    }
+
     public void Movement()
     {
         transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * walkSpeed * Time.deltaTime * weaponSlower);
@@ -111,14 +136,6 @@ public class PlayerScript : HealthScript
         if (collision.gameObject.tag == "Bullet")
         {
             DoDam(collision.gameObject.GetComponent<Bullet>().damage);
-        }
-        if (collision.gameObject.tag == "Enemy")
-        {
-            EnemyAttackBase eAb = collision.gameObject.GetComponent<EnemyAttackBase>();
-            if (eAb.attackType == EnemyAttackBase.State2.Melee)
-            {
-                DoDam(collision.gameObject.GetComponent<EnemyMovement>().damage);
-            }
         }
     }
 }

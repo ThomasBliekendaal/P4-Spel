@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114936039895331708}
   m_Layer: 0
   m_Name: CheatMenu
-  m_TagString: Untagged
+  m_TagString: CheatMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -732,6 +732,7 @@ MonoBehaviour:
   menu: {fileID: 1591520270587820}
   cheatsEnabled: 0
   wavemanager: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!222 &222079892911368344
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveManager : MonoBehaviour {
 
@@ -24,6 +25,8 @@ public class WaveManager : MonoBehaviour {
     public int rA = 3;
     public int tA;
 
+    public Text t;
+
     public GameObject[] portalRotatorz;
 
     //debug
@@ -39,15 +42,25 @@ public class WaveManager : MonoBehaviour {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length < 1)
         {
-            if (timerStarted == false)
+            if(wave == amountOfWaves)
             {
-                timerStarted = true;
-                StartCoroutine(TillNextWave(timeBetweenWaves));
-                mA += 3;
-                rA += 2;
-                tA += 1;
+                print("You've Won");
+                //SomeVictoryFunction()
+                return;
+            }
+            else
+            {
+                if (timerStarted == false)
+                {
+                    timerStarted = true;
+                    StartCoroutine(TillNextWave(timeBetweenWaves));
+                    mA += 3;
+                    rA += 2;
+                    tA += 1;
+                }
             }
         }
+        t.text = wave.ToString();
 	}
 
     public IEnumerator TillNextWave(float timeToNextWave)
@@ -65,6 +78,13 @@ public class WaveManager : MonoBehaviour {
         }
     }
 
+    public void Lose()
+    {
+        print("Lose");
+        KillAll();
+        //loseAnimationStart()
+    }
+
     public void KillAll()
     {
         for (int i = 0; i < enemies.Length; i++)
@@ -75,23 +95,22 @@ public class WaveManager : MonoBehaviour {
 
     public void Arty()
     {
-        print("An Arty has spawned!");
+        //print("An Arty has spawned!");
     }
 
     public void Bomber()
     {
-        print("A bomber has spawned!");
+        //print("A bomber has spawned!");
     }
 
     public void Tank()
     {
-        print("A tank has spawned!");
+        //print("A tank has spawned!");
     }
 
     public IEnumerator NextWave()
     {
         wave++;
-        print("WAVE" + wave);
         for (int i = 0; i < mA; i++)
         {
             GameObject e = Instantiate(basicMelee, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);

@@ -44,7 +44,6 @@ public class FriendlyBullet : MonoBehaviour {
                 Destroy(d, 1.5f);
             }
             collision.gameObject.GetComponent<EnemyMovement>().DoDam(damage);
-            print("HIT");
         }
         Destroy(gameObject);
     }

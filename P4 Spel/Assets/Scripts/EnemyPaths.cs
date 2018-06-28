@@ -26,8 +26,9 @@ public class EnemyPaths : MonoBehaviour {
         if(col.gameObject.tag == "Enemy")
         {
             NavMeshAgent agent = col.gameObject.GetComponent<EnemyMovement>().agent;
-            agent.SetDestination(paths[Random.Range(0, paths.Length)].transform.position);
-            col.gameObject.GetComponent<EnemyMovement>().currentObjective = col.gameObject.GetComponent<EnemyMovement>().agent.destination;
+            Transform t = paths[Random.Range(0, paths.Length)].transform;
+            agent.SetDestination(t.position);
+            col.gameObject.GetComponent<EnemyMovement>().currentObjective = t.position;
         }
     }
 }

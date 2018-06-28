@@ -9,7 +9,7 @@ public class CheatScript : MonoBehaviour {
     public bool cheatsEnabled;
     private GameObject player;
     public GameObject wavemanager;
-    private GameObject weapon;
+    public GameObject weapon;
     private bool unlimitedAmmo;
     private GameObject equipmentSwitch;
 
@@ -20,11 +20,16 @@ public class CheatScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        weapon = GameObject.Find("Weapon");
-        Weapon wP = weapon.GetComponent<Weapon>();
-        if (unlimitedAmmo)
+        if (weapon)
         {
-            wP.currentAmmo = 30;
+            Weapon wP = weapon.GetComponent<Weapon>();
+            if (wP)
+            {
+                if (unlimitedAmmo)
+                {
+                    wP.currentAmmo = 30;
+                }
+            }
         }
         if (Input.GetKeyDown(KeyCode.LeftBracket))
         {

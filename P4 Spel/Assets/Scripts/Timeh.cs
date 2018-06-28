@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Timeh : MonoBehaviour {
 
     public string timeh;
     public int minutes;
     public int seconds;
+    public Text t;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +23,7 @@ public class Timeh : MonoBehaviour {
             minutes++;
         }
         timeh = minutes + ":" + seconds;
-        print(timeh);
+        t.text = timeh;
 	}
 
     public void AddSecond()

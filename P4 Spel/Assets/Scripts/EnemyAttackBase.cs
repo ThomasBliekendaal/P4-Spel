@@ -84,7 +84,6 @@ public class EnemyAttackBase : MonoBehaviour
             {
                 enemies[i].GetComponent<EnemyMovement>().health += enemies[i].GetComponent<EnemyMovement>().maxHealth / 200 * Time.deltaTime;
                 enemies[i].GetComponent<Renderer>().material.color = Color.grey;
-                print(enemies[i]);
             }
         }
 

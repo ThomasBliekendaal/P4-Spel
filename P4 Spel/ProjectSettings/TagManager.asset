@@ -12,6 +12,9 @@ TagManager:
   - Splitter
   - Shell
   - Currency
+  - WaveManager
+  - EnemyObjective
+  - CheatMenu
   layers:
   - Default
   - TransparentFX

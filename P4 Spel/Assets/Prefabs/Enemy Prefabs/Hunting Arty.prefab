@@ -128,27 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 5
   attackType: 0
-  enemySpeeds:
-    BasicMelee: 4
-    BasicRanged: 4
-    BasicTank: 4
-    SuicideBomber: 4
-    BuffTank: 4
-    HuntingArty: 2
-  enemyHealths:
-    BasicMelee: 50
-    BasicRanged: 50
-    BasicTank: 50
-    SuicideBomber: 50
-    BuffTank: 50
-    HuntingArty: 50
-  enemyDamages:
-    BasicMelee: 10
-    BasicRanged: 10
-    BasicTank: 10
-    SuicideBomber: 10
-    BuffTank: 10
-    HuntingArty: 40
   pS: {fileID: 0}
   ranges:
     BasicRangedRange: 1000
@@ -178,6 +157,7 @@ MonoBehaviour:
   speed: 6
   damage: 10
   splitter: {fileID: 0}
+  lootMoney: 200
   player: {fileID: 0}
   aggroTime: 4
   aggroRadius: 1000

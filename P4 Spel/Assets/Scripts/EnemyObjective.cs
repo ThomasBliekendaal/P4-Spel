@@ -41,6 +41,19 @@ public class EnemyObjective : MonoBehaviour {
         }
     }
 
+    public void Respawner(GameObject player)
+    {
+        if(health <= (maxHealth*0.10f))
+        {
+            GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>().Lose();
+        }
+        else
+        {
+            health -= maxHealth * 0.10f;
+            player.GetComponent<PlayerScript>().Respawn();
+        }
+    }
+
     public void EnemiesWin()
     {
         Destroy(gameObject,0.2f); //this destroys the curtain (this script should be on the curtain! // this needs to be on the lowest line)

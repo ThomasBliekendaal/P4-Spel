@@ -48,6 +48,7 @@ public class WeaponSwap : MonoBehaviour {
                 current = weapons.Count - 1;
             }
             weapons[current].SetActive(true);
+            GameObject.FindWithTag("CheatMenu").GetComponent<CheatScript>().weapon = weapons[current];
             weaponInfoSlot[current].highlight.SetActive(true);
             weapons[current].GetComponent<Weapon>().active = false;
         }

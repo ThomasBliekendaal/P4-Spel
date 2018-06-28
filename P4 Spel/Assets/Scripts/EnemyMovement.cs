@@ -32,6 +32,10 @@ public class EnemyMovement : HealthScript
     private bool canAggro = true; //This is false during the cooldown.
     private bool dying;
     private bool hasGiven;
+    private bool hasSplitten;
+    private bool enemyObjective;
+
+    private bool canTake = true;
 
     public ParticleSystem dyingAnimation;
 
@@ -57,6 +61,7 @@ public class EnemyMovement : HealthScript
         agent.SetDestination(splitter.transform.position);
         currentObjective = splitter.transform.position;
         health = maxHealth;
+        enemyObjective = GameObject.FindWithTag("EnemyObjective");
     }
 
     void Update()
@@ -65,11 +70,15 @@ public class EnemyMovement : HealthScript
         {
             return;
         }
+        if (!enemyObjective)
+        {
+            currentObjective = player.transform.position;
+        }
         agent.speed = speed;
         if (health <= 0)
         {
             dying = true;
-            Destroy(gameObject,0.7f);
+            Destroy(gameObject,0.9f);
         }
 
         if (dying == true)
@@ -77,10 +86,10 @@ public class EnemyMovement : HealthScript
             transform.Translate(0, -1f * Time.deltaTime, 0);
             gameObject.GetComponent<Collider>().enabled = false;
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            GiveSomethingToAnotherSomething(lootMoney);
             if (dyingAnimation)
             {
                 dyingAnimation.Play();
-                GiveSomethingToAnotherSomething(lootMoney);
             }
             return;
         }
@@ -89,13 +98,15 @@ public class EnemyMovement : HealthScript
         {
             Destroy(gameObject);
         }
-
-        if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)
+        if (hasSplitten)
         {
-            if (canAggro == true)
+            if (Vector3.Distance(transform.position, player.transform.position) <= aggroRadius)
             {
-                isAggro = true;
-                StartCoroutine(StayAggro(aggroTime));
+                if (canAggro == true)
+                {
+                    isAggro = true;
+                    StartCoroutine(StayAggro(aggroTime));
+                }
             }
         }
 
@@ -128,9 +139,9 @@ public class EnemyMovement : HealthScript
     {
         if(hasGiven == false)
         {
-            hasGiven = true;
             GameObject cH = GameObject.FindGameObjectWithTag("Currency");
             cH.GetComponent<Currency>().currency += cash;
+            hasGiven = true;
         }
     }
 
@@ -150,10 +161,6 @@ public class EnemyMovement : HealthScript
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Finish")
-        {
-            Destroy(gameObject);
-        }
         if (collision.gameObject.tag == "Player")
         {
             if (gameObject.GetComponent<EnemyAttackBase>().attackType == EnemyAttackBase.State2.Runner)
@@ -164,6 +171,36 @@ public class EnemyMovement : HealthScript
                 gameObject.GetComponent<EnemyMovement>().enabled = false;
                 collision.gameObject.GetComponent<Rigidbody>().velocity += (transform.forward + transform.up) * 10;
             }
+        }
+    }
+
+    public void OnCollisionStay(Collision col)
+    {
+        if (canTake)
+        {
+            if (col.gameObject.tag == "Player")
+            {
+                if (gameObject.GetComponent<EnemyAttackBase>().attackType == EnemyAttackBase.State2.Melee)
+                {
+                    col.gameObject.GetComponent<PlayerScript>().DoDam(damage);
+                }
+            }
+            canTake = false;
+            StartCoroutine(TakeTimer());
+        }
+    }
+
+    public IEnumerator TakeTimer()
+    {
+        yield return new WaitForSeconds(0.7f);
+        canTake = true;
+    }
+
+    public void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Splitter")
+        {
+            hasSplitten = true;
         }
     }
 
