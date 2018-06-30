@@ -11,6 +11,7 @@ public class Assembler : MonoBehaviour
     public GameObject chosenGrip;
     public WeaponSwap swap;
     public GameObject startGame;
+    public GameObject weapon;
 
     public GameObject panel;
 
@@ -32,6 +33,16 @@ public class Assembler : MonoBehaviour
     public bool barrel;
     public bool body;
 
+    public Text damage;
+    public Text fireRate;
+    public Text reloadSpeed;
+    public Text accuracy;
+    public Text stability;
+    public Text weight;
+    public Text swapSpeed;
+    public Text ammo;
+    public WeaponPartInfo info;
+
     public GameObject finish;
 
     public bool check;
@@ -43,6 +54,75 @@ public class Assembler : MonoBehaviour
             SetParts();
             check = false;
         }
+    }
+
+    public void WeaponPartSetStats()
+    {
+        info.damage = 0;
+        info.fireRate = 0;
+        info.reloadSpeed = 0;
+        info.accuracy = 0;
+        info.stability = 0;
+        info.weight = 0;
+        info.swapSpeed = 0;
+        info.ammo = 0;
+        foreach (Transform child in weapon.transform)
+        {
+            if (child.GetComponent<WeaponPartInfo>())
+            {
+                info.damage += child.GetComponent<WeaponPartInfo>().damage;
+                info.fireRate += child.GetComponent<WeaponPartInfo>().fireRate;
+                info.reloadSpeed += child.GetComponent<WeaponPartInfo>().reloadSpeed;
+                info.accuracy += child.GetComponent<WeaponPartInfo>().accuracy;
+                info.stability += child.GetComponent<WeaponPartInfo>().stability;
+                info.weight += child.GetComponent<WeaponPartInfo>().weight;
+                info.swapSpeed += child.GetComponent<WeaponPartInfo>().swapSpeed;
+                info.ammo += child.GetComponent<WeaponPartInfo>().ammo;
+            }
+            foreach (Transform otherChild in child)
+            {
+                foreach (Transform anotherChild in otherChild)
+                {
+                    if (anotherChild.GetComponent<WeaponPartInfo>())
+                    {
+                        info.damage += anotherChild.GetComponent<WeaponPartInfo>().damage;
+                        info.fireRate += anotherChild.GetComponent<WeaponPartInfo>().fireRate;
+                        info.reloadSpeed += anotherChild.GetComponent<WeaponPartInfo>().reloadSpeed;
+                        info.accuracy += anotherChild.GetComponent<WeaponPartInfo>().accuracy;
+                        info.stability += anotherChild.GetComponent<WeaponPartInfo>().stability;
+                        info.weight += anotherChild.GetComponent<WeaponPartInfo>().weight;
+                        info.swapSpeed += anotherChild.GetComponent<WeaponPartInfo>().swapSpeed;
+                        info.ammo += anotherChild.GetComponent<WeaponPartInfo>().ammo;
+                    }
+                    foreach (Transform no in anotherChild)
+                    {
+                        foreach (Transform no2 in no)
+                        {
+                            if (no2.GetComponent<WeaponPartInfo>())
+                            {
+                                info.damage += no2.GetComponent<WeaponPartInfo>().damage;
+                                info.fireRate += no2.GetComponent<WeaponPartInfo>().fireRate;
+                                info.reloadSpeed += no2.GetComponent<WeaponPartInfo>().reloadSpeed;
+                                info.accuracy += no2.GetComponent<WeaponPartInfo>().accuracy;
+                                info.stability += no2.GetComponent<WeaponPartInfo>().stability;
+                                info.weight += no2.GetComponent<WeaponPartInfo>().weight;
+                                info.swapSpeed += no2.GetComponent<WeaponPartInfo>().swapSpeed;
+                                info.ammo += no2.GetComponent<WeaponPartInfo>().ammo;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        damage.text = info.damage.ToString();
+        fireRate.text = info.fireRate.ToString();
+        reloadSpeed.text = info.reloadSpeed.ToString();
+        accuracy.text = info.accuracy.ToString();
+        stability.text = info.stability.ToString();
+        weight.text = info.weight.ToString();
+        swapSpeed.text = info.swapSpeed.ToString();
+        ammo.text = info.ammo.ToString();
     }
 
     public void SetParts()
@@ -164,6 +244,7 @@ public class Assembler : MonoBehaviour
         {
             startGame.SetActive(true);
         }
+        WeaponPartSetStats();
     }
 
     public IEnumerator SecondCheck()

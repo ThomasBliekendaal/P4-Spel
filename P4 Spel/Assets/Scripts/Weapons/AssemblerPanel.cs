@@ -65,7 +65,12 @@ public class AssemblerPanel : MonoBehaviour
             assembler.magazine = true;
         }
         assembler.SetParts();
-        StartCoroutine(assembler.SecondCheck());
+        SecondCheck();
+    }
+    public IEnumerator SecondCheck()
+    {
+        yield return new WaitForSecondsRealtime(0.1f);
+        assembler.SetParts();
     }
 
     public void OnHoverEnter()
