@@ -187,9 +187,9 @@ MonoBehaviour:
   damage: 0
   fireRate: 0
   reloadSpeed: 0
-  accuracy: 0
-  stability: 0
-  weight: 0
+  accuracy: 5
+  stability: 5
+  weight: 1
   swapSpeed: 0
   ammo: 0
   type: 0

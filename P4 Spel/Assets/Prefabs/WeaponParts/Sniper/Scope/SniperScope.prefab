@@ -108,7 +108,6 @@ GameObject:
   - component: {fileID: 4406443866618010}
   - component: {fileID: 20450867447874672}
   - component: {fileID: 124169489618907628}
-  - component: {fileID: 81659977407507646}
   m_Layer: 10
   m_Name: Camera
   m_TagString: Untagged
@@ -278,13 +277,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1522957736022470}
   m_Mesh: {fileID: 4300022, guid: 22b96fe38a748d14d8eaa48b5b5ca066, type: 3}
---- !u!81 &81659977407507646
-AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1928751116740050}
-  m_Enabled: 1
 --- !u!114 &114295919474261992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,9 +291,9 @@ MonoBehaviour:
   damage: 0
   fireRate: 0
   reloadSpeed: 0
-  accuracy: 0
+  accuracy: 50
   stability: 0
-  weight: 0
+  weight: 2
   swapSpeed: 0
   ammo: 0
   type: 2

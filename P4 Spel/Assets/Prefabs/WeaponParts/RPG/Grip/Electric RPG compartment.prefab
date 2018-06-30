@@ -153,10 +153,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   fireRate: 0
-  reloadSpeed: 0
+  reloadSpeed: 1
   accuracy: 0
   stability: 0
-  weight: 0
+  weight: 2
   swapSpeed: 0
   ammo: 0
   type: 5

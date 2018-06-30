@@ -96,12 +96,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  fireRate: 0
-  reloadSpeed: 0
-  accuracy: 0
-  stability: 0
+  fireRate: 1
+  reloadSpeed: -0.5
+  accuracy: 10
+  stability: -25
   weight: 0
-  swapSpeed: 0
+  swapSpeed: -0.5
   ammo: 0
   type: 4
   ammoType: {fileID: 0}

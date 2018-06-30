@@ -95,13 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579465cef2a74994c8e49b666b573ba4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 300
-  fireRate: 0.1
-  reloadSpeed: -1
+  damage: 250
+  fireRate: 2
+  reloadSpeed: 6
   accuracy: 100
-  stability: 100
+  stability: 1
   weight: 4
-  swapSpeed: -1
+  swapSpeed: 1
   ammo: 0
   type: 1
   ammoType: {fileID: 0}

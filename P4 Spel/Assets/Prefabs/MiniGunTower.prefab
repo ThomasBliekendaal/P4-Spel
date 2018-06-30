@@ -259,9 +259,9 @@ MonoBehaviour:
   rotation: {fileID: 4795170862443650}
   bulletPosition: {fileID: 4597503605387818}
   bullet: {fileID: 1345204408683252, guid: 7e549abd3ab7aec44b66f122d28f46e7, type: 2}
-  spread: 4
+  spread: 2
   range: 20
-  damage: 0.5
+  damage: 3
   fireRate: 60
   active: 1
   enemy: []

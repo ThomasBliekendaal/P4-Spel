@@ -101,7 +101,7 @@ MonoBehaviour:
   accuracy: 0
   stability: 0
   weight: 0
-  swapSpeed: 0
+  swapSpeed: -0.5
   ammo: 0
   type: 2
   ammoType: {fileID: 0}
