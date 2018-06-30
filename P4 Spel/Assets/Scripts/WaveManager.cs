@@ -83,7 +83,7 @@ public class WaveManager : MonoBehaviour {
                 }
             }
         }  
-        t.text = wave.ToString();
+        //t.text = wave.ToString();
     }
 
     public IEnumerator TillNextWave(float timeToNextWave)
