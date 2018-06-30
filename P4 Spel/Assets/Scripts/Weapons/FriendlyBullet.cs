@@ -41,7 +41,7 @@ public class FriendlyBullet : MonoBehaviour {
                 GameObject d = Instantiate(damagePopUp, transform.position, Quaternion.identity);
                 d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage);
                 d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));
-                Destroy(d, 1.5f);
+                Destroy(d, 0.5f);
             }
             collision.gameObject.GetComponent<EnemyMovement>().DoDam(damage);
         }

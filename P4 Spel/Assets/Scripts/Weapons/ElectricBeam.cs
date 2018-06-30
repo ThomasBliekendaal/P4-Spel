@@ -35,7 +35,7 @@ public class ElectricBeam : MonoBehaviour
                     d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage);
                     d.GetComponent<DamagePopUp>().text.color = color;
                     d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));
-                    Destroy(d, 1.5f);
+                    Destroy(d, 0.5f);
                     GameObject g = Instantiate(elecImpact, transform.position, transform.rotation);
                     Destroy(g, 1);
                     CheckForEnemy();

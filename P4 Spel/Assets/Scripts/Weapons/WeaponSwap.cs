@@ -54,6 +54,15 @@ public class WeaponSwap : MonoBehaviour {
         }
     }
 
+    public IEnumerator WeaponStartTimer(GameObject from, GameObject to)
+    {
+        from.SetActive(false);
+        to.GetComponent<Weapon>().enabled = false;
+        yield return new WaitForSeconds(to.GetComponent<WeaponPartInfo>().swapSpeed);
+        to.GetComponent<Weapon>().enabled = true;
+
+    }
+
     public void AddGun(GameObject gun)
     {
         if(availableSlots != 0)
