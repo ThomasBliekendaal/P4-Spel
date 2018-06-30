@@ -56,7 +56,7 @@ public class EnemyObjective : MonoBehaviour {
 
     public void EnemiesWin()
     {
-        Destroy(gameObject,0.2f); //this destroys the curtain (this script should be on the curtain! // this needs to be on the lowest line)
+        Destroy(curtain,0.2f); //this destroys the curtain (this script should be on the curtain! // this needs to be on the lowest line)
     }
 
     public void DoDam(float damage)

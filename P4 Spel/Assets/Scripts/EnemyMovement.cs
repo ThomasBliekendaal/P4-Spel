@@ -41,11 +41,7 @@ public class EnemyMovement : HealthScript
 
     void Start()
     {
-        player = Camera.main.gameObject;
-        agent = GetComponent<NavMeshAgent>();
-        agent.SetDestination(splitter.transform.position);
-        currentObjective = splitter.transform.position;
-        health = maxHealth;
+
     }
 
     private void Awake()

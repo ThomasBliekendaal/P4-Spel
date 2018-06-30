@@ -15,6 +15,8 @@ public class WaveManager : MonoBehaviour {
     public GameObject buffTank;
     public GameObject huntingArty;
 
+    public GameObject player;
+
     public float timeBetweenWaves = 5;
     public bool timerStarted;
 
@@ -29,39 +31,60 @@ public class WaveManager : MonoBehaviour {
 
     public GameObject[] portalRotatorz;
 
+    public float firstWaveTime;
+    private bool moveTheThingy;
+
+    public int howManyMelee;
+    public int howManyRanged;
+    public int howManyTanks;
+    private bool gameStarted = false;
+
+    public float enemySpawnSpeed;
+
     //debug
     public GameObject[] enemies;
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        StartCoroutine(FirstWave());
+    }	
+
+    public IEnumerator FirstWave()
+    {
+        yield return new WaitForSeconds(firstWaveTime);
         StartCoroutine(NextWave());
+        gameStarted = true;
     }
-	
+
 	// Update is called once per frame
 	void FixedUpdate () {
-        enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length < 1)
+        if (gameStarted == true)
         {
-            if(wave == amountOfWaves)
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            if (enemies.Length < 1)
             {
-                print("You've Won");
-                //SomeVictoryFunction()
-                return;
-            }
-            else
-            {
-                if (timerStarted == false)
+                if (wave == amountOfWaves)
                 {
-                    timerStarted = true;
-                    StartCoroutine(TillNextWave(timeBetweenWaves));
-                    mA += 3;
-                    rA += 2;
-                    tA += 1;
+                    print("You've Won");
+                    //SomeVictoryFunction()
+                    return;
+                }
+                else
+                {
+                    if (timerStarted == false)
+                    {
+                        timerStarted = true;
+                        StartCoroutine(TillNextWave(timeBetweenWaves));
+                        mA += howManyMelee;
+                        rA += howManyRanged;
+                        tA += howManyTanks;
+                    }
                 }
             }
-        }
+        }  
         t.text = wave.ToString();
-	}
+    }
 
     public IEnumerator TillNextWave(float timeToNextWave)
     {
@@ -115,19 +138,19 @@ public class WaveManager : MonoBehaviour {
         {
             GameObject e = Instantiate(basicMelee, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
             e.gameObject.name = "bmelee" + i;
-            yield return new WaitForSeconds(1.1f);
+            yield return new WaitForSeconds(enemySpawnSpeed);
         }
         for (int i = 0; i < rA; i++)
         {
             GameObject e = Instantiate(basicRanged, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
             e.gameObject.name = "branged" + i;
-            yield return new WaitForSeconds(1.1f);
+            yield return new WaitForSeconds(enemySpawnSpeed);
         }
         for (int i = 0; i < tA; i++)
         {
             GameObject e = Instantiate(basicTank, Random.insideUnitSphere * radius + spawnLocations[Random.Range(0, spawnLocations.Length)].transform.position, Random.rotation);
             e.gameObject.name = "btank" + i;
-            yield return new WaitForSeconds(1.1f);
+            yield return new WaitForSeconds(enemySpawnSpeed);
         }
 
         SpecialEventArty();
