@@ -6,6 +6,7 @@ public class EndWeaponCreation : MonoBehaviour {
     public GameObject weaponUI;
     public GameObject normalUI;
     public Transform hand;
+    public AudioSource intro;
 
 	public void OnButtonPress()
     {
@@ -16,5 +17,6 @@ public class EndWeaponCreation : MonoBehaviour {
         Cursor.visible = false;
         hand.transform.parent.parent.GetComponent<PlayerScript>().enabled = true;
         hand.parent.gameObject.SetActive(true);
+        intro.Play();
     }
 }

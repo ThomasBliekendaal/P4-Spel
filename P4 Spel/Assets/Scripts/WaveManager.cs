@@ -16,6 +16,7 @@ public class WaveManager : MonoBehaviour {
     public GameObject huntingArty;
 
     public GameObject player;
+    public GameObject uiContainer;
 
     public float timeBetweenWaves = 5;
     public bool timerStarted;
@@ -26,6 +27,10 @@ public class WaveManager : MonoBehaviour {
     public int mA = 1;
     public int rA = 3;
     public int tA;
+
+    public GameObject startGameCam;
+    public GameObject gameOverCam;
+    public GameObject winGameCam;
 
     public Text t;
 
@@ -40,6 +45,11 @@ public class WaveManager : MonoBehaviour {
     private bool gameStarted = false;
 
     public float enemySpawnSpeed;
+    private bool isCutscening = false;
+    public int amountOfKills;
+    public Text killCounter;
+    public GameObject timer;
+    public GameObject[] fireworks;
 
     //debug
     public GameObject[] enemies;
@@ -48,13 +58,19 @@ public class WaveManager : MonoBehaviour {
     void Start()
     {
         StartCoroutine(FirstWave());
+        isCutscening = true;
     }	
 
     public IEnumerator FirstWave()
     {
         yield return new WaitForSeconds(firstWaveTime);
-        StartCoroutine(NextWave());
-        gameStarted = true;
+        if (!gameStarted)
+        {
+            StartCoroutine(NextWave());
+            Destroy(startGameCam);
+            isCutscening = false;
+            gameStarted = true;
+        }
     }
 
 	// Update is called once per frame
@@ -83,7 +99,7 @@ public class WaveManager : MonoBehaviour {
                 }
             }
         }  
-        //t.text = wave.ToString();
+        t.text = wave.ToString();
     }
 
     public IEnumerator TillNextWave(float timeToNextWave)
@@ -95,10 +111,32 @@ public class WaveManager : MonoBehaviour {
 
     private void Update()
     {
+        if (isCutscening)
+        {
+            player.SetActive(false);
+            uiContainer.SetActive(false);
+        }
+        else
+        {
+            player.SetActive(true);
+            uiContainer.SetActive(true);
+        }
         for (int i = 0; i < portalRotatorz.Length; i++)
         {
             portalRotatorz[i].transform.Rotate(0, 50 * Time.deltaTime, 0);
         }
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (gameStarted == false)
+            {
+                StopCoroutine(FirstWave());
+                StartCoroutine(NextWave());
+                Destroy(startGameCam);
+                isCutscening = false;
+                gameStarted = true;
+            }
+        }
+        killCounter.text = amountOfKills.ToString();
     }
 
     public void Lose()
@@ -106,6 +144,24 @@ public class WaveManager : MonoBehaviour {
         print("Lose");
         KillAll();
         //loseAnimationStart()
+        Destroy(player,0.6f);
+        timer.GetComponent<Timeh>().enabled = false;
+        gameOverCam.SetActive(true);
+        gameOverCam.GetComponent<AudioSource>().Play();
+        //Destroy(GameObject.FindGameObjectWithTag("EnemyObjective").GetComponent<EnemyObjective>().curtain);
+    }
+
+    public void Win()
+    {
+        winGameCam.SetActive(true);
+        Destroy(player, 0.6f);
+        timer.GetComponent<Timeh>().enabled = false;
+        winGameCam.SetActive(true);
+        winGameCam.GetComponent<AudioSource>().Play();
+        for (int i = 0; i < fireworks.Length; i++)
+        {
+            fireworks[i].GetComponent<ParticleSystem>().Play();
+        }
     }
 
     public void KillAll()
@@ -133,6 +189,11 @@ public class WaveManager : MonoBehaviour {
 
     public IEnumerator NextWave()
     {
+        if (wave == amountOfWaves)
+        {
+            Win();
+            yield break;
+        }
         wave++;
         for (int i = 0; i < mA; i++)
         {

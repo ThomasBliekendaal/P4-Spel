@@ -56,6 +56,8 @@ public class EnemyObjective : MonoBehaviour {
 
     public void EnemiesWin()
     {
+        //hiero moet ik alles doen voor de end cutscene blijkt
+        GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>().Lose();
         Destroy(curtain,0.2f); //this destroys the curtain (this script should be on the curtain! // this needs to be on the lowest line)
     }
 

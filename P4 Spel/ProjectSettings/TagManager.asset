@@ -15,6 +15,7 @@ TagManager:
   - WaveManager
   - EnemyObjective
   - CheatMenu
+  - ImportantCubeTag
   layers:
   - Default
   - TransparentFX

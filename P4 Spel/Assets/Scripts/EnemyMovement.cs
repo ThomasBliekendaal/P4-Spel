@@ -57,7 +57,7 @@ public class EnemyMovement : HealthScript
         agent.SetDestination(splitter.transform.position);
         currentObjective = splitter.transform.position;
         health = maxHealth;
-        enemyObjective = GameObject.FindWithTag("EnemyObjective");
+        enemyObjective = GameObject.FindWithTag("ImportantCubeTag");
     }
 
     void Update()
@@ -68,7 +68,7 @@ public class EnemyMovement : HealthScript
         }
         if (!enemyObjective)
         {
-            currentObjective = player.transform.position;
+            agent.SetDestination(player.transform.position);
         }
         agent.speed = speed;
         if (health <= 0)
@@ -138,6 +138,7 @@ public class EnemyMovement : HealthScript
             GameObject cH = GameObject.FindGameObjectWithTag("Currency");
             cH.GetComponent<Currency>().currency += cash;
             hasGiven = true;
+            GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>().amountOfKills++;
         }
     }
 
