@@ -37,6 +37,8 @@ public class EnemyMovement : HealthScript
 
     private bool canTake = true;
 
+    private bool bellToll = false; // make the bell sound play just once
+
     public ParticleSystem dyingAnimation;
 
     void Start()
@@ -74,6 +76,11 @@ public class EnemyMovement : HealthScript
         if (health <= 0)
         {
             dying = true;
+            if (!bellToll)
+            {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(8);
+                bellToll = true;
+            }
             Destroy(gameObject,0.9f);
         }
 

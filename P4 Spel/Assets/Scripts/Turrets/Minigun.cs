@@ -60,6 +60,7 @@ public class Minigun : MonoBehaviour {
         if (activeFire)
         {
             GameObject g = Instantiate(bullet, bulletPosition.position, bulletPosition.rotation);
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlayTurretSound(4, GetComponent<AudioSource>());
             g.GetComponent<FriendlyBullet>().damage = damage;
             g.GetComponent<FriendlyBullet>().turret = true;
             g.transform.Rotate(Random.Range(-spread,spread), Random.Range(-spread, spread), Random.Range(-spread, spread));

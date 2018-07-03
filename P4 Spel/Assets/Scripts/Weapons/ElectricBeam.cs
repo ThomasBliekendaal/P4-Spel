@@ -32,6 +32,7 @@ public class ElectricBeam : MonoBehaviour
                 {
                     target.GetComponent<HealthScript>().DoDam(damage);
                     GameObject d = Instantiate(damagePopUp, transform.position, Quaternion.identity);
+                    GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(1);
                     d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage);
                     d.GetComponent<DamagePopUp>().text.color = color;
                     d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));

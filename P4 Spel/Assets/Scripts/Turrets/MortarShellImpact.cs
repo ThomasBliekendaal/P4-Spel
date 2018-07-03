@@ -28,11 +28,13 @@ public class MortarShellImpact : MonoBehaviour {
             if (collision.gameObject.tag == "Enemy")
             {
                 GameObject g2 = Instantiate(impactGround, transform.position + new Vector3(0, -collision.transform.localScale.y, 0) + Vector3.up * 0.2f, Quaternion.identity);
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlayTurretSound(6, GetComponent<AudioSource>());
                 Destroy(g2, 3);
             }
             else
             {
                 GameObject g2 = Instantiate(impactGround, transform.position + Vector3.up * 0.2f, Quaternion.identity);
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlayTurretSound(6, GetComponent<AudioSource>());
                 Destroy(g2, 3);
             }
             Collider[] colliders = Physics.OverlapSphere(transform.position, 7);

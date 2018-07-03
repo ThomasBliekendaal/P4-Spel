@@ -131,6 +131,14 @@ public class Weapon : MonoBehaviour
             currentAmmo--;
             r = new Vector3(Random.Range(4 / -info.accuracy, 4 / info.accuracy), 0, Random.Range(180, -180));
             GameObject g = Instantiate(info.ammoType.projectile, barrel.position, barrel.rotation);
+            if (info.ammoType.ammoType == AmmoType.Type.kinetic)
+            {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(2);
+            }
+            if (info.ammoType.ammoType == AmmoType.Type.explosive)
+            {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(3);
+            }
             Physics.Raycast(transform.parent.parent.position, transform.parent.parent.forward, out hit, Mathf.Infinity);
             if (hit.transform != null && !Input.GetButton("Fire2"))
             {

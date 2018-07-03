@@ -41,6 +41,7 @@ public class FriendlyRocket : MonoBehaviour {
                     {
                         colliders[i].GetComponent<EnemyMovement>().DoDam(damage / Vector3.Distance(transform.position, colliders[i].transform.position));
                         GameObject d = Instantiate(damagePopUp, colliders[i].transform.position, Quaternion.identity);
+                        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(0);
                         d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage / Vector3.Distance(transform.position, colliders[i].transform.position));
                         d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));
                         Destroy(d, 0.5f);
@@ -49,6 +50,7 @@ public class FriendlyRocket : MonoBehaviour {
                     {
                         colliders[i].GetComponent<EnemyMovement>().DoDam(damage);
                         GameObject d = Instantiate(damagePopUp, colliders[i].transform.position, Quaternion.identity);
+                        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(0);
                         d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage);
                         d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));
                         Destroy(d, 0.5f);
@@ -70,6 +72,7 @@ public class FriendlyRocket : MonoBehaviour {
                     {
                         colliders[i].GetComponent<EnemyMovement>().DoDam(damage / Vector3.Distance(transform.position, colliders[i].transform.position));
                         GameObject d = Instantiate(damagePopUp, colliders[i].transform.position, Quaternion.identity);
+                        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(0);
                         d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage / Vector3.Distance(transform.position, colliders[i].transform.position));
                         d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));
                         Destroy(d, 0.5f);
@@ -78,6 +81,7 @@ public class FriendlyRocket : MonoBehaviour {
                     {
                         colliders[i].GetComponent<EnemyMovement>().DoDam(damage);
                         GameObject d = Instantiate(damagePopUp, colliders[i].transform.position, Quaternion.identity);
+                        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(0);
                         d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage);
                         d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));
                         Destroy(d, 0.5f);
@@ -85,6 +89,7 @@ public class FriendlyRocket : MonoBehaviour {
                 }
             }
             GameObject g = Instantiate(explosion, transform.position, Quaternion.identity);
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(7);
             Destroy(g, 4);
             Destroy(gameObject);
         }

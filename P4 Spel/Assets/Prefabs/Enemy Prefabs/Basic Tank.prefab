@@ -545,7 +545,7 @@ MonoBehaviour:
   speed: 6
   damage: 25
   splitter: {fileID: 0}
-  lootMoney: 100
+  lootMoney: 25
   player: {fileID: 0}
   aggroTime: 4
   aggroRadius: 10

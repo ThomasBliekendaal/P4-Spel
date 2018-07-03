@@ -39,6 +39,7 @@ public class FriendlyBullet : MonoBehaviour {
             if (!turret)
             {
                 GameObject d = Instantiate(damagePopUp, transform.position, Quaternion.identity);
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlaySound(0);
                 d.GetComponent<DamagePopUp>().damage = Mathf.CeilToInt(damage);
                 d.GetComponent<Rigidbody>().velocity += (new Vector3(Random.Range(-2, 2), 4, Random.Range(-2, 2)));
                 Destroy(d, 0.5f);

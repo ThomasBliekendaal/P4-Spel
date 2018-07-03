@@ -53,6 +53,7 @@ public class Mortar : MonoBehaviour {
     public IEnumerator Fire(Transform target, Vector3 pos)
     {
         GameObject g = Instantiate(shellStart, firePoint.position, firePoint.rotation);
+        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>().PlayTurretSound(5,GetComponent<AudioSource>());
         active = false;
         yield return new WaitForSeconds(5);
         Destroy(g);
