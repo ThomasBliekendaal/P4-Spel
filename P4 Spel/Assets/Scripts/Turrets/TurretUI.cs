@@ -12,6 +12,7 @@ public class TurretUI : MonoBehaviour {
     public GameObject location;
     public Towers towerInfo;
     public Currency currency;
+    public Text currencyInput;
 
     public void OnEnable()
     {
@@ -74,16 +75,19 @@ public class TurretUI : MonoBehaviour {
         {
             InputName.text = towerInfo.minigun.towerName;
             InputInfo.text = towerInfo.minigun.towerInfo;
+            currencyInput.text = towerInfo.minigun.cost.ToString();
         }
         else if (tower == TowerType.rocket)
         {
             InputName.text = towerInfo.rocket.towerName;
             InputInfo.text = towerInfo.rocket.towerInfo;
+            currencyInput.text = towerInfo.rocket.cost.ToString();
         }
         else if (tower == TowerType.frost)
         {
             InputName.text = towerInfo.frost.towerName;
             InputInfo.text = towerInfo.frost.towerInfo;
+            currencyInput.text = towerInfo.frost.cost.ToString();
         }
     }
 
@@ -129,6 +133,7 @@ public class TurretUI : MonoBehaviour {
     {
         InputName.text = "";
         InputInfo.text = "";
+        currencyInput.text = "";
     }
 }
 
