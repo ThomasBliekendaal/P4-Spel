@@ -19,6 +19,7 @@ public class PlayerScript : HealthScript
     public float weaponSlower;
     private bool jumpCheck;
     public bool openMenu;
+    public bool audioStarted;
 
     public bool godmode;
     private Vector3 startPos;
@@ -73,7 +74,11 @@ public class PlayerScript : HealthScript
         }
         else
         {
-            GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>().Lose();
+            if (audioStarted == false)
+            {
+                GameObject.FindGameObjectWithTag("WaveManager").GetComponent<WaveManager>().Lose();
+                audioStarted = true;
+            }
         }
     }
 

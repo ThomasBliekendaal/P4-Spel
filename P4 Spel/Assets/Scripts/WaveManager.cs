@@ -50,6 +50,7 @@ public class WaveManager : MonoBehaviour {
     public Text killCounter;
     public GameObject timer;
     public GameObject[] fireworks;
+    private bool hasLosened = false;
 
     //debug
     public GameObject[] enemies;
@@ -141,14 +142,17 @@ public class WaveManager : MonoBehaviour {
 
     public void Lose()
     {
-        print("Lose");
-        KillAll();
-        //loseAnimationStart()
-        Destroy(player,0.6f);
-        timer.GetComponent<Timeh>().enabled = false;
-        gameOverCam.SetActive(true);
-        gameOverCam.GetComponent<AudioSource>().Play();
-        //Destroy(GameObject.FindGameObjectWithTag("EnemyObjective").GetComponent<EnemyObjective>().curtain);
+        if(hasLosened == false)
+        {
+            hasLosened = true;
+            KillAll();
+            //loseAnimationStart()
+            Destroy(player, 0.6f);
+            timer.GetComponent<Timeh>().enabled = false;
+            gameOverCam.SetActive(true);
+            gameOverCam.GetComponent<AudioSource>().Play();
+            //Destroy(GameObject.FindGameObjectWithTag("EnemyObjective").GetComponent<EnemyObjective>().curtain);
+        }
     }
 
     public void Win()

@@ -64,7 +64,11 @@ public class EnemyMovement : HealthScript
 
     void Update()
     {
-        if(player == null)
+        if(splitter == null)
+        {
+            Destroy(gameObject);
+        }
+        if (player == null)
         {
             return;
         }
