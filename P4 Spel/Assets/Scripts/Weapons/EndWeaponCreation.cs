@@ -7,9 +7,11 @@ public class EndWeaponCreation : MonoBehaviour {
     public GameObject normalUI;
     public Transform hand;
     public AudioSource intro;
+    public GameObject waveMenejur;
 
 	public void OnButtonPress()
     {
+        waveMenejur.SetActive(true);
         weaponUI.SetActive(false);
         normalUI.SetActive(true);
         Time.timeScale = 1;
